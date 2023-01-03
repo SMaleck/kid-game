@@ -1,0 +1,17 @@
+{
+    "name": "com.smaleck.entics",
+    "version": "0.2.0",
+    "displayName": "EntiCS",
+    "description": "A simple ECS solution for Unity",
+    "unity": "2020.3",
+    "dependencies": { },
+    "keywords": [
+        "ecs",
+        "unity"
+    ],
+    "author": {
+        "name": "SMaleck",
+        "email": "s.maleck@live.de",
+        "url": "https://github.com/SMaleck/unity-entics"
+    }
+}

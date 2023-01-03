@@ -1,0 +1,17 @@
+{
+    "name": "com.smaleck.gooey",
+    "version": "0.1.0",
+    "displayName": "Gooey",
+    "description": "A simple GUI solution for Unity",
+    "unity": "2020.3",
+    "dependencies": { },
+    "keywords": [
+        "gui",
+        "unity"
+    ],
+    "author": {
+        "name": "SMaleck",
+        "email": "s.maleck@live.de",
+        "url": "https://github.com/SMaleck/unity-gooey"
+    }
+}

@@ -1,0 +1,3 @@
+<linker>
+    <assembly fullname="Gooey" preserve="all"/>
+</linker>

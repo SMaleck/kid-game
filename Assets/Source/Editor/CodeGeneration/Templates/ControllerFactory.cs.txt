@@ -1,0 +1,22 @@
+﻿%CODEGEN_WARNING%
+using System;
+using Game.Services.Gooey.Views;
+using Gooey;
+%USINGS%
+
+namespace Game.Services.Gooey.Controllers
+{
+    public static class ControllerFactory
+    {
+        public static IGui Create(View view)
+        {
+            var viewName = view.GetType().Name;
+            switch (viewName)
+            {
+%CONTENT%
+                default:
+                    throw new InvalidOperationException($"No controller found for View [{viewName}]");
+            }
+        }
+    }
+}
