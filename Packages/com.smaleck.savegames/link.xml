@@ -1,0 +1,3 @@
+<linker>
+    <assembly fullname="Savegames" preserve="all"/>
+</linker>

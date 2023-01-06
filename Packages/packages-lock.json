@@ -18,6 +18,24 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "com.smaleck.savegame-system": {
+      "version": "file:com.smaleck.savegame-system",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.test-framework": "^1.1.24",
+        "jillejr.newtonsoft.json-for-unity": "13.0.102"
+      }
+    },
+    "com.smaleck.savegames": {
+      "version": "file:com.smaleck.savegames",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.test-framework": "^1.1.24",
+        "jillejr.newtonsoft.json-for-unity": "13.0.102"
+      }
+    },
     "com.smaleck.utilities-general": {
       "version": "https://github.com/SMaleck/unity-utilities-general.git#v1.1.0",
       "depth": 0,
@@ -261,6 +279,13 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "jillejr.newtonsoft.json-for-unity": {
+      "version": "13.0.102",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

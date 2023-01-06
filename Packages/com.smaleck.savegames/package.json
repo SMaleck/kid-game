@@ -1,0 +1,20 @@
+{
+    "name": "com.smaleck.savegames",
+    "version": "0.1.0",
+    "displayName": "Savegames",
+    "description": "Allows serialization, compression and migration of savegames",
+    "unity": "2019.1",
+    "dependencies": {
+        "com.unity.test-framework": "^1.1.24",
+        "jillejr.newtonsoft.json-for-unity": "13.0.102"
+    },
+    "keywords": [
+        "savegame",
+        "migration"
+    ],
+    "author": {
+        "name": "SMaleck",
+        "email": "s.maleck@live.de",
+        "url": "https://github.com/SMaleck/unity-savegames"
+    }
+}
