@@ -5,7 +5,9 @@ namespace Game.Static.Locators
 {
     public static class FeatureLocator
     {
-        private static readonly Dictionary<Type, IFeature> Features = new();
+        // ToDo [OPTIMIZATION] Determine a more fitting initial capacity
+        // This could be done by a small editor tool inspecting the respective types or initializer
+        private static readonly Dictionary<Type, IFeature> Features = new(32);
 
         public static void Init()
         {
@@ -14,7 +16,7 @@ namespace Game.Static.Locators
 
         public static T Register<T>(IFeature feature) where T : IFeature
         {
-            Features[typeof(T)] = feature;
+            Features.Add(typeof(T), feature);
             return (T)feature;
         }
 
