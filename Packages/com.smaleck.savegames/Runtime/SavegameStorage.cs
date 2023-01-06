@@ -27,17 +27,16 @@ namespace Savegames
             _middleware = middleware;
         }
 
-        public void Initialize(TSavegame savegame = null)
+        public void Initialize(Func<TSavegame> savegameFactoryFunc)
         {
-            Savegame = savegame;
-            if (Savegame != null)
-            {
-                Save();
-            }
-            else
+            if (_storageIO.Exists(_fileName))
             {
                 Load();
+                return;
             }
+
+            Savegame = savegameFactoryFunc.Invoke();
+            Save();
         }
 
         public void Save()

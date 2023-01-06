@@ -1,17 +1,35 @@
-﻿using System;
+﻿using Savegames.Utility;
+using System;
 using System.IO;
-using Savegames.Settings;
-using Savegames.Utility;
 
 namespace Savegames.IO
 {
     public class FileStorageIO : IStorageIO
     {
-        private readonly SavegameSettings _settings;
+        private readonly string _rootPath;
 
-        public FileStorageIO(SavegameSettings settings)
+        public FileStorageIO(string rootPath)
         {
-            _settings = settings;
+            _rootPath = rootPath;
+        }
+
+        public bool Exists(string fileName)
+        {
+            try
+            {
+                if (!Directory.Exists(_rootPath))
+                {
+                    return false;
+                }
+
+                var path = GetPath(fileName);
+                return File.Exists(path);
+            }
+            catch (Exception e)
+            {
+                SavegameLog.Error("Failed to CHECK savegame", e);
+                return false;
+            }
         }
 
         public string Read(string fileName)
@@ -32,6 +50,11 @@ namespace Savegames.IO
         {
             try
             {
+                if (!Directory.Exists(_rootPath))
+                {
+                    Directory.CreateDirectory(_rootPath);
+                }
+
                 var path = GetPath(fileName);
                 File.WriteAllText(path, serialized);
             }
@@ -43,7 +66,7 @@ namespace Savegames.IO
 
         private string GetPath(string fileName)
         {
-            return Path.Combine(_settings.RootPath, fileName);
+            return Path.Combine(_rootPath, fileName);
         }
     }
 }
