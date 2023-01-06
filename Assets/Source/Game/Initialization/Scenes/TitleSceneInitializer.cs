@@ -1,6 +1,4 @@
-﻿using Game.Features.Menus;
-using Game.Services.Gooey;
-using Game.Static.Locators;
+﻿using Game.Features.Savegames;
 
 namespace Game.Initialization.Scenes
 {
@@ -8,7 +6,7 @@ namespace Game.Initialization.Scenes
     {
         protected override void AwakeInternal()
         {
-            //ServiceLocator.Get<GuiBuilder>().Build<TitleScreenView>();
+            RegisterFeature<SavegameFeature>(new SavegameFeature());
         }
 
         protected override void StartInternal()

@@ -1,6 +1,7 @@
 ﻿using Game.Services.Application;
 using Game.Services.Gooey;
 using Game.Services.Scenes;
+using Game.Services.Time;
 using Game.Static.Locators;
 using Game.Utility;
 
@@ -28,6 +29,7 @@ namespace Game.Initialization
             ServiceLocator.Register<SceneService>(new SceneService());
             ServiceLocator.Register<GuiBuilder>(new GuiBuilder());
             ServiceLocator.Register<GuiServiceProxy>(new GuiServiceProxy());
+            ServiceLocator.Register<TimeService>(new TimeService());
         }
     }
 }
