@@ -18,15 +18,6 @@
       "source": "embedded",
       "dependencies": {}
     },
-    "com.smaleck.savegame-system": {
-      "version": "file:com.smaleck.savegame-system",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {
-        "com.unity.test-framework": "^1.1.24",
-        "jillejr.newtonsoft.json-for-unity": "13.0.102"
-      }
-    },
     "com.smaleck.savegames": {
       "version": "file:com.smaleck.savegames",
       "depth": 0,

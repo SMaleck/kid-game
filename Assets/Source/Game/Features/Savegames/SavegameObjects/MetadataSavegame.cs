@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Game.Features.Player.Savegames
+namespace Game.Features.Savegames.SavegameObjects
 {
     [Serializable]
     public class MetadataSavegame

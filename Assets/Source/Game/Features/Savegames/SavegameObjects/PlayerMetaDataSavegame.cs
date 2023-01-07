@@ -1,12 +1,10 @@
 ﻿using System;
 
-namespace Game.Features.Player.Savegames
+namespace Game.Features.Savegames.SavegameObjects
 {
     [Serializable]
-    public class PlayerSavegame
+    public class PlayerMetadataSavegame : MetadataSavegame
     {
-        public string Id;
-        public DateTime CreatedAtUtc;
         public string PlayerName;
         public string SaveFileName;
         public long TotalPlayTimeTicks;
