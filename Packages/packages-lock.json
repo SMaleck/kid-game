@@ -12,6 +12,15 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "com.smaleck.excel-importer": {
+      "version": "https://github.com/SMaleck/unity-excel-importer.git#v1.0.1",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.test-framework": "^1.1.24"
+      },
+      "hash": "302e5b7098beb82e36105c1f50fc2050295a6bfd"
+    },
     "com.smaleck.gooey": {
       "version": "file:com.smaleck.gooey",
       "depth": 0,
