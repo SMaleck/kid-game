@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 5904971441156128074}
   - component: {fileID: 7806634278332606589}
   m_Layer: 5
-  m_Name: pf_title_screen
+  m_Name: pf_screen_welcome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
