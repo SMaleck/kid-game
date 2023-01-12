@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55a8fa403cfd6c548af4472ddab3f0d8, type: 3}
-  m_Name: DataInitializer
+  m_Script: {fileID: 11500000, guid: 2a9a5021727f4c74db9b850a33fbedca, type: 3}
+  m_Name: LocalizationDataSource
   m_EditorClassIdentifier: 
-  _dataSources:
-  - {fileID: 11400000, guid: cd461a19122599e4ea26d68c9df477ea, type: 2}
-  - {fileID: 11400000, guid: 857f75041b6f16b45804c3057016b1a7, type: 2}
+  _table: {fileID: 11400000, guid: 34d2c530262a157409e4480f1bfafc81, type: 2}
