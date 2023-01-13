@@ -1,5 +1,7 @@
 ﻿%CODEGEN_WARNING%
 
+using Game.Services.Text.Utility;
+
 namespace Game.Services.Text
 {
     public enum TextKeys

@@ -23,6 +23,7 @@ namespace Source.Editor.CodeGeneration.Generators
                 sb.AppendLine($"        /// <summary>");
                 sb.AppendLine($"        /// {row.English}");
                 sb.AppendLine($"        /// </summary>");
+                sb.AppendLine($"        [Text(\"{row.English}\")]");
                 sb.AppendLine($"        {row.Key},");
                 sb.AppendLine();
             }

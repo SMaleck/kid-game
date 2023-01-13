@@ -5,7 +5,8 @@
         "EntiCS",
         "Gooey",
         "BehaviourTree",
-        "Savegames"
+        "Savegames",
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
