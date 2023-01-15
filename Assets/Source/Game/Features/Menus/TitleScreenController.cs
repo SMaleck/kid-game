@@ -1,4 +1,7 @@
-﻿using Game.Services.Gooey.Controllers;
+﻿using Game.Features.Menus.Welcome;
+using Game.Features.Player;
+using Game.Services.Gooey;
+using Game.Services.Gooey.Controllers;
 using Game.Services.Scenes;
 using Game.Static.Locators;
 
@@ -6,18 +9,43 @@ namespace Game.Features.Menus
 {
     public class TitleScreenController : ScreenController<TitleScreenView>
     {
+        private SceneService _sceneService;
+        private PlayerStateFeature _playerState;
+
         public TitleScreenController(TitleScreenView view)
             : base(view)
         {
-            SetupView();
         }
 
-        private void SetupView()
+        protected override void Initialize()
         {
-            View.StartButton.onClick.AddListener(() =>
+            _sceneService = ServiceLocator.Get<SceneService>();
+            _playerState = FeatureLocator.Get<PlayerStateFeature>();
+
+            View.StartButton.onClick.AddListener(OnStartClicked);
+            View.SelectPlayerButton.onClick.AddListener(OnSelectPlayerClicked);
+            View.QuitButton.onClick.AddListener(OnQuitClicked);
+        }
+
+        private void OnStartClicked()
+        {
+            if (_playerState.IsPlayerLoaded)
             {
-                ServiceLocator.Get<SceneService>().To(SceneId.Level);
-            });
+                _sceneService.To(SceneId.Level);
+                return;
+            }
+
+            Hide();
+            ServiceLocator.Get<GuiServiceProxy>().TryShow<WelcomeScreenController>();
+        }
+
+        private void OnSelectPlayerClicked()
+        {
+        }
+
+        private void OnQuitClicked()
+        {
+            _sceneService.Quit();
         }
     }
 }

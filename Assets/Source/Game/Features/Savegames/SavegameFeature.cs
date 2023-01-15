@@ -1,7 +1,9 @@
 ﻿using Game.Features.Savegames.Creation;
 using Game.Features.Savegames.Data;
+using Game.Features.Savegames.Events;
 using Game.Features.Savegames.Middleware;
 using Game.Features.Savegames.SavegameObjects;
+using Game.Static.Events;
 using Game.Utility;
 using Savegames;
 using Savegames.IO;
@@ -50,7 +52,7 @@ namespace Game.Features.Savegames
                 return false;
             }
 
-            PlayerStorage = CreatePlayerStateSavegameStorage(playerMetaData);
+            SetPlayerStorage(CreatePlayerStateSavegameStorage(playerMetaData));
 
             return false;
         }
@@ -60,7 +62,9 @@ namespace Game.Features.Savegames
             var metadata = SavegameFactory.CreatePlayerMetadataSavegame(name);
 
             GlobalStorage.Savegame.PlayerSavegames.Add(metadata);
-            PlayerStorage = CreatePlayerStateSavegameStorage(metadata);
+            SetPlayerStorage(CreatePlayerStateSavegameStorage(metadata));
+
+            SaveAll();
         }
 
         private ISavegameStorage<GlobalSavegame> CreateGlobalSavegameStorage()
@@ -96,6 +100,12 @@ namespace Game.Features.Savegames
             savegameStorage.Initialize(() => SavegameFactory.CreatePlayerStateSavegame(metadata));
 
             return savegameStorage;
+        }
+
+        private void SetPlayerStorage(ISavegameStorage<PlayerStateSavegame> storage)
+        {
+            PlayerStorage = storage;
+            EventBus.Publish(new PlayerSavegameLoadedEvent());
         }
     }
 }

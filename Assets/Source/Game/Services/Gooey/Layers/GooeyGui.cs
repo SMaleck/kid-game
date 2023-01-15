@@ -7,14 +7,14 @@ namespace Game.Services.Gooey.Layers
     {
         public bool IsVisible { get; protected set; }
 
-        public void Show(Action onComplete)
+        public void Show(Action onComplete = null)
         {
-            onComplete.Invoke();
+            onComplete?.Invoke();
         }
 
-        public void Hide(Action onComplete)
+        public void Hide(Action onComplete = null)
         {
-            onComplete.Invoke();
+            onComplete?.Invoke();
         }
 
         public void SetIsVisible(bool isVisible)

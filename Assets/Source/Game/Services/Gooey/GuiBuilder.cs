@@ -13,6 +13,8 @@ namespace Game.Services.Gooey
             var gui = ControllerFactory.Create(view);
             ServiceLocator.Get<GuiServiceProxy>().Add(gui);
 
+            gui.SetIsVisible(view.StartsVisible);
+
             return gui;
         }
 

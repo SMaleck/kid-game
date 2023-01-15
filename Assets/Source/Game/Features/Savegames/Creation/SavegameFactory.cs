@@ -1,4 +1,5 @@
-﻿using Game.Features.Savegames.SavegameObjects;
+﻿using Game.Features.Savegames.Data;
+using Game.Features.Savegames.SavegameObjects;
 using Game.Services.ClientInfo;
 using Game.Services.Time;
 using Game.Static.Locators;
@@ -59,7 +60,7 @@ namespace Game.Features.Savegames.Creation
                 CreatedAtUtc = now,
                 UpdatedAtUtc = now,
                 PlayerName = playerName,
-                SaveFileName = $"{playerName}_{id}",
+                SaveFileName = $"{playerName}_{id}{SavegameConstants.SaveFileExtension}",
                 TotalPlayTimeTicks = 0L
             };
         }

@@ -12,10 +12,14 @@ namespace Game.Services.Gooey.Views
 
         private IGui _gui;
 
+        private void OnValidate()
+        {
+            _view ??= GetComponent<View>();
+        }
+
         private void Start()
         {
             _gui = ServiceLocator.Get<GuiBuilder>().Build(_view);
-
             EventBus.OnEvent<BeforeSceneUnloadEvent>(BeforeSceneUnload);
         }
 

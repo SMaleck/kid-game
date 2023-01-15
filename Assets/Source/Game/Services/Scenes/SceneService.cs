@@ -1,3 +1,4 @@
+using Game.Services.Scenes.Events;
 using Game.Static.Events;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,12 @@ namespace Game.Services.Scenes
 
             var sceneLoad = SceneManager.LoadSceneAsync((int)sceneId);
             sceneLoad.completed += OnSceneLoadCompleted;
+        }
+
+        public void Quit()
+        {
+            EventBus.Publish(new BeforeQuitEvent());
+            UnityEngine.Application.Quit();
         }
 
         private void OnSceneLoadCompleted(UnityEngine.AsyncOperation asyncOperation)

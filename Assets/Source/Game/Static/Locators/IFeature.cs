@@ -2,6 +2,7 @@
 {
     public interface IFeature
     {
+        void Start();
         void Destroy();
     }
 }

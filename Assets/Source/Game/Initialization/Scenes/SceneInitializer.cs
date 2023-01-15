@@ -40,6 +40,12 @@ namespace Game.Initialization.Scenes
             EventBus.OnEvent<BeforeSceneUnloadEvent>(OnBeforeSceneUnload);
 
             StartInternal();
+
+            // Start all features that were registered
+            foreach (var feature in _registeredFeatures)
+            {
+                feature.Feature.Start();
+            }
         }
 
         private void OnBeforeSceneUnload(object eventArgs)

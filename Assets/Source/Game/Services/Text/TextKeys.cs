@@ -7,28 +7,22 @@ namespace Game.Services.Text
     public enum TextKeys
     {
         /// <summary>
-        /// Yes
+        /// aaa
         /// </summary>
-        [Text("Yes")]
-        Yes,
+        [Text("aaa")]
+        aaa,
 
         /// <summary>
-        /// No
+        /// Apply
         /// </summary>
-        [Text("No")]
-        No,
+        [Text("Apply")]
+        Apply,
 
         /// <summary>
-        /// OK
+        /// Cancel
         /// </summary>
-        [Text("OK")]
-        Ok,
-
-        /// <summary>
-        /// Next
-        /// </summary>
-        [Text("Next")]
-        Next,
+        [Text("Cancel")]
+        Cancel,
 
         /// <summary>
         /// Continue
@@ -49,10 +43,52 @@ namespace Game.Services.Text
         LetsPlay,
 
         /// <summary>
+        /// Next
+        /// </summary>
+        [Text("Next")]
+        Next,
+
+        /// <summary>
+        /// No
+        /// </summary>
+        [Text("No")]
+        No,
+
+        /// <summary>
+        /// OK
+        /// </summary>
+        [Text("OK")]
+        Ok,
+
+        /// <summary>
+        /// Quit
+        /// </summary>
+        [Text("Quit")]
+        Quit,
+
+        /// <summary>
+        /// Select Player
+        /// </summary>
+        [Text("Select Player")]
+        SelectPlayer,
+
+        /// <summary>
+        /// Start
+        /// </summary>
+        [Text("Start")]
+        Start,
+
+        /// <summary>
         /// Hello, what is your name?
         /// </summary>
         [Text("Hello, what is your name?")]
         WelcomeWhatsYourName,
+
+        /// <summary>
+        /// Yes
+        /// </summary>
+        [Text("Yes")]
+        Yes,
 
 
     }

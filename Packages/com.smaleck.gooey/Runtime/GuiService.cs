@@ -102,15 +102,15 @@ namespace Gooey
 
         private Type GetKey(Type type)
         {
-            if (type.IsAssignableFrom(typeof(IScreen)))
+            if (_screenType.IsAssignableFrom(type))
             {
                 return _screenType;
             }
-            if (type.IsAssignableFrom(typeof(IWindow)))
+            if (_windowType.IsAssignableFrom(type))
             {
                 return _windowType;
             }
-            if (type.IsAssignableFrom(typeof(IModal)))
+            if (_modalType.IsAssignableFrom(type))
             {
                 return _modalType;
             }

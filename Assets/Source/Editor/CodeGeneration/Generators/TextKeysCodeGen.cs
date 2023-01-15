@@ -1,4 +1,5 @@
-﻿using Game.Data.Tables;
+﻿using System.Linq;
+using Game.Data.Tables;
 using System.Text;
 using UnityEditor;
 
@@ -14,12 +15,14 @@ namespace Source.Editor.CodeGeneration.Generators
         [MenuItem(CodeGenConstants.CodeGenMenu + "TextKeys")]
         public static void Generate()
         {
-            var locaTable = AssetDatabase.LoadAssetAtPath<LocalizationTable>(LocalizationAssetPath);
+            var locaTableRows = AssetDatabase.LoadAssetAtPath<LocalizationTable>(LocalizationAssetPath).Rows
+                .OrderBy(e => e.Key)
+                .ToArray();
 
             var sb = new StringBuilder();
-            for (var i = 0; i < locaTable.Rows.Count; i++)
+            for (var i = 0; i < locaTableRows.Length; i++)
             {
-                var row = locaTable.Rows[i];
+                var row = locaTableRows[i];
                 sb.AppendLine($"        /// <summary>");
                 sb.AppendLine($"        /// {row.English}");
                 sb.AppendLine($"        /// </summary>");

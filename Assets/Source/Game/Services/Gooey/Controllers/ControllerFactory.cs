@@ -3,6 +3,7 @@ using System;
 using Game.Services.Gooey.Views;
 using Gooey;
 using Game.Features.Menus;
+using Game.Features.Menus.Welcome;
 
 
 namespace Game.Services.Gooey.Controllers
@@ -16,6 +17,9 @@ namespace Game.Services.Gooey.Controllers
             {
                 case "TitleScreenView":
                     return new TitleScreenController((TitleScreenView)view);
+
+                case "WelcomeScreenView":
+                    return new WelcomeScreenController((WelcomeScreenView)view);
 
 
                 default:

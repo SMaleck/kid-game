@@ -33,6 +33,22 @@ MonoBehaviour:
     English: Continue
     German: Weiter
     Polish: 
+  - Key: Start
+    English: Start
+    German: Start
+    Polish: 
+  - Key: Quit
+    English: Quit
+    German: Beenden
+    Polish: 
+  - Key: Apply
+    English: Apply
+    German: Anwenden
+    Polish: 
+  - Key: Cancel
+    English: Cancel
+    German: Abbrechen
+    Polish: 
   - Key: GameName
     English: Kid Game
     German: Kid Game
@@ -45,3 +61,11 @@ MonoBehaviour:
     English: Hello, what is your name?
     German: "Hallo, wie hei\xDFt du?"
     Polish: 
+  - Key: SelectPlayer
+    English: Select Player
+    German: "Spieler \xC4ndern"
+    Polish: 
+  - Key: aaa
+    English: aaa
+    German: aaa
+    Polish: aaa

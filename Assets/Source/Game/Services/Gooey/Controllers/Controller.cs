@@ -1,11 +1,12 @@
-﻿using System;
-using Game.Services.Gooey.Views;
+﻿using Game.Services.Gooey.Views;
 using Gooey;
+using System;
 
 namespace Game.Services.Gooey.Controllers
 {
     public class Controller<TView> : IGui where TView : View
     {
+        private bool _wasShownOnce;
         protected readonly TView View;
 
         public bool IsVisible
@@ -19,21 +20,39 @@ namespace Game.Services.Gooey.Controllers
             View = view;
         }
 
-        public void Show(Action onComplete)
+        public void Show(Action onComplete = null)
         {
+            if (!_wasShownOnce)
+            {
+                Initialize();
+                _wasShownOnce = true;
+            }
+
             IsVisible = true;
-            onComplete.Invoke();
+            OnShow();
+            onComplete?.Invoke();
         }
 
-        public void Hide(Action onComplete)
+        public void Hide(Action onComplete = null)
         {
             IsVisible = false;
-            onComplete.Invoke();
+            OnHide();
+            onComplete?.Invoke();
         }
 
         public void SetIsVisible(bool isVisible)
         {
+            if (!_wasShownOnce && isVisible)
+            {
+                Initialize();
+                _wasShownOnce = true;
+            }
+
             IsVisible = isVisible;
         }
+
+        protected virtual void Initialize() { }
+        protected virtual void OnShow() { }
+        protected virtual void OnHide() { }
     }
 }
