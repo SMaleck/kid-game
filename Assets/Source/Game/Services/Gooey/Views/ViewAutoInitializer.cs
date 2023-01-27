@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace Game.Services.Gooey.Views
 {
+    [RequireComponent(typeof(View))]
     public class ViewAutoInitializer : MonoBehaviour
     {
         [SerializeField] private View _view;

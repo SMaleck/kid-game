@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Features.EntiCS.Components
 {
-    public class RunStatsComponent : MonoEntityComponent, IResettable
+    public class RunStatsComponent : EntityComponent, IResettable
     {
         public bool StartedRecording { get; set; }
         public Vector3 Origin { get; set; }

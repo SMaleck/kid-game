@@ -2,7 +2,7 @@
 {
     public interface IFeature
     {
-        void Start();
-        void Destroy();
+        void OnStart();
+        void OnEnd();
     }
 }

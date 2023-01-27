@@ -4,5 +4,6 @@
     {
         public const string MenuRoot = "GAME/";
         public const string MenuData = "GAME/Data/";
+        public const string MenuLevel = "GAME/Level/";
     }
 }

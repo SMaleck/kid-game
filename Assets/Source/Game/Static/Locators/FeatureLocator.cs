@@ -15,6 +15,12 @@ namespace Game.Static.Locators
             return (T)feature;
         }
 
+        public static IFeature Register(Type type, IFeature feature)
+        {
+            Features.Add(type, feature);
+            return feature;
+        }
+
         public static void Remove<T>() where T : IFeature
         {
             Remove(typeof(T));

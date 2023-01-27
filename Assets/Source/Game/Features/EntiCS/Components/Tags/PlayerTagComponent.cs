@@ -2,7 +2,7 @@
 
 namespace Game.Features.EntiCS.Components.Tags
 {
-    public class PlayerTagComponent : MonoEntityComponent
+    public class PlayerTagComponent : EntityComponent
     {
     }
 }

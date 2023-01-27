@@ -14,7 +14,7 @@ namespace Game.Features.Player
         {
         }
 
-        public override void Start()
+        public override void OnStart()
         {
             _savegameFeature = FeatureLocator.Get<SavegameFeature>();
 

@@ -9,7 +9,7 @@ namespace Game.Features.Savegames
     {
         private SavegameFeature _savegameFeature;
 
-        public override void Start()
+        public override void OnStart()
         {
             _savegameFeature = FeatureLocator.Get<SavegameFeature>();
 

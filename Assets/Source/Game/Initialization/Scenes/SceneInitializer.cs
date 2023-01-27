@@ -44,7 +44,7 @@ namespace Game.Initialization.Scenes
             // Start all features that were registered
             foreach (var feature in _registeredFeatures)
             {
-                feature.Feature.Start();
+                feature.Feature.OnStart();
             }
         }
 
@@ -59,7 +59,7 @@ namespace Game.Initialization.Scenes
             foreach (var featureDto in _registeredFeatures)
             {
                 FeatureLocator.Remove(featureDto.RegisteredAsType);
-                featureDto.Feature.Destroy();
+                featureDto.Feature.OnEnd();
             }
 
             foreach (var gui in _registeredGuis)

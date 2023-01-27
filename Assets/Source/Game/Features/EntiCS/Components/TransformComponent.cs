@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Features.EntiCS.Components
 {
-    public class TransformComponent : MonoEntityComponent
+    public class TransformComponent : EntityComponent
     {
         [SerializeField] private Transform _transform;
 

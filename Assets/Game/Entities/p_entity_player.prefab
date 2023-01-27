@@ -162,6 +162,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1310e62aa5ca73643ad587b1e97447e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _serializedComponents:
+  - rid: 2638963771659517952
+  - rid: 2638963771659517955
+  - rid: 2638963771659517953
+  - rid: 2638963771659517954
+  references:
+    version: 2
+    RefIds:
+    - rid: 2638963771659517952
+      type: {class: PlayerTagComponent, ns: Game.Features.EntiCS.Components.Tags, asm: Source.Game}
+      data:
+        _name: PlayerTagComponent
+    - rid: 2638963771659517953
+      type: {class: MovementComponent, ns: Game.Features.EntiCS.Components, asm: Source.Game}
+      data:
+        _name: MovementComponent
+    - rid: 2638963771659517954
+      type: {class: RunStatsComponent, ns: Game.Features.EntiCS.Components, asm: Source.Game}
+      data:
+        _name: RunStatsComponent
+    - rid: 2638963771659517955
+      type: {class: TransformComponent, ns: Game.Features.EntiCS.Components, asm: Source.Game}
+      data:
+        _name: TransformComponent
+        _transform: {fileID: 4607979638702736848}
 --- !u!114 &4607979638702736849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,8 +208,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4607979639339458110}
-  - component: {fileID: 4607979639339458096}
-  - component: {fileID: 4607979639339458111}
   m_Layer: 0
   m_Name: Components
   m_TagString: Untagged
@@ -207,28 +230,3 @@ Transform:
   m_Father: {fileID: 4607979638702736848}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4607979639339458096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4607979639339458109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0db31c1de944cd547a7597bca0b4b304, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _transform: {fileID: 4607979638702736848}
---- !u!114 &4607979639339458111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4607979639339458109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfeb8512cf3d80c4999a40f08b0e0a9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
