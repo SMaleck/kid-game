@@ -7,12 +7,6 @@ namespace Game.Services.Text
     public enum TextKeys
     {
         /// <summary>
-        /// aaa
-        /// </summary>
-        [Text("aaa")]
-        aaa,
-
-        /// <summary>
         /// Apply
         /// </summary>
         [Text("Apply")]

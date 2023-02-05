@@ -11,9 +11,11 @@ namespace Game.Static.Events
         {
             if (!Actions.TryGetValue(typeof(TEvent), out var actions))
             {
-                actions = new List<Action<object>>() { onEventAction };
+                actions = new List<Action<object>>();
                 Actions[typeof(TEvent)] = actions;
             }
+
+            actions.Add(onEventAction);
         }
 
         public static void Unsubscribe(Action<object> onEventAction)

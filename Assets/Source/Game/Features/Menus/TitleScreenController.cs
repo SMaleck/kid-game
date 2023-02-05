@@ -31,7 +31,7 @@ namespace Game.Features.Menus
         {
             if (_playerState.IsPlayerLoaded)
             {
-                _sceneService.To(SceneId.Level);
+                _sceneService.To(SceneId.HubWorld);
                 return;
             }
 

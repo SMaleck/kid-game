@@ -1,6 +1,8 @@
 ﻿using Game.Services.Scenes;
+using Game.Services.Scenes.Events;
 using Game.Static.Events;
 using Game.Static.Locators;
+using Game.Utility;
 using Gooey;
 using UnityEngine;
 
@@ -12,6 +14,7 @@ namespace Game.Services.Gooey.Views
         [SerializeField] private View _view;
 
         private IGui _gui;
+        private bool _isRegistered = false;
 
         private void OnValidate()
         {
@@ -20,12 +23,24 @@ namespace Game.Services.Gooey.Views
 
         private void Start()
         {
+            _isRegistered = true;
             _gui = ServiceLocator.Get<GuiBuilder>().Build(_view);
             EventBus.OnEvent<BeforeSceneUnloadEvent>(BeforeSceneUnload);
         }
 
         private void BeforeSceneUnload(object eventArgs)
         {
+            EventBus.Unsubscribe(BeforeSceneUnload);
+
+            if (!_isRegistered) { return; }
+            _isRegistered = false;
+
+            if (gameObject == null)
+            {
+                GameLog.Error($"Failed to remove GUI [{_gui.GetType()}]. GameObject already destroyed!");
+                return;
+            }
+
             var args = (BeforeSceneUnloadEvent)eventArgs;
             if (args.Scene != gameObject.scene.ToSceneId())
             {
@@ -33,7 +48,15 @@ namespace Game.Services.Gooey.Views
             }
 
             ServiceLocator.Get<GuiServiceProxy>().Remove(_gui);
+        }
+
+        private void OnDestroy()
+        {
+            if (!_isRegistered) { return; }
+
+            _isRegistered = false;
             EventBus.Unsubscribe(BeforeSceneUnload);
+            ServiceLocator.Get<GuiServiceProxy>().Remove(_gui);
         }
     }
 }

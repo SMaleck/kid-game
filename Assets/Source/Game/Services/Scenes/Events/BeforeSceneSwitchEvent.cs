@@ -1,4 +1,4 @@
-﻿namespace Game.Services.Scenes
+﻿namespace Game.Services.Scenes.Events
 {
     public class BeforeSceneSwitchEvent
     {

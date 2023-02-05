@@ -1,5 +1,7 @@
 using Game.Services.Scenes.Events;
 using Game.Static.Events;
+using Game.Utility;
+using NPOI.SS.Formula.Functions;
 using UnityEngine.SceneManagement;
 
 namespace Game.Services.Scenes
@@ -9,12 +11,17 @@ namespace Game.Services.Scenes
         public UnityEngine.SceneManagement.Scene CurrentScene => SceneManager.GetActiveScene();
         public SceneId CurrentSceneId { get; private set; }
 
+        private BeforeSceneSwitchEvent _currentSwitchEvent;
+
         public void To(SceneId sceneId)
         {
-            EventBus.Publish(new BeforeSceneUnloadEvent(CurrentSceneId));
-            EventBus.Publish(new BeforeSceneSwitchEvent(CurrentSceneId, sceneId));
+            _currentSwitchEvent = new BeforeSceneSwitchEvent(CurrentSceneId, sceneId);
+            Log($"Starting Scene Load: [{_currentSwitchEvent.From}] -> [{_currentSwitchEvent.To}]");
 
-            var sceneLoad = SceneManager.LoadSceneAsync((int)sceneId);
+            EventBus.Publish(new BeforeSceneUnloadEvent(CurrentSceneId));
+            EventBus.Publish(_currentSwitchEvent);
+
+            var sceneLoad = SceneManager.LoadSceneAsync((int)sceneId, LoadSceneMode.Additive);
             sceneLoad.completed += OnSceneLoadCompleted;
         }
 
@@ -26,7 +33,20 @@ namespace Game.Services.Scenes
 
         private void OnSceneLoadCompleted(UnityEngine.AsyncOperation asyncOperation)
         {
-            CurrentSceneId = CurrentScene.ToSceneId();
+            Log($"Scene Load Complete. Switching: [{_currentSwitchEvent.From}] -> [{_currentSwitchEvent.To}]");
+
+            var fromScene = SceneManager.GetSceneByName(_currentSwitchEvent.From.ToSceneName());
+            var toScene = SceneManager.GetSceneByName(_currentSwitchEvent.To.ToSceneName());
+
+            SceneManager.UnloadSceneAsync(fromScene);
+            SceneManager.SetActiveScene(toScene);
+
+            CurrentSceneId = toScene.ToSceneId();
+        }
+
+        private void Log(string message)
+        {
+            GameLog.Log($"[{nameof(SceneService)}] {message}");
         }
     }
 }

@@ -2,6 +2,7 @@
 using Game.Static.Events;
 using Game.Static.Locators;
 using System;
+using Game.Services.Scenes.Events;
 using UnityEngine;
 
 namespace Game.Features

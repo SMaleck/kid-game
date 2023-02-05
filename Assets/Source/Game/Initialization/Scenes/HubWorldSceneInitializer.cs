@@ -1,6 +1,6 @@
 ﻿namespace Game.Initialization.Scenes
 {
-    public class TitleSceneInitializer : SceneInitializer
+    public class HubWorldSceneInitializer : SceneInitializer
     {
         protected override void AwakeInternal()
         {

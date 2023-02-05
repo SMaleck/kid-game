@@ -1,16 +1,23 @@
-﻿using Game.Utility;
+﻿using System.Collections.Generic;
+using Game.Features.Player;
+using Game.Features.Savegames;
+using Game.Static.Locators;
+using Game.Utility;
 
 namespace Game.Initialization
 {
     public static class GameInitializer
     {
+        private static readonly List<IFeature> RegisteredFeatures = new();
+
         public static bool IsInitialized { get; private set; }
+        public static bool IsStarted { get; private set; }
 
         public static void Initialize()
         {
             if (IsInitialized)
             {
-                GameLog.Warn($"{nameof(GameInitializer)} already initialized");
+                GameLog.Warn($"{nameof(GameInitializer)} already insitialized");
                 return;
             }
 
@@ -20,6 +27,31 @@ namespace Game.Initialization
 
         private static void InitializeInternal()
         {
+            RegisterFeature<SavegameFeature>(new SavegameFeature());
+            RegisterFeature<SavegameAutoSaveFeature>(new SavegameAutoSaveFeature());
+            RegisterFeature<PlayerStateFeature>(new PlayerStateFeature());
+        }
+
+        public static void Start()
+        {
+            if (IsStarted)
+            {
+                GameLog.Warn($"{nameof(GameInitializer)} already started");
+                return;
+            }
+
+            foreach (var feature in RegisteredFeatures)
+            {
+                feature.OnStart();
+            }
+
+            IsStarted = true;
+        }
+
+        private static void RegisterFeature<T>(IFeature feature) where T : IFeature
+        {
+            RegisteredFeatures.Add(feature);
+            FeatureLocator.Register<T>(feature);
         }
     }
 }

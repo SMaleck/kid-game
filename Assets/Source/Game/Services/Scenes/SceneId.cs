@@ -6,7 +6,8 @@ namespace Game.Services.Scenes
     {
         Root = 0,
         Title = 1,
-        Level = 2,
+        HubWorld = 2,
+        Level = 3,
 
     }
 }

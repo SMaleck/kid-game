@@ -5,6 +5,7 @@ using Game.Static.Locators;
 using Gooey;
 using System;
 using System.Collections.Generic;
+using Game.Services.Scenes.Events;
 using UnityEngine;
 
 namespace Game.Initialization.Scenes
@@ -37,6 +38,11 @@ namespace Game.Initialization.Scenes
 
         private void Start()
         {
+            if (!GameInitializer.IsStarted)
+            {
+                GameInitializer.Start();
+            }
+
             EventBus.OnEvent<BeforeSceneUnloadEvent>(OnBeforeSceneUnload);
 
             StartInternal();

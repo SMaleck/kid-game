@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Text;
+using Game.Services.Scenes;
 using UnityEditor;
 
 namespace Source.Editor.CodeGeneration.Generators
@@ -34,7 +35,7 @@ namespace Source.Editor.CodeGeneration.Generators
         private static string GetCleanedName(string scenePath)
         {
             return Path.GetFileNameWithoutExtension(scenePath)
-                .Replace("S_", string.Empty);
+                .Replace(SceneIdExtensions.SceneNamePrefix, string.Empty);
         }
     }
 }

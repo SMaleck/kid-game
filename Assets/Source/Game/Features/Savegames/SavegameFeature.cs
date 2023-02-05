@@ -35,8 +35,12 @@ namespace Game.Features.Savegames
             // Update Player MetaData in global savegame first
             var i = GlobalStorage.Savegame.PlayerSavegames
                 .IndexOf(PlayerStorage.Savegame.MetadataSavegame);
-            GlobalStorage.Savegame.PlayerSavegames[i] = PlayerStorage.Savegame.MetadataSavegame;
 
+            if (i >= 0 && i < GlobalStorage.Savegame.PlayerSavegames.Count) 
+            {
+                GlobalStorage.Savegame.PlayerSavegames[i] = PlayerStorage.Savegame.MetadataSavegame;
+            }
+            
             GlobalStorage.Save();
             PlayerStorage.Save();
         }
