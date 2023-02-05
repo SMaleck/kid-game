@@ -2,8 +2,8 @@
 using System;
 using Game.Services.Gooey.Views;
 using Gooey;
-using Game.Features.Menus;
 using Game.Features.Menus.Welcome;
+using Game.Features.Menus.Title;
 using Game.Features.Menus.HubWorld;
 using Game.Features.GameWorld.Hud;
 
@@ -17,11 +17,11 @@ namespace Game.Services.Gooey.Controllers
             var viewName = view.GetType().Name;
             switch (viewName)
             {
-                case "TitleScreenView":
-                    return new TitleScreenController((TitleScreenView)view);
-
                 case "WelcomeScreenView":
                     return new WelcomeScreenController((WelcomeScreenView)view);
+
+                case "TitleScreenView":
+                    return new TitleScreenController((TitleScreenView)view);
 
                 case "HubWorldScreenView":
                     return new HubWorldScreenController((HubWorldScreenView)view);

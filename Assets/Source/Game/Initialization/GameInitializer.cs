@@ -17,7 +17,7 @@ namespace Game.Initialization
         {
             if (IsInitialized)
             {
-                GameLog.Warn($"{nameof(GameInitializer)} already insitialized");
+                GameLog.Warn($"{nameof(GameInitializer)} already initialized");
                 return;
             }
 

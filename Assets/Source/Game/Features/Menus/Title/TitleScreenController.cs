@@ -5,7 +5,7 @@ using Game.Services.Gooey.Controllers;
 using Game.Services.Scenes;
 using Game.Static.Locators;
 
-namespace Game.Features.Menus
+namespace Game.Features.Menus.Title
 {
     public class TitleScreenController : ScreenController<TitleScreenView>
     {
