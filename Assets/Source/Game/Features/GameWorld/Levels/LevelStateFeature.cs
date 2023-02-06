@@ -2,7 +2,7 @@
 using Game.Features.GameWorld.Levels.ProgressStrategies;
 using Game.Features.Ticking;
 using Game.Static.Locators;
-using Game.Utility;
+using System;
 using UnityEngine;
 
 namespace Game.Features.GameWorld.Levels
@@ -17,7 +17,7 @@ namespace Game.Features.GameWorld.Levels
         public float RelativeProgress => _progressStrategy.RelativeProgress;
         public bool IsComplete => _progressStrategy.IsComplete;
 
-        public StandardDelegates.DefaultDelegate OnComplete { get; set; }
+        public Action OnComplete { get; set; }
 
         public override void OnStart()
         {
