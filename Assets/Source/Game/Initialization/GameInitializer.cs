@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Game.Features.Player;
 using Game.Features.Savegames;
+using Game.Features.Ticking;
 using Game.Static.Locators;
 using Game.Utility;
 
@@ -30,6 +31,7 @@ namespace Game.Initialization
             RegisterFeature<SavegameFeature>(new SavegameFeature());
             RegisterFeature<SavegameAutoSaveFeature>(new SavegameAutoSaveFeature());
             RegisterFeature<PlayerStateFeature>(new PlayerStateFeature());
+            RegisterFeature<TickerFeature>(new TickerFeature());
         }
 
         public static void Start()

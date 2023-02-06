@@ -1,7 +1,8 @@
 ﻿using EntiCS.Ticking;
-using Game.Features.EntiCS;
 using Game.Features.GameWorld.Levels.ProgressStrategies;
+using Game.Features.Ticking;
 using Game.Static.Locators;
+using Game.Utility;
 using UnityEngine;
 
 namespace Game.Features.GameWorld.Levels
@@ -16,17 +17,19 @@ namespace Game.Features.GameWorld.Levels
         public float RelativeProgress => _progressStrategy.RelativeProgress;
         public bool IsComplete => _progressStrategy.IsComplete;
 
+        public StandardDelegates.DefaultDelegate OnComplete { get; set; }
+
         public override void OnStart()
         {
             _progressStrategy.OnStart();
 
-            FeatureLocator.Get<Entics>().Ticker
+            FeatureLocator.Get<TickerFeature>().Ticker
                 .AddFixedUpdate(this);
         }
 
-        public override void OnEnd()
+        private void EndStrategy()
         {
-            FeatureLocator.Get<Entics>().Ticker
+            FeatureLocator.Get<TickerFeature>().Ticker
                 .RemoveFixedUpdate(this);
 
             _progressStrategy.OnEnd();
@@ -35,6 +38,12 @@ namespace Game.Features.GameWorld.Levels
         void IUpdateable.Update(float elapsedSeconds)
         {
             _progressStrategy.OnUpdate(elapsedSeconds);
+
+            if (IsComplete)
+            {
+                EndStrategy();
+                OnComplete?.Invoke();
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using EntiCS.Ticking;
-using Game.Features.EntiCS;
 using Game.Features.GameWorld.Levels;
+using Game.Features.Ticking;
 using Game.Services.Gooey.Controllers;
 using Game.Static.Locators;
 
@@ -19,7 +19,7 @@ namespace Game.Features.GameWorld.Hud
         {
             _levelState = FeatureLocator.Get<LevelStateFeature>();
 
-            FeatureLocator.Get<Entics>().Ticker.AddFixedUpdate(this);
+            FeatureLocator.Get<TickerFeature>().Ticker.AddFixedUpdate(this);
         }
 
         public void Update(float elapsedSeconds)
