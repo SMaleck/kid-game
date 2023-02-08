@@ -6,7 +6,7 @@ namespace Game.Initialization.Scenes
     {
         protected override void AwakeInternal()
         {
-            RegisterFeature<Entics>(new Entics());
+            RegisterFeature<EnticsFeature>(new EnticsFeature());
         }
 
         protected override void StartInternal()

@@ -18,12 +18,12 @@ namespace Game.Features.EntiCS.Utility
             Entity = GetComponent<IEntity>();
             SceneName = gameObject.scene.name;
 
-            FeatureLocator.Get<Entics>().AddEntity(Entity);
+            FeatureLocator.Get<EnticsFeature>().AddEntity(Entity);
         }
 
         private void OnDestroy()
         {
-            FeatureLocator.Get<Entics>().RemoveEntity(Entity);
+            FeatureLocator.Get<EnticsFeature>().RemoveEntity(Entity);
         }
     }
 }

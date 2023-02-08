@@ -49,18 +49,7 @@ namespace Game.Services.Gooey.Controllers
             onComplete ??= _emptyAction;
             View.SetIsVisible(false, instant, onComplete);
         }
-
-        public void SetIsVisible(bool isVisible)
-        {
-            if (!_wasShownOnce && isVisible)
-            {
-                Initialize();
-                _wasShownOnce = true;
-            }
-
-            IsVisible = isVisible;
-        }
-
+        
         protected virtual void Initialize() { }
         protected virtual void OnShow() { }
         protected virtual void OnHide() { }

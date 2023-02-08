@@ -1,5 +1,4 @@
-﻿using EntiCS.Systems;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,6 +25,8 @@ namespace EntiCS.Ticking
         {
             _tickerComponent = new GameObject(nameof(EntiCSTicker))
                 .AddComponent<EntiCSTickerMonoProxy>();
+
+            UnityEngine.Object.DontDestroyOnLoad(_tickerComponent);
 
             _tickerComponent.RegisterActions(OnUpdate, OnFixedUpdate, OnLateUpdate);
         }

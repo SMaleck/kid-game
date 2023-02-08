@@ -30,7 +30,11 @@ namespace Game.Services.Gooey.Views
         private Canvas TryFindCanvas()
         {
             var canvas = GetComponent<Canvas>();
-            return canvas ?? GetComponentInChildren<Canvas>();
+            if (canvas)
+            {
+                return canvas;
+            }
+            return GetComponentInChildren<Canvas>();
         }
 
         public void SetIsVisible(bool value, bool instant, Action onComplete)

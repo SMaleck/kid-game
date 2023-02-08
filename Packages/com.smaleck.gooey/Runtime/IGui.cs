@@ -7,7 +7,9 @@ namespace Gooey
         bool IsVisible { get; }
 
         void Show(Action onComplete = null);
+        void Show(bool instant = false, Action onComplete = null);
+
         void Hide(Action onComplete = null);
-        void SetIsVisible(bool isVisible);
+        void Hide(bool instant = false, Action onComplete = null);
     }
 }

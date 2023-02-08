@@ -10,12 +10,12 @@ using Game.Static.Locators;
 
 namespace Game.Features.EntiCS
 {
-    public class Entics : Feature
+    public class EnticsFeature : Feature
     {
         public IEntiCSRunner Runner { get; }
         public IWorld World => Runner.World;
 
-        public Entics()
+        public EnticsFeature()
         {
             var ticker = FeatureLocator.Get<TickerFeature>();
             Runner = EntiCSFactory.CreateRunner(ticker.Ticker);
@@ -35,6 +35,11 @@ namespace Game.Features.EntiCS
         public void RemoveEntity(IEntity entity)
         {
             World.Remove(entity);
+        }
+
+        public override void OnEnd()
+        {
+            Runner.Dispose();
         }
     }
 }
