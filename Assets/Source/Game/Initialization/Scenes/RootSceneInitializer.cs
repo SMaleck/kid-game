@@ -18,7 +18,7 @@ namespace Game.Initialization.Scenes
 
         protected override void StartInternal()
         {
-            ServiceLocator.Get<SceneService>().To(SceneId.Title);
+            ServiceLocator.Get<SceneService>().InitialLoad();
         }
     }
 }

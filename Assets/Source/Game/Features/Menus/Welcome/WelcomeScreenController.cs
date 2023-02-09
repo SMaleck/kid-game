@@ -29,7 +29,7 @@ namespace Game.Features.Menus.Welcome
 
             Hide();
 
-            ServiceLocator.Get<SceneService>().To(SceneId.HubWorld);
+            ServiceLocator.Get<SceneService>().ToHub();
         }
 
         private void OnUsernameEdited(string eventArgs)

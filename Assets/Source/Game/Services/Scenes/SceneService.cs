@@ -1,28 +1,54 @@
 using Game.Services.Scenes.Events;
 using Game.Static.Events;
 using Game.Utility;
-using NPOI.SS.Formula.Functions;
-using UnityEngine.SceneManagement;
 
 namespace Game.Services.Scenes
 {
     public class SceneService : Service
     {
-        public UnityEngine.SceneManagement.Scene CurrentScene => SceneManager.GetActiveScene();
-        public SceneId CurrentSceneId { get; private set; }
+        public SceneId CurrentSceneId => SceneManagerProxy.CurrentSceneId;
 
-        private BeforeSceneSwitchEvent _currentSwitchEvent;
-
-        public void To(SceneId sceneId)
+        public SceneService()
         {
-            _currentSwitchEvent = new BeforeSceneSwitchEvent(CurrentSceneId, sceneId);
-            Log($"Starting Scene Load: [{_currentSwitchEvent.From}] -> [{_currentSwitchEvent.To}]");
+            SceneManagerProxy.Init();
+        }
 
-            EventBus.Publish(new BeforeSceneUnloadEvent(CurrentSceneId));
-            EventBus.Publish(_currentSwitchEvent);
+        public void InitialLoad()
+        {
+            if (SceneManagerProxy.SceneCount > 1 ||
+                SceneManagerProxy.CurrentSceneId != SceneId.Root)
+            {
+                Error($"Initial Load can only be performed when game is still in the root scene. Scene: {CurrentSceneId}");
+                return;
+            }
 
-            var sceneLoad = SceneManager.LoadSceneAsync((int)sceneId, LoadSceneMode.Additive);
-            sceneLoad.completed += OnSceneLoadCompleted;
+            SceneManagerProxy.LoadAndSwitchScene(SceneId.Title, false, ObjectConst.DefaultAction);
+        }
+
+        public void ToTitle()
+        {
+            SceneManagerProxy.LoadAndSwitchScene(SceneId.Title, true, ObjectConst.DefaultAction);
+        }
+
+        public void ToHub()
+        {
+            SceneManagerProxy.LoadAndSwitchScene(SceneId.HubWorld, true, ObjectConst.DefaultAction);
+        }
+
+        public void ToLevel()
+        {
+            SceneManagerProxy.LoadAndSwitchScene(SceneId.Level, true, ObjectConst.DefaultAction);
+        }
+
+        public void ReloadLevel()
+        {
+            if (!CurrentSceneId.IsLevelScene())
+            {
+                Error($"Current scene is not a level. Current: [{CurrentSceneId}]");
+                return;
+            }
+
+            SceneManagerProxy.ReloadCurrent();
         }
 
         public void Quit()
@@ -31,22 +57,14 @@ namespace Game.Services.Scenes
             UnityEngine.Application.Quit();
         }
 
-        private void OnSceneLoadCompleted(UnityEngine.AsyncOperation asyncOperation)
-        {
-            Log($"Scene Load Complete. Switching: [{_currentSwitchEvent.From}] -> [{_currentSwitchEvent.To}]");
-
-            var fromScene = SceneManager.GetSceneByName(_currentSwitchEvent.From.ToSceneName());
-            var toScene = SceneManager.GetSceneByName(_currentSwitchEvent.To.ToSceneName());
-
-            SceneManager.UnloadSceneAsync(fromScene);
-            SceneManager.SetActiveScene(toScene);
-
-            CurrentSceneId = toScene.ToSceneId();
-        }
-
         private void Log(string message)
         {
             GameLog.Log($"[{nameof(SceneService)}] {message}");
+        }
+
+        private void Error(string message)
+        {
+            GameLog.Error($"[{nameof(SceneService)}] {message}");
         }
     }
 }

@@ -1,11 +1,11 @@
 ﻿namespace Game.Services.Scenes.Events
 {
-    public class BeforeSceneSwitchEvent
+    public class SceneSwitchEvent
     {
         public SceneId From { get; }
         public SceneId To { get; }
 
-        public BeforeSceneSwitchEvent(SceneId from, SceneId to)
+        public SceneSwitchEvent(SceneId from, SceneId to)
         {
             From = from;
             To = to;

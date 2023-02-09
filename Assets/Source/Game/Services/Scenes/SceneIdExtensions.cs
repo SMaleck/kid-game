@@ -22,5 +22,10 @@ namespace Game.Services.Scenes
             var cleanedName = scene.name.Replace(SceneNamePrefix, string.Empty);
             return Enum.Parse<SceneId>(cleanedName);
         }
+
+        public static bool IsLevelScene(this SceneId sceneId)
+        {
+            return sceneId >= SceneId.Level;
+        }
     }
 }

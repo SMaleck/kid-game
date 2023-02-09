@@ -26,12 +26,12 @@ namespace Game.Features.Menus.HubWorld
 
         private void OnOnStartClicked()
         {
-            _sceneService.To(SceneId.Level);
+            _sceneService.ToLevel();
         }
 
         private void OnExitToTitleClicked()
         {
-            _sceneService.To(SceneId.Title);
+            _sceneService.ToTitle();
         }
     }
 }
