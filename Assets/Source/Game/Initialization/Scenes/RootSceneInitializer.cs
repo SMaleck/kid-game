@@ -14,10 +14,12 @@ namespace Game.Initialization.Scenes
             _dataInitializer.Initialize();
 
             ServiceInitializer.Initialize();
+            GameInitializer.Initialize();
         }
 
         protected override void StartInternal()
         {
+            GameInitializer.Start();
             ServiceLocator.Get<SceneService>().InitialLoad();
         }
     }

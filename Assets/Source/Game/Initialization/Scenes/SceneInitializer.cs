@@ -25,16 +25,9 @@ namespace Game.Initialization.Scenes
 
         /// <summary>
         /// Runs internal init process for the scene.
-        /// Always attempts to run <see cref="GameInitializer"/>,
-        /// as it inits all the basic systems and enables us to run any scene in the editor
         /// </summary>
         private void Awake()
         {
-            if (!GameInitializer.IsInitialized)
-            {
-                GameInitializer.Initialize();
-            }
-
             EventBus.Publish(new StartSceneEvent(Scene));
 
             AwakeInternal();
@@ -42,11 +35,6 @@ namespace Game.Initialization.Scenes
 
         private void Start()
         {
-            if (!GameInitializer.IsStarted)
-            {
-                GameInitializer.Start();
-            }
-
             EventBus.OnEvent<EndSceneEvent>(OnEndScene);
 
             StartInternal();
