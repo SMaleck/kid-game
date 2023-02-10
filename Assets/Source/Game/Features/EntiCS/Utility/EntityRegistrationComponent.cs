@@ -23,7 +23,7 @@ namespace Game.Features.EntiCS.Utility
 
         private void OnDestroy()
         {
-            FeatureLocator.Get<EnticsFeature>().RemoveEntity(Entity);
+            FeatureLocator.GetOrDefault<EnticsFeature>()?.RemoveEntity(Entity);
         }
     }
 }

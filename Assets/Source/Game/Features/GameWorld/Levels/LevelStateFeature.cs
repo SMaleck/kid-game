@@ -25,7 +25,7 @@ namespace Game.Features.GameWorld.Levels
 
         public override void OnStart()
         {
-            _ticker = FeatureLocator.Get<TickerFeature>().Ticker;
+            _ticker = FeatureLocator.Get<TickerFeature>().GameTicker;
             _ticker.SetIsPaused(false);
             _ticker.AddFixedUpdate(this);
 

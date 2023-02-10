@@ -2,7 +2,11 @@
 using Game.Static.Events;
 using Game.Utility;
 using System;
+using System.Collections;
+using Game.Static.Locators;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using Game.Features.Ticking;
 
 namespace Game.Services.Scenes
 {
@@ -48,13 +52,16 @@ namespace Game.Services.Scenes
                 EventBus.Publish(new BeforeSceneUnloadEvent(CurrentSceneId));
             }
 
-            var sceneLoad = SceneManager.LoadSceneAsync((int)sceneId, LoadSceneMode.Additive);
-            sceneLoad.completed += _ =>
+            FeatureLocator.Get<TickerFeature>().OnNextFrame(() =>
             {
-                SwitchToScene(switchEvent, unloadCurrent);
-                UpdateCurrentSceneState();
-                onComplete.Invoke();
-            };
+                var sceneLoad = SceneManager.LoadSceneAsync((int)sceneId, LoadSceneMode.Additive);
+                sceneLoad.completed += _ =>
+                {
+                    SwitchToScene(switchEvent, unloadCurrent);
+                    UpdateCurrentSceneState();
+                    onComplete.Invoke();
+                };
+            });
         }
 
         private static void SwitchToScene(SceneSwitchEvent switchEvent, bool unloadCurrent)
@@ -77,6 +84,12 @@ namespace Game.Services.Scenes
             CurrentScene = SceneManager.GetActiveScene();
             CurrentSceneIndex = CurrentScene.buildIndex;
             CurrentSceneId = (SceneId)CurrentSceneIndex;
+        }
+
+        private static IEnumerator WaitForNextFrame(Action onDone)
+        {
+            yield return new WaitForEndOfFrame();
+            onDone.Invoke();
         }
 
         private static void Log(string message)

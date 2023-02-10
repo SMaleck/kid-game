@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.Utility;
 
 namespace Game.Static.Events
 {
@@ -39,11 +40,16 @@ namespace Game.Static.Events
                 return;
             }
 
-            for (var i = 0; i < actions.Count; i++)
+            // Caching actions, because listeners can remove subscription in the action call
+            // thus changing the length of the list. This can lead to actions being skipped
+            var actionsCache = actions.ToArray();
+
+            for (var i = 0; i < actionsCache.Length; i++)
             {
-                var action = actions[i];
-                if (action == null)
+                var action = actionsCache[i];
+                if (action?.Target == null)
                 {
+                    GameLog.Error($"[EventBus] Self-Cleaning Event Action for [{typeof(TEvent).Name}] on [{action?.Target}]");
                     actions.RemoveAt(i);
                     i--;
                     continue;

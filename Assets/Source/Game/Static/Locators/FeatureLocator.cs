@@ -38,5 +38,11 @@ namespace Game.Static.Locators
         {
             return (T)Features[typeof(T)];
         }
+
+        public static T GetOrDefault<T>() where T : IFeature
+        {
+            var exists = Features.TryGetValue(typeof(T), out var feature);
+            return exists ? (T)feature : default;
+        }
     }
 }
