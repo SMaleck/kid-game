@@ -73,7 +73,11 @@ namespace EntiCS.Ticking
 
         public void Dispose()
         {
-            UnityEngine.Object.Destroy(_tickerComponent);
+            _updateables.Clear();
+            _fixedUpdateables.Clear();
+            _lateUpdateables.Clear();
+
+            UnityEngine.Object.Destroy(_tickerComponent.gameObject);
         }
 
         private static void Add(List<IUpdateable> updateables, IUpdateable updateable)
