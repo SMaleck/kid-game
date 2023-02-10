@@ -37,8 +37,12 @@ namespace Gooey.Layers
                 GooeyLog.Warn($"Tried to remove not registered GUI Type: {type}. Ignoring");
                 return;
             }
-
+            
             _guis.Remove(type);
+            if (_visibleGuis.Contains(gui))
+            {
+                _visibleGuis.Remove(gui);
+            }
         }
 
         public IGui Get<TGui>() where TGui : IGui
@@ -84,10 +88,13 @@ namespace Gooey.Layers
 
         public bool TryHide(Type type, Action onComplete = null)
         {
-            if (_guis.TryGetValue(type, out var gui) &&
-                gui.IsVisible)
+            if (_guis.TryGetValue(type, out var gui))
             {
-                gui.Hide(onComplete ?? _defaultAction);
+                if (gui.IsVisible)
+                {
+                    gui.Hide(onComplete ?? _defaultAction);
+                }
+                
                 _visibleGuis.Remove(gui);
 
                 return true;

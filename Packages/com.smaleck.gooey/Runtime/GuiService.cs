@@ -36,7 +36,6 @@ namespace Gooey
 
         public bool TryShow<TGui>(Action onComplete = null) where TGui : IGui
         {
-            var key = GetKey<TGui>();
             return GetLayer<TGui>().TryShow<TGui>(onComplete);
         }
 

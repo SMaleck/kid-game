@@ -1,6 +1,7 @@
 ﻿using Game.Services.Gooey.Views;
 using Gooey;
 using System;
+using Game.Utility;
 
 namespace Game.Services.Gooey.Controllers
 {
@@ -8,8 +9,6 @@ namespace Game.Services.Gooey.Controllers
     {
         private bool _wasShownOnce;
         protected readonly TView View;
-
-        private readonly Action _emptyAction = () => { };
 
         public bool IsVisible => View.IsVisible;
 
@@ -33,7 +32,7 @@ namespace Game.Services.Gooey.Controllers
 
             OnShow();
             
-            onComplete ??= _emptyAction;
+            onComplete ??= ObjectConst.DefaultAction;
             View.SetIsVisible(true, instant, onComplete);
         }
         
@@ -46,7 +45,7 @@ namespace Game.Services.Gooey.Controllers
         {
             OnHide();
 
-            onComplete ??= _emptyAction;
+            onComplete ??= ObjectConst.DefaultAction;
             View.SetIsVisible(false, instant, onComplete);
         }
         
