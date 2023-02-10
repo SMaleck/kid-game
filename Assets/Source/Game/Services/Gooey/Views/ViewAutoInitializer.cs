@@ -25,7 +25,7 @@ namespace Game.Services.Gooey.Views
         {
             _isRegistered = true;
             _gui = ServiceLocator.Get<GuiBuilder>().Build(_view);
-            EventBus.OnEvent<BeforeSceneUnloadEvent>(BeforeSceneUnload);
+            EventBus.OnEvent<EndSceneEvent>(BeforeSceneUnload);
         }
 
         private void BeforeSceneUnload(object eventArgs)
@@ -41,7 +41,7 @@ namespace Game.Services.Gooey.Views
                 return;
             }
 
-            var args = (BeforeSceneUnloadEvent)eventArgs;
+            var args = (EndSceneEvent)eventArgs;
             if (args.Scene != gameObject.scene.ToSceneId())
             {
                 return;

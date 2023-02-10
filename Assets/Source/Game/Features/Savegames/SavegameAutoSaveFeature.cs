@@ -14,7 +14,7 @@ namespace Game.Features.Savegames
             _savegameFeature = FeatureLocator.Get<SavegameFeature>();
 
             EventBus.OnEvent<BeforeQuitEvent>(AutoSave);
-            EventBus.OnEvent<BeforeSceneUnloadEvent>(AutoSave);
+            EventBus.OnEvent<EndSceneEvent>(AutoSave);
         }
 
         private void AutoSave(object eventArgs)

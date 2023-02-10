@@ -19,7 +19,7 @@ namespace Game.Features.GameWorld.Hud
         {
             _levelState = FeatureLocator.Get<LevelStateFeature>();
 
-            FeatureLocator.Get<TickerFeature>().GameTicker.AddFixedUpdate(this);
+            FeatureLocator.Get<TickerFeature>().SceneTicker.AddFixedUpdate(this);
         }
 
         public void Update(float elapsedSeconds)

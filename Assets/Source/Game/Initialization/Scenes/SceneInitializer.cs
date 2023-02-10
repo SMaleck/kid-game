@@ -21,6 +21,8 @@ namespace Game.Initialization.Scenes
         private readonly List<FeatureDto> _registeredFeatures = new();
         private readonly List<IGui> _registeredGuis = new();
 
+        protected SceneId Scene => gameObject.scene.ToSceneId();
+
         /// <summary>
         /// Runs internal init process for the scene.
         /// Always attempts to run <see cref="GameInitializer"/>,
@@ -33,6 +35,8 @@ namespace Game.Initialization.Scenes
                 GameInitializer.Initialize();
             }
 
+            EventBus.Publish(new StartSceneEvent(Scene));
+
             AwakeInternal();
         }
 
@@ -43,7 +47,7 @@ namespace Game.Initialization.Scenes
                 GameInitializer.Start();
             }
 
-            EventBus.OnEvent<BeforeSceneUnloadEvent>(OnBeforeSceneUnload);
+            EventBus.OnEvent<EndSceneEvent>(OnEndScene);
 
             StartInternal();
 
@@ -54,9 +58,9 @@ namespace Game.Initialization.Scenes
             }
         }
 
-        private void OnBeforeSceneUnload(object eventArgs)
+        private void OnEndScene(object eventArgs)
         {
-            var args = (BeforeSceneUnloadEvent)eventArgs;
+            var args = (EndSceneEvent)eventArgs;
             if (args.Scene != gameObject.scene.ToSceneId())
             {
                 return;
@@ -73,7 +77,7 @@ namespace Game.Initialization.Scenes
                 ServiceLocator.Get<GuiServiceProxy>().Remove(gui);
             }
 
-            EventBus.Unsubscribe(OnBeforeSceneUnload);
+            EventBus.Unsubscribe(OnEndScene);
             OnDestroyInternal();
         }
 

@@ -1,6 +1,8 @@
 ﻿using EntiCS;
 using EntiCS.Ticking;
 using EntiCS.Utility;
+using Game.Services.Scenes.Events;
+using Game.Static.Events;
 using System;
 using System.Collections.Generic;
 
@@ -15,10 +17,12 @@ namespace Game.Features.Ticking
         }
 
         /// <summary>
-        /// Manipulate this Ticker to affect gameplay, i.e. pausing and timescale
+        /// Manipulate this Ticker to affect gameplay, i.e. pausing and timescale.
+        /// By virtue of setup, there is only ever one logic-laden scene active at a time.
+        /// If this ever changes, we need to keep track of all active scene tickers.
         /// </summary>
-        public ITicker GameTicker { get; }
-        
+        public ITicker SceneTicker { get; private set; }
+
         /// <summary>
         /// This Ticker should never be paused or scaled
         /// </summary>
@@ -28,10 +32,10 @@ namespace Game.Features.Ticking
 
         public TickerFeature()
         {
-            GameTicker = EntiCSFactory.CreateTicker();
-
             EngineTicker = EntiCSFactory.CreateTicker();
             EngineTicker.AddUpdate(new UpdateableProxy(Update));
+
+            EventBus.OnEvent<EndSceneEvent>(_ => SetupSceneTicker());
         }
 
         public void OnNextFrame(Action onNext)
@@ -54,6 +58,14 @@ namespace Game.Features.Ticking
                     nextFrameAction.FrameCount++;
                 }
             }
+        }
+
+        private void SetupSceneTicker()
+        {
+            SceneTicker?.Dispose();
+            SceneTicker = null;
+
+            SceneTicker = EntiCSFactory.CreateTicker();
         }
     }
 }

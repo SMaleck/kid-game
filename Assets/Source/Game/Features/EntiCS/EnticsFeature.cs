@@ -18,7 +18,7 @@ namespace Game.Features.EntiCS
         public EnticsFeature()
         {
             var ticker = FeatureLocator.Get<TickerFeature>();
-            Runner = EntiCSFactory.CreateRunner(ticker.GameTicker);
+            Runner = EntiCSFactory.CreateRunner(ticker.SceneTicker);
 
             Runner.AddSystems(new IEntitySystem[]
             {

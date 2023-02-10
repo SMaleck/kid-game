@@ -23,7 +23,7 @@ namespace Game.Features
         {
             _registeredAsType = _feature.GetType();
             FeatureLocator.Register(_registeredAsType, _feature);
-            EventBus.OnEvent<BeforeSceneUnloadEvent>(BeforeSceneUnload);
+            EventBus.OnEvent<EndSceneEvent>(BeforeSceneUnload);
         }
 
         private void Start()
@@ -33,7 +33,7 @@ namespace Game.Features
 
         private void BeforeSceneUnload(object eventArgs)
         {
-            var args = (BeforeSceneUnloadEvent)eventArgs;
+            var args = (EndSceneEvent)eventArgs;
             if (args.Scene != gameObject.scene.ToSceneId())
             {
                 return;

@@ -1,10 +1,10 @@
 ﻿namespace Game.Services.Scenes.Events
 {
-    public class BeforeSceneUnloadEvent
+    public class StartSceneEvent
     {
         public SceneId Scene { get; }
 
-        public BeforeSceneUnloadEvent(SceneId scene)
+        public StartSceneEvent(SceneId scene)
         {
             Scene = scene;
         }

@@ -32,7 +32,7 @@ namespace Game.Services.Scenes
 
             var sceneId = CurrentSceneId;
 
-            EventBus.Publish(new BeforeSceneUnloadEvent(CurrentSceneId));
+            EventBus.Publish(new EndSceneEvent(CurrentSceneId));
             var asyncOp = SceneManager.UnloadSceneAsync(CurrentSceneIndex);
 
             asyncOp.completed += _ =>
@@ -49,7 +49,7 @@ namespace Game.Services.Scenes
             EventBus.Publish(switchEvent);
             if (unloadCurrent)
             {
-                EventBus.Publish(new BeforeSceneUnloadEvent(CurrentSceneId));
+                EventBus.Publish(new EndSceneEvent(CurrentSceneId));
             }
 
             FeatureLocator.Get<TickerFeature>().OnNextFrame(() =>
