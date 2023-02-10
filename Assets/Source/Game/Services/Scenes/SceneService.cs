@@ -48,7 +48,7 @@ namespace Game.Services.Scenes
                 return;
             }
 
-            SceneManagerProxy.ReloadCurrent();
+            SceneManagerProxy.ReloadCurrent(ObjectConst.DefaultAction);
         }
 
         public void Quit()

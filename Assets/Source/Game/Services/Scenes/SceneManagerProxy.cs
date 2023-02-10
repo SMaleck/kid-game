@@ -22,7 +22,7 @@ namespace Game.Services.Scenes
             UpdateCurrentSceneState();
         }
 
-        public static void ReloadCurrent()
+        public static void ReloadCurrent(Action onComplete)
         {
             if (SceneManager.sceneCount < 2)
             {
@@ -37,7 +37,7 @@ namespace Game.Services.Scenes
 
             asyncOp.completed += _ =>
             {
-                LoadAndSwitchScene(sceneId, false, null);
+                LoadAndSwitchScene(sceneId, false, onComplete);
             };
         }
 
