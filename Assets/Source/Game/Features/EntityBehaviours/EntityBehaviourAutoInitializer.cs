@@ -38,11 +38,16 @@ namespace Game.Features.EntityBehaviours
 
         private void OnDestroy()
         {
-            Cleanup();
+            if (_entity != null)
+            {
+                Cleanup();
+            }
         }
 
         private void Cleanup()
         {
+            EventBus.Unsubscribe(Deregister);
+
             _behaviour.Stop();
             _behaviour.Dispose();
             _behaviour = null;

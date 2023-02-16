@@ -3,7 +3,7 @@ using EntiCS.Entities;
 using Game.Features.EntiCS.Components;
 using Game.Features.EntiCS.Systems.BaseSystems;
 
-namespace Game.Features.EntiCS.Systems
+namespace Game.Features.EntiCS.Systems.FixedSystems
 {
     public class MovementSystem : PerEntityFixedSystem
     {

@@ -50,7 +50,10 @@ namespace EntiCS.Editor.CustomEditors
                 return;
             }
 
-            var existingConcreteTypes = Target.SerializedComponents.Select(e => e.GetType());
+            var existingConcreteTypes = Target.SerializedComponents
+                .Where(e => e!= null)
+                .Select(e => e.GetType());
+
             var preselected = _componentTypes.FirstOrDefault(e => existingConcreteTypes.Contains(e));
 
             if (preselected != null)

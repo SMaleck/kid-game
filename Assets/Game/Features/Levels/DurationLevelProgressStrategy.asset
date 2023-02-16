@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DurationLevelProgressStrategy
   m_EditorClassIdentifier: 
   <MinProgress>k__BackingField: 0
-  <MaxProgress>k__BackingField: 3
+  <MaxProgress>k__BackingField: 10

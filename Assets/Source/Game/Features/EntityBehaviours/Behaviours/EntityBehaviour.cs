@@ -25,13 +25,13 @@ namespace Game.Features.EntityBehaviours.Behaviours
         public void Start()
         {
             _isRunning = true;
-            _ticker.AddFixedUpdate(_updateableProxy);
+            _ticker.AddUpdate(_updateableProxy);
         }
 
         public void Stop()
         {
             _isRunning = false;
-            _ticker.RemoveFixedUpdate(_updateableProxy);
+            _ticker.AddUpdate(_updateableProxy);
         }
 
         public void Dispose()

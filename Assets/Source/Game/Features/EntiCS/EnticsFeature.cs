@@ -3,8 +3,7 @@ using EntiCS.Entities;
 using EntiCS.Systems;
 using EntiCS.World;
 using EntiCS.WorldManagement;
-using Game.Features.EntiCS.Systems;
-using Game.Features.EntiCS.Systems.LateSystems;
+using Game.Features.EntiCS.Systems.FixedSystems;
 using Game.Features.Ticking;
 using Game.Static.Locators;
 
@@ -23,7 +22,8 @@ namespace Game.Features.EntiCS
             Runner.AddSystems(new IEntitySystem[]
             {
                 new MovementSystem(),
-                new RunStatsSystem()
+                new RunStatsSystem(),
+                new JumpSystem()
             });
         }
 

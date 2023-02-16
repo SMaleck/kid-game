@@ -6,8 +6,8 @@
         {
             // @formatter:off
             return Builder()
-                    .Sequence()
-                        .Do(AssertIsRunning())
+                    .SequenceIf(AssertIsRunning())
+                        .Do(UserInput())
                     .End()
                 .Build();
             // @formatter:on

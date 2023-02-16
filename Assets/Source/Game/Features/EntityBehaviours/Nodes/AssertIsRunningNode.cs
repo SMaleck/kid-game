@@ -1,6 +1,7 @@
 ﻿using BehaviourTree.Nodes;
 using EntiCS.Entities;
 using Game.Features.EntiCS.Components.Generic;
+using Game.Features.EntityBehaviours.Blackboard;
 
 namespace Game.Features.EntityBehaviours.Nodes
 {
@@ -8,7 +9,8 @@ namespace Game.Features.EntityBehaviours.Nodes
     {
         protected ILifecycleComponent _lifecycle;
 
-        public AssertIsRunningNode(IEntity entity) : base(entity)
+        public AssertIsRunningNode(IEntity entity, BTBlackboard blackboard) 
+            : base(entity, blackboard)
         {
             _lifecycle = Entity.Get<ILifecycleComponent>();
         }
