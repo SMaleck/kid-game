@@ -1,27 +1,29 @@
 ﻿using EntiCS.Entities;
+using Game.Features.EntityBehaviours.Behaviours;
 using Game.Services.Scenes;
 using Game.Services.Scenes.Events;
 using Game.Static.Events;
 using Game.Static.Locators;
 using UnityEngine;
 
-namespace Game.Features.EntiCS.Utility
+namespace Game.Features.EntityBehaviours
 {
-    /// <summary>
-    /// Add this component to an EntiCS entity,
-    /// to automatically add it to the current world
-    /// </summary>
-    public class EntityRegistrationComponent : MonoBehaviour
+    public class EntityBehaviourAutoInitializer : MonoBehaviour
     {
+        [SerializeField] private EntityBehaviourType _behaviourType;
+
         private IEntity _entity;
         private string _sceneName;
+        private IEntityBehaviour _behaviour;
 
         private void Start()
         {
             _entity = GetComponent<IEntity>();
             _sceneName = gameObject.scene.name;
 
-            FeatureLocator.Get<EnticsFeature>().AddEntity(_entity);
+            _behaviour = FeatureLocator.Get<EntityBehaviourFeature>().Create(_behaviourType, _entity);
+            _behaviour.Start();
+
             EventBus.OnEvent<EndSceneEvent>(Deregister);
         }
 
@@ -30,13 +32,20 @@ namespace Game.Features.EntiCS.Utility
             if (eventArgs is EndSceneEvent endSceneEvent &&
                 endSceneEvent.Scene.ToSceneName() == _sceneName)
             {
-                FeatureLocator.GetOrDefault<EnticsFeature>()?.RemoveEntity(_entity);
+                Cleanup();
             }
         }
 
         private void OnDestroy()
         {
-            FeatureLocator.GetOrDefault<EnticsFeature>()?.RemoveEntity(_entity);
+            Cleanup();
+        }
+
+        private void Cleanup()
+        {
+            _behaviour.Stop();
+            _behaviour.Dispose();
+            _behaviour = null;
         }
     }
 }
