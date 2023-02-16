@@ -65,3 +65,11 @@ MonoBehaviour:
     English: Select Player
     German: "Spieler \xC4ndern"
     Polish: 
+  - Key: Back
+    English: Back
+    German: "Zur\xFCck"
+    Polish: 
+  - Key: PlayAgain
+    English: Play Again
+    German: Nochmal Spielen
+    Polish: 

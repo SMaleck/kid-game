@@ -13,6 +13,12 @@ namespace Game.Services.Text
         Apply,
 
         /// <summary>
+        /// Back
+        /// </summary>
+        [Text("Back")]
+        Back,
+
+        /// <summary>
         /// Cancel
         /// </summary>
         [Text("Cancel")]
@@ -53,6 +59,12 @@ namespace Game.Services.Text
         /// </summary>
         [Text("OK")]
         Ok,
+
+        /// <summary>
+        /// Play Again
+        /// </summary>
+        [Text("Play Again")]
+        PlayAgain,
 
         /// <summary>
         /// Quit
