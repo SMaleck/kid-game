@@ -14,3 +14,6 @@ Additionally the idea was to grow the game with the child, as multiple levels of
 In my professional environment, I was working mainly with Zenject and UniRx, both of which fundamentally influence the architecture of the game.
 Attempting to learn Unreal with C++ proved difficult for me, as DI is simply non-existent, but my thought patterns were already shaped strongly with DI thinking. 
 Thus the idea to start a project with a "what-if" approach and eliminating DI and RX completely, in order to learn different approaches and the restrictions of C++ without the additional baggage of another engine and syntax.
+
+## Documentation
+Further docs can be found [here](./Docs).
