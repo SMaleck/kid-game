@@ -43,6 +43,24 @@ namespace Game.Services.Text
         LetsPlay,
 
         /// <summary>
+        /// Level 1
+        /// </summary>
+        [Text("Level 1")]
+        Level1Name,
+
+        /// <summary>
+        /// Level 2
+        /// </summary>
+        [Text("Level 2")]
+        Level2Name,
+
+        /// <summary>
+        /// Level 3
+        /// </summary>
+        [Text("Level 3")]
+        Level3Name,
+
+        /// <summary>
         /// Next
         /// </summary>
         [Text("Next")]

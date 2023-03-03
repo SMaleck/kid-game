@@ -68,8 +68,20 @@ MonoBehaviour:
   - Key: Back
     English: Back
     German: "Zur\xFCck"
-    Polish: 
+    Polish: Wstecz
   - Key: PlayAgain
     English: Play Again
     German: Nochmal Spielen
-    Polish: 
+    Polish: Jeszcze Raz
+  - Key: Level1Name
+    English: Level 1
+    German: Stufe 1
+    Polish: Poziom 1
+  - Key: Level2Name
+    English: Level 2
+    German: Stufe 2
+    Polish: Poziom 3
+  - Key: Level3Name
+    English: Level 3
+    German: Stufe 3
+    Polish: Poziom 3
