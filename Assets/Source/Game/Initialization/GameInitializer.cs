@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Game.Features.GameWorld.Camera;
 using Game.Features.Player;
 using Game.Features.Savegames;
 using Game.Features.Ticking;
@@ -32,6 +33,7 @@ namespace Game.Initialization
             RegisterFeature<SavegameAutoSaveFeature>(new SavegameAutoSaveFeature());
             RegisterFeature<PlayerStateFeature>(new PlayerStateFeature());
             RegisterFeature<TickerFeature>(new TickerFeature());
+            RegisterFeature<CameraFeature>(new CameraFeature());
         }
 
         public static void Start()

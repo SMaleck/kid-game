@@ -48,8 +48,8 @@ namespace Game.Features.EntityBehaviours
         {
             EventBus.Unsubscribe(Deregister);
 
-            _behaviour.Stop();
-            _behaviour.Dispose();
+            _behaviour?.Stop();
+            _behaviour?.Dispose();
             _behaviour = null;
         }
     }
