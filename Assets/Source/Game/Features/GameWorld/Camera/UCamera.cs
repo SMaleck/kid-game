@@ -18,6 +18,11 @@ namespace Game.Features.GameWorld.Camera
             FeatureLocator.Get<CameraFeature>().Push(this);
         }
 
+        protected virtual void OnStart()
+        {
+
+        }
+
         public void OnDestroy()
         {
             FeatureLocator.Get<CameraFeature>().Remove(this);
