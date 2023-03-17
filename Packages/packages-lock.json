@@ -7,9 +7,9 @@
       "dependencies": {}
     },
     "com.smaleck.entics": {
-      "version": "file:com.smaleck.entics",
+      "version": "file:C:/_dev/_private/unity-package-workspace/Packages/com.smaleck.unity-entics",
       "depth": 0,
-      "source": "embedded",
+      "source": "local",
       "dependencies": {}
     },
     "com.smaleck.excel-importer": {
