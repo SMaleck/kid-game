@@ -1,6 +1,7 @@
 ﻿using Game.Services.Application;
 using Game.Services.ClientInfo;
 using Game.Services.Gooey;
+using Game.Services.LevelSelection;
 using Game.Services.Scenes;
 using Game.Services.Time;
 using Game.Static.Locators;
@@ -32,6 +33,7 @@ namespace Game.Initialization
             ServiceLocator.Register<GuiServiceProxy>(new GuiServiceProxy());
             ServiceLocator.Register<TimeService>(new TimeService());
             ServiceLocator.Register<ClientInfoService>(new ClientInfoService());
+            ServiceLocator.Register<LevelSelectService>(new LevelSelectService());
         }
     }
 }

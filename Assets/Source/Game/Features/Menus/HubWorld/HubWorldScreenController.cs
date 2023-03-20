@@ -1,5 +1,5 @@
-﻿using Game.Features.Player;
-using Game.Services.Gooey.Controllers;
+﻿using Game.Services.Gooey.Controllers;
+using Game.Services.LevelSelection;
 using Game.Services.Scenes;
 using Game.Static.Locators;
 
@@ -8,7 +8,7 @@ namespace Game.Features.Menus.HubWorld
     public class HubWorldScreenController : ScreenController<HubWorldScreenView>
     {
         private SceneService _sceneService;
-        private PlayerStateFeature _playerState;
+        private LevelSelectService _levelSelectService;
 
         public HubWorldScreenController(HubWorldScreenView view)
             : base(view)
@@ -18,7 +18,7 @@ namespace Game.Features.Menus.HubWorld
         protected override void Initialize()
         {
             _sceneService = ServiceLocator.Get<SceneService>();
-            _playerState = FeatureLocator.Get<PlayerStateFeature>();
+            _levelSelectService = ServiceLocator.Get<LevelSelectService>();
 
             View.StartButton.onClick.AddListener(OnOnStartClicked);
             View.ExitToTitleButton.onClick.AddListener(OnExitToTitleClicked);
@@ -26,7 +26,7 @@ namespace Game.Features.Menus.HubWorld
 
         private void OnOnStartClicked()
         {
-            _sceneService.ToLevel();
+            _levelSelectService.Load(LevelComplexity.C0);
         }
 
         private void OnExitToTitleClicked()
