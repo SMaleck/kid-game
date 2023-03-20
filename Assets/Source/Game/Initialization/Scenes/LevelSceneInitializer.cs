@@ -1,6 +1,9 @@
 ﻿using Game.Features.EntiCS;
 using Game.Features.EntityBehaviours;
 using Game.Features.GameWorld.PlayerInput;
+using Game.Features.GameWorld.PlayerInput.Sources;
+using Game.Services.ClientInfo;
+using Game.Static.Locators;
 
 namespace Game.Initialization.Scenes
 {
@@ -10,7 +13,14 @@ namespace Game.Initialization.Scenes
         {
             RegisterFeature<EnticsFeature>(new EnticsFeature());
             RegisterFeature<EntityBehaviourFeature>(new EntityBehaviourFeature());
+
             RegisterFeature<PlayerInputFeature>(new PlayerInputFeature());
+            RegisterFeature<KeyboardInputSource>(new KeyboardInputSource());
+
+            if (ServiceLocator.Get<ClientInfoService>().IsDebug)
+            {
+                RegisterFeature<DebugInputSource>(new DebugInputSource());
+            }
         }
 
         protected override void StartInternal()

@@ -18,12 +18,6 @@ namespace Game.Features.EntityBehaviours.Nodes
 
         protected override NodeStatus OnTick(double elapsedSeconds)
         {
-            // ToDo Abstract different input methods
-            if (Input.GetKeyDown("a") && !_jumpComponent.IsJumping)
-            {
-                _jumpComponent.HasJumpIntent = true;
-            }
-
             return NodeStatus.Success;
         }
     }
