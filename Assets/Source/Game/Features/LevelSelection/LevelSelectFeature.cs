@@ -1,9 +1,9 @@
 ﻿using Game.Services.Scenes;
 using Game.Static.Locators;
 
-namespace Game.Services.LevelSelection
+namespace Game.Features.LevelSelection
 {
-    public class LevelSelectService : Service
+    public class LevelSelectFeature : Feature
     {
         public LevelComplexity Complexity { get; private set; } = LevelComplexity.C0;
 

@@ -1,4 +1,4 @@
-﻿namespace Game.Services.LevelSelection
+﻿namespace Game.Features.LevelSelection
 {
     public enum LevelComplexity
     {

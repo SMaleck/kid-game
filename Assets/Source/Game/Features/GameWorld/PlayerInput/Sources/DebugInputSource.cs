@@ -20,7 +20,6 @@ namespace Game.Features.GameWorld.PlayerInput.Sources
 
         public override void OnEnd()
         {
-            FeatureLocator.Get<PlayerInputFeature>().Remove(this);
             FeatureLocator.Get<TickerFeature>().SceneTicker.RemoveUpdate(this);
         }
         

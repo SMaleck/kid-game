@@ -1,5 +1,7 @@
-﻿using Game.Static.Locators;
+﻿using Game.Features.Ticking;
+using Game.Static.Locators;
 using System;
+using Game.Features.LevelSelection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,15 +22,33 @@ namespace Game.Features.GameWorld.PlayerInput.Sources
         {
             FeatureLocator.Get<PlayerInputFeature>().Add(this);
 
-            _simpleJumpButton.onClick.AddListener(() => OnJump());
-            _jumpButton.onClick.AddListener(() => OnJump());
-            _rollButton.onClick.AddListener(() => OnRoll());
-            _pauseButton.onClick.AddListener(() => OnPauseGame());
-        }
+            var ticker = FeatureLocator.Get<TickerFeature>().SceneTicker;
 
-        public override void OnEnd()
-        {
-            FeatureLocator.Get<PlayerInputFeature>().Remove(this);
+            _simpleJumpButton.onClick.AddListener(() =>
+            {
+                if (!ticker.IsPaused)
+                    OnJump();
+            });
+
+            _jumpButton.onClick.AddListener(() =>
+            {
+                if (!ticker.IsPaused)
+                    OnJump();
+            });
+
+            _rollButton.onClick.AddListener(() =>
+            {
+                if (!ticker.IsPaused)
+                    OnRoll();
+            });
+
+            _pauseButton.onClick.AddListener(() => OnPauseGame());
+
+            var complexity = FeatureLocator.Get<LevelSelectFeature>().Complexity;
+            var isRollingEnabled = complexity >= LevelComplexity.C1;
+            _simpleJumpButton.gameObject.SetActive(!isRollingEnabled);
+            _jumpButton.gameObject.SetActive(isRollingEnabled);
+            _rollButton.gameObject.SetActive(isRollingEnabled);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Game.Features.GameWorld.Camera;
+using Game.Features.LevelSelection;
 using Game.Features.Player;
 using Game.Features.Savegames;
 using Game.Features.Ticking;
@@ -34,6 +35,7 @@ namespace Game.Initialization
             RegisterFeature<PlayerStateFeature>(new PlayerStateFeature());
             RegisterFeature<TickerFeature>(new TickerFeature());
             RegisterFeature<CameraFeature>(new CameraFeature());
+            RegisterFeature<LevelSelectFeature>(new LevelSelectFeature());
         }
 
         public static void Start()
