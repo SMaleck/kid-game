@@ -49,10 +49,10 @@ namespace Game.Features.EntiCS.Systems.FixedSystems
         {
             if (jumping.ElapsedSeconds >= Mathf.PI / jumping.JumpSpeed)
             {
-                jumping.ResetState();
-
                 var position = transform.Position;
                 transform.Position = new Vector3(position.x, jumping.StartY, position.z);
+
+                jumping.ResetState();
             }
         }
     }
