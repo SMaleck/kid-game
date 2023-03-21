@@ -7,7 +7,9 @@ namespace Game.Services.Scenes
         Root = 0,
         Title = 1,
         HubWorld = 2,
-        Level = 3,
+        Level_C0 = 3,
+        Level_C1 = 4,
+        Level_C2 = 5,
 
     }
 }

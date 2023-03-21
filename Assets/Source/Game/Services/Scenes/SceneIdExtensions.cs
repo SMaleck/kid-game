@@ -25,7 +25,7 @@ namespace Game.Services.Scenes
 
         public static bool IsLevelScene(this SceneId sceneId)
         {
-            return sceneId >= SceneId.Level;
+            return sceneId >= SceneId.Level_C0;
         }
     }
 }

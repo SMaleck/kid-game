@@ -20,13 +20,17 @@ namespace Game.Features.Menus.HubWorld
             _sceneService = ServiceLocator.Get<SceneService>();
             _levelSelectService = FeatureLocator.Get<LevelSelectFeature>();
 
-            View.StartButton.onClick.AddListener(OnOnStartClicked);
+            foreach (var levelItem in View.LevelItems)
+            {
+                levelItem.StartButton.onClick.AddListener(() => OnOnStartClicked(levelItem.Complexity));
+            }
+            
             View.ExitToTitleButton.onClick.AddListener(OnExitToTitleClicked);
         }
 
-        private void OnOnStartClicked()
+        private void OnOnStartClicked(LevelComplexity complexity)
         {
-            _levelSelectService.Load(LevelComplexity.C0);
+            _levelSelectService.Load(complexity);
         }
 
         private void OnExitToTitleClicked()

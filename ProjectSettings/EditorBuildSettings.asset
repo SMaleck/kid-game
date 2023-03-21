@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/S_HubWorld.unity
     guid: 2aecece093ef8c44fbbeca07c8518399
   - enabled: 1
-    path: Assets/Scenes/S_Level.unity
+    path: Assets/Scenes/S_Level_C0.unity
     guid: ecc367cc626a0a74cb8b9f8c142c9352
+  - enabled: 1
+    path: Assets/Scenes/S_Level_C1.unity
+    guid: ffac2dbbce72dfc4f9ac88f52aaaa51d
+  - enabled: 1
+    path: Assets/Scenes/S_Level_C2.unity
+    guid: 2aff22bebb8217c41b56e7c354e6b3c5
   m_configObjects: {}

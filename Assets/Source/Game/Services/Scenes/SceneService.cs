@@ -35,9 +35,12 @@ namespace Game.Services.Scenes
             SceneManagerProxy.LoadAndSwitchScene(SceneId.HubWorld, true, ObjectConst.DefaultAction);
         }
 
-        public void ToLevel()
+        public void ToLevel(SceneId levelId)
         {
-            SceneManagerProxy.LoadAndSwitchScene(SceneId.Level, true, ObjectConst.DefaultAction);
+            if (levelId.IsLevelScene())
+            {
+                SceneManagerProxy.LoadAndSwitchScene(levelId, true, ObjectConst.DefaultAction);
+            }
         }
 
         public void ReloadLevel()
