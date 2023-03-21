@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/S_Level_C2.unity
     guid: 2aff22bebb8217c41b56e7c354e6b3c5
+  - enabled: 1
+    path: Assets/Scenes/S_Level_CDebug.unity
+    guid: 2322878a3d7bf6d46a164d16283dff99
   m_configObjects: {}

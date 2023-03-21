@@ -28,6 +28,9 @@ namespace Game.Features.LevelSelection
 
                 case LevelComplexity.C2:
                     return SceneId.Level_C2;
+                
+                case LevelComplexity.CDebug:
+                    return SceneId.Level_CDebug;
 
                 default:
                     throw new ArgumentOutOfRangeException(nameof(complexity), complexity, null);

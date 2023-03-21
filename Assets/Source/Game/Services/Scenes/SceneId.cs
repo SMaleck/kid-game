@@ -10,6 +10,7 @@ namespace Game.Services.Scenes
         Level_C0 = 3,
         Level_C1 = 4,
         Level_C2 = 5,
+        Level_CDebug = 6,
 
     }
 }
