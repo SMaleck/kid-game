@@ -22,6 +22,24 @@ namespace Game.Services.Scenes
             UpdateCurrentSceneState();
         }
 
+        public static void UnloadCurrent(Action onComplete)
+        {
+            if (SceneManager.sceneCount < 2)
+            {
+                Error("Current scene is the only one loaded. Ignoring reload attempt.");
+                return;
+            }
+
+            EventBus.Publish(new EndSceneEvent(CurrentSceneId));
+            var asyncOp = SceneManager.UnloadSceneAsync(CurrentSceneIndex);
+
+            asyncOp.completed += _ =>
+            {
+                UpdateCurrentSceneState();
+                onComplete.Invoke();
+            };
+        }
+
         public static void ReloadCurrent(Action onComplete)
         {
             if (SceneManager.sceneCount < 2)

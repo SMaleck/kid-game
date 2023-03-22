@@ -37,6 +37,30 @@ namespace Game.Services.Text
         GameName,
 
         /// <summary>
+        /// Deutsch
+        /// </summary>
+        [Text("Deutsch")]
+        LangName_DE,
+
+        /// <summary>
+        /// English
+        /// </summary>
+        [Text("English")]
+        LangName_EN,
+
+        /// <summary>
+        /// Polski
+        /// </summary>
+        [Text("Polski")]
+        LangName_PL,
+
+        /// <summary>
+        /// Language
+        /// </summary>
+        [Text("Language")]
+        Language,
+
+        /// <summary>
         /// Let's Play!
         /// </summary>
         [Text("Let's Play!")]
@@ -101,6 +125,12 @@ namespace Game.Services.Text
         /// </summary>
         [Text("Select Player")]
         SelectPlayer,
+
+        /// <summary>
+        /// Settings
+        /// </summary>
+        [Text("Settings")]
+        Settings,
 
         /// <summary>
         /// Start

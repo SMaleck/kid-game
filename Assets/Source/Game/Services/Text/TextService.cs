@@ -1,5 +1,8 @@
 ﻿using Game.Services.Text.Data;
 using Game.Static.Locators;
+using Game.Static.Settings;
+using Game.Utility;
+using UnityEngine;
 
 namespace Game.Services.Text
 {
@@ -8,19 +11,43 @@ namespace Game.Services.Text
         private static LocalizationDataSource _locaData;
 
         private const Language DefaultLanguage = Language.English;
-        public static Language CurrentLanguage { get; private set; }
+        public static Language CurrentLanguage => AppSettings.Language;
 
         static TextService()
         {
             _locaData = DataLocator.Get<LocalizationDataSource>();
             _locaData.Initialize();
 
-            CurrentLanguage = DefaultLanguage;
+            if (!AppSettings.IsLanguageSet)
+            {
+                AppSettings.Language = GetSystemLanguage();
+            }
+        }
+
+        private static Language GetSystemLanguage()
+        {
+            var systemLang = UnityEngine.Application.systemLanguage;
+
+            switch (systemLang)
+            {
+                case SystemLanguage.English:
+                    return Language.English;
+
+                case SystemLanguage.German:
+                    return Language.German;
+
+                case SystemLanguage.Polish:
+                    return Language.Polish;
+
+                default:
+                    GameLog.Warn($"{systemLang} is not supported, falling back to {DefaultLanguage}");
+                    return DefaultLanguage;
+            }
         }
 
         public static void SetLanguage(Language language)
         {
-            CurrentLanguage = language;
+            AppSettings.Language = language;
         }
 
         public static string Get(TextKeys key, params object[] args)

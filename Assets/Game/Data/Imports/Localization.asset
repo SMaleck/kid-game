@@ -89,3 +89,23 @@ MonoBehaviour:
     English: Pause
     German: Pause
     Polish: Przerwa
+  - Key: Settings
+    English: Settings
+    German: Einstellungen
+    Polish: Ustawienia
+  - Key: Language
+    English: Language
+    German: Sprache
+    Polish: "J\u0119zyk"
+  - Key: LangName_EN
+    English: English
+    German: English
+    Polish: English
+  - Key: LangName_DE
+    English: Deutsch
+    German: Deutsch
+    Polish: Deutsch
+  - Key: LangName_PL
+    English: Polski
+    German: Polski
+    Polish: Polski

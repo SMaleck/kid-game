@@ -1,13 +1,14 @@
 // This file is GENERATED! Changes might get lost.
 using System;
-using Game.Features.UI.Completion;
-using Game.Features.UI.HubWorld;
-using Game.Features.UI.Hud;
-using Game.Features.UI.Pause;
-using Game.Features.UI.Title;
-using Game.Features.UI.Welcome;
 using Game.Services.Gooey.Views;
 using Gooey;
+using Game.Features.UI.Welcome;
+using Game.Features.UI.Title;
+using Game.Features.UI.Settings;
+using Game.Features.UI.Pause;
+using Game.Features.UI.Hud;
+using Game.Features.UI.HubWorld;
+using Game.Features.UI.Completion;
 
 
 namespace Game.Services.Gooey.Controllers
@@ -25,17 +26,20 @@ namespace Game.Services.Gooey.Controllers
                 case "TitleScreenView":
                     return new TitleScreenController((TitleScreenView)view);
 
+                case "SettingsModalView":
+                    return new SettingsModalController((SettingsModalView)view);
+
                 case "PauseScreenView":
                     return new PauseScreenController((PauseScreenView)view);
+
+                case "HudScreenView":
+                    return new HudScreenController((HudScreenView)view);
 
                 case "HubWorldScreenView":
                     return new HubWorldScreenController((HubWorldScreenView)view);
 
                 case "LevelCompletionModalView":
                     return new LevelCompletionModalController((LevelCompletionModalView)view);
-
-                case "HudScreenView":
-                    return new HudScreenController((HudScreenView)view);
 
 
                 default:

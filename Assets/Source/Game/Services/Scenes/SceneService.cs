@@ -16,13 +16,29 @@ namespace Game.Services.Scenes
         public void InitialLoad()
         {
             if (SceneManagerProxy.SceneCount > 1 ||
-                SceneManagerProxy.CurrentSceneId != SceneId.Root)
+                CurrentSceneId != SceneId.Root)
             {
                 Error($"Initial Load can only be performed when game is still in the root scene. Scene: {CurrentSceneId}");
                 return;
             }
 
             SceneManagerProxy.LoadAndSwitchScene(SceneId.Title, false, ObjectConst.DefaultAction);
+        }
+
+        public void ReloadGame()
+        {
+            if (CurrentSceneId == SceneId.Root)
+            {
+                InitialLoad();
+                return;
+            }
+            if (CurrentSceneId == SceneId.Title)
+            {
+                SceneManagerProxy.ReloadCurrent(ObjectConst.DefaultAction);
+                return;
+            }
+
+            ToTitle();
         }
 
         public void ToTitle()
@@ -53,7 +69,7 @@ namespace Game.Services.Scenes
 
             SceneManagerProxy.ReloadCurrent(ObjectConst.DefaultAction);
         }
-
+        
         public void Quit()
         {
             EventBus.Publish(new BeforeQuitEvent());
