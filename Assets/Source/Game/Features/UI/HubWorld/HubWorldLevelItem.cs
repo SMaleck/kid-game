@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.Features.Menus.HubWorld
+namespace Game.Features.UI.HubWorld
 {
     public class HubWorldLevelItem : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.Features.Menus.Welcome
+namespace Game.Features.UI.Welcome
 {
     public class WelcomeScreenView : ScreenView
     {

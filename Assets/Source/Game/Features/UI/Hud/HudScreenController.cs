@@ -4,7 +4,7 @@ using Game.Features.Ticking;
 using Game.Services.Gooey.Controllers;
 using Game.Static.Locators;
 
-namespace Game.Features.GameWorld.Hud
+namespace Game.Features.UI.Hud
 {
     public class HudScreenController : ScreenController<HudScreenView>, IUpdateable
     {

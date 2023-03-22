@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.Features.Menus.Pause
+namespace Game.Features.UI.Pause
 {
     public class PauseScreenView : ScreenView
     {

@@ -2,7 +2,7 @@
 using Game.Services.Scenes;
 using Game.Static.Locators;
 
-namespace Game.Features.GameWorld.Levels.Completion
+namespace Game.Features.UI.Completion
 {
     public class LevelCompletionModalController : ModalController<LevelCompletionModalView>
     {

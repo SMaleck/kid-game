@@ -1,11 +1,11 @@
-﻿using Game.Features.Menus.Welcome;
-using Game.Features.Player;
+﻿using Game.Features.Player;
+using Game.Features.UI.Welcome;
 using Game.Services.Gooey;
 using Game.Services.Gooey.Controllers;
 using Game.Services.Scenes;
 using Game.Static.Locators;
 
-namespace Game.Features.Menus.Title
+namespace Game.Features.UI.Title
 {
     public class TitleScreenController : ScreenController<TitleScreenView>
     {

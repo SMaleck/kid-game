@@ -1,10 +1,10 @@
 ﻿using EntiCS.Ticking;
-using Game.Features.GameWorld.Levels.Completion;
 using Game.Features.GameWorld.Levels.ProgressStrategies;
 using Game.Features.Ticking;
 using Game.Services.Gooey;
 using Game.Static.Locators;
 using System;
+using Game.Features.UI.Completion;
 using UnityEngine;
 
 namespace Game.Features.GameWorld.Levels

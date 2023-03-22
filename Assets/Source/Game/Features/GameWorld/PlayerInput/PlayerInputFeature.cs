@@ -1,8 +1,8 @@
 ﻿using EntiCS.Entities;
 using Game.Features.EntiCS.Components;
 using Game.Features.GameWorld.Player;
-using Game.Features.Menus.Pause;
 using Game.Features.Ticking;
+using Game.Features.UI.Pause;
 using Game.Services.Gooey;
 using Game.Static.Locators;
 

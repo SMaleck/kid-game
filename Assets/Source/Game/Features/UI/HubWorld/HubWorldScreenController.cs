@@ -3,7 +3,7 @@ using Game.Services.Gooey.Controllers;
 using Game.Services.Scenes;
 using Game.Static.Locators;
 
-namespace Game.Features.Menus.HubWorld
+namespace Game.Features.UI.HubWorld
 {
     public class HubWorldScreenController : ScreenController<HubWorldScreenView>
     {

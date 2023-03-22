@@ -3,7 +3,7 @@ using Game.Services.Gooey.Controllers;
 using Game.Services.Scenes;
 using Game.Static.Locators;
 
-namespace Game.Features.Menus.Welcome
+namespace Game.Features.UI.Welcome
 {
     public class WelcomeScreenController : ScreenController<WelcomeScreenView>
     {

@@ -3,7 +3,7 @@ using Game.Services.Gooey.Controllers;
 using Game.Services.Scenes;
 using Game.Static.Locators;
 
-namespace Game.Features.Menus.Pause
+namespace Game.Features.UI.Pause
 {
     public class PauseScreenController : ScreenController<PauseScreenView>
     {

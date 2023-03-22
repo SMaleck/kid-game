@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.Features.Menus.Title
+namespace Game.Features.UI.Title
 {
     public class TitleScreenView : ScreenView
     {

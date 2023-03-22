@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.Features.GameWorld.Hud
+namespace Game.Features.UI.Hud
 {
     public class HudScreenView : ScreenView
     {

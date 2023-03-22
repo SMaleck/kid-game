@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game.Features.GameWorld.Levels.Completion
+namespace Game.Features.UI.Completion
 {
     public class LevelCompletionModalView : ModalView
     {
