@@ -16,19 +16,19 @@ MonoBehaviour:
   - Key: Yes
     English: Yes
     German: Ja
-    Polish: 
+    Polish: Tak
   - Key: No
     English: No
     German: Nein
-    Polish: 
+    Polish: Nie
   - Key: Ok
     English: OK
     German: OK
-    Polish: 
+    Polish: OK
   - Key: Next
     English: Next
     German: Weiter
-    Polish: 
+    Polish: Dalej
   - Key: Continue
     English: Continue
     German: Weiter
@@ -40,11 +40,11 @@ MonoBehaviour:
   - Key: Quit
     English: Quit
     German: Beenden
-    Polish: 
+    Polish: Koniec
   - Key: Apply
     English: Apply
     German: Anwenden
-    Polish: 
+    Polish: "Zastos\xF3j"
   - Key: Cancel
     English: Cancel
     German: Abbrechen
@@ -52,11 +52,11 @@ MonoBehaviour:
   - Key: GameName
     English: Kid Game
     German: Kid Game
-    Polish: 
+    Polish: Kid Game
   - Key: LetsPlay
     English: Let's Play!
     German: Lass uns Spielen!
-    Polish: 
+    Polish: "Zabawmy si\u0119!"
   - Key: WelcomeWhatsYourName
     English: Hello, what is your name?
     German: "Hallo, wie hei\xDFt du?"
@@ -64,7 +64,7 @@ MonoBehaviour:
   - Key: SelectPlayer
     English: Select Player
     German: "Spieler \xC4ndern"
-    Polish: 
+    Polish: "Zmie\u0144 Gracza"
   - Key: Back
     English: Back
     German: "Zur\xFCck"
@@ -85,3 +85,7 @@ MonoBehaviour:
     English: Level 3
     German: Stufe 3
     Polish: Poziom 3
+  - Key: Pause
+    English: Pause
+    German: Pause
+    Polish: Przerwa

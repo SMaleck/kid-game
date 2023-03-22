@@ -1,7 +1,9 @@
 ﻿using EntiCS.Entities;
 using Game.Features.EntiCS.Components;
 using Game.Features.GameWorld.Player;
+using Game.Features.Menus.Pause;
 using Game.Features.Ticking;
+using Game.Services.Gooey;
 using Game.Static.Locators;
 
 namespace Game.Features.GameWorld.PlayerInput
@@ -48,7 +50,17 @@ namespace Game.Features.GameWorld.PlayerInput
 
         private void OnPauseGame()
         {
-            _tickerFeature.SceneTicker.SetIsPaused(!_tickerFeature.SceneTicker.IsPaused);
+            var isPaused = !_tickerFeature.SceneTicker.IsPaused;
+            _tickerFeature.SceneTicker.SetIsPaused(isPaused);
+
+            if (isPaused)
+            {
+                ServiceLocator.Get<GuiServiceProxy>().TryShow<PauseScreenController>();
+            }
+            else
+            {
+                ServiceLocator.Get<GuiServiceProxy>().TryHide<PauseScreenController>();
+            }
         }
     }
 }

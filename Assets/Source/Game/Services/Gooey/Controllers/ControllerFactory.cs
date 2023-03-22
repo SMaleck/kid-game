@@ -4,6 +4,7 @@ using Game.Services.Gooey.Views;
 using Gooey;
 using Game.Features.Menus.Welcome;
 using Game.Features.Menus.Title;
+using Game.Features.Menus.Pause;
 using Game.Features.Menus.HubWorld;
 using Game.Features.GameWorld.Levels.Completion;
 using Game.Features.GameWorld.Hud;
@@ -23,6 +24,9 @@ namespace Game.Services.Gooey.Controllers
 
                 case "TitleScreenView":
                     return new TitleScreenController((TitleScreenView)view);
+
+                case "PauseScreenView":
+                    return new PauseScreenController((PauseScreenView)view);
 
                 case "HubWorldScreenView":
                     return new HubWorldScreenController((HubWorldScreenView)view);

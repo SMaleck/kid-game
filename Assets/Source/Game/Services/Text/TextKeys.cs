@@ -79,6 +79,12 @@ namespace Game.Services.Text
         Ok,
 
         /// <summary>
+        /// Pause
+        /// </summary>
+        [Text("Pause")]
+        Pause,
+
+        /// <summary>
         /// Play Again
         /// </summary>
         [Text("Play Again")]
