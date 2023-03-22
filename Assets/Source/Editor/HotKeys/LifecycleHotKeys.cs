@@ -1,5 +1,6 @@
 using System.Collections;
 using Game.Utility;
+using Source.Editor.Tools;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
@@ -14,18 +15,20 @@ namespace Source.Editor.HotKeys
         [MenuItem(ProjectConst.MenuRoot + "Run game %l", false)]
         public static void RunGame()
         {
-            if (!EditorApplication.isPlaying && !EditorApplication.isCompiling && EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+            if (CanRun())
             {
-                var currentScenePath = SceneManager.GetActiveScene().path;
-
-                if (currentScenePath != GAME_SCENE_PATH)
-                {
-                    EditorPrefs.SetString(PATH_TO_PREVIOUSLY_CLOSED_SCENE_KEY, currentScenePath);
-                }
+                CacheCurrentScene();
 
                 EditorSceneManager.OpenScene(GAME_SCENE_PATH);
                 EditorApplication.isPlaying = true;
             }
+        }
+
+        [MenuItem(ProjectConst.MenuRoot + "Clear Savegame & Run game %&l", false)]
+        public static void ClearAndRunGame()
+        {
+            SavegameTools.Clear();
+            RunGame();
         }
 
         [MenuItem(ProjectConst.MenuRoot + "Reopen last scene %#l", false)]
@@ -47,6 +50,23 @@ namespace Source.Editor.HotKeys
                 };
 
                 EditorApplication.update += updateFunction;
+            }
+        }
+
+        private static bool CanRun()
+        {
+            return !EditorApplication.isPlaying && 
+                   !EditorApplication.isCompiling &&
+                   EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
+        }
+
+        private static void CacheCurrentScene()
+        {
+            var currentScenePath = SceneManager.GetActiveScene().path;
+
+            if (currentScenePath != GAME_SCENE_PATH)
+            {
+                EditorPrefs.SetString(PATH_TO_PREVIOUSLY_CLOSED_SCENE_KEY, currentScenePath);
             }
         }
 
