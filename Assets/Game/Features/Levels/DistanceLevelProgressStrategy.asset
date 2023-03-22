@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DistanceLevelProgressStrategy
   m_EditorClassIdentifier: 
   <MinProgress>k__BackingField: 0
-  <MaxProgress>k__BackingField: 0
+  <MaxProgress>k__BackingField: 5
