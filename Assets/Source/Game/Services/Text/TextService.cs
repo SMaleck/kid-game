@@ -13,6 +13,8 @@ namespace Game.Services.Text
         private const Language DefaultLanguage = Language.English;
         public static Language CurrentLanguage => AppSettings.Language;
 
+        public static DateTimeTextFormatter TimeFormatter { get; } = new DateTimeTextFormatter();
+
         static TextService()
         {
             _locaData = DataLocator.Get<LocalizationDataSource>();

@@ -5,6 +5,7 @@ using Gooey;
 using Game.Features.UI.Welcome;
 using Game.Features.UI.Title;
 using Game.Features.UI.Settings;
+using Game.Features.UI.PlayerSelect;
 using Game.Features.UI.Pause;
 using Game.Features.UI.Loading;
 using Game.Features.UI.Hud;
@@ -29,6 +30,9 @@ namespace Game.Services.Gooey.Controllers
 
                 case "SettingsModalView":
                     return new SettingsModalController((SettingsModalView)view);
+
+                case "PlayerSelectScreenView":
+                    return new PlayerSelectScreenController((PlayerSelectScreenView)view);
 
                 case "PauseScreenView":
                     return new PauseScreenController((PauseScreenView)view);
