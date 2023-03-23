@@ -6,6 +6,7 @@ using Game.Features.UI.Welcome;
 using Game.Features.UI.Title;
 using Game.Features.UI.Settings;
 using Game.Features.UI.Pause;
+using Game.Features.UI.Loading;
 using Game.Features.UI.Hud;
 using Game.Features.UI.HubWorld;
 using Game.Features.UI.Completion;
@@ -31,6 +32,9 @@ namespace Game.Services.Gooey.Controllers
 
                 case "PauseScreenView":
                     return new PauseScreenController((PauseScreenView)view);
+
+                case "LoadingScreenView":
+                    return new LoadingScreenController((LoadingScreenView)view);
 
                 case "HudScreenView":
                     return new HudScreenController((HudScreenView)view);

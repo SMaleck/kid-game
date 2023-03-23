@@ -1,16 +1,24 @@
+using Game.Features.UI.Loading;
+using Game.Services.Gooey;
 using Game.Services.Scenes.Events;
 using Game.Static.Events;
+using Game.Static.Locators;
 using Game.Utility;
+using Gooey;
+using System;
 
 namespace Game.Services.Scenes
 {
     public class SceneService : Service
     {
+        private readonly IGuiService _guiService;
+
         public SceneId CurrentSceneId => SceneManagerProxy.CurrentSceneId;
 
         public SceneService()
         {
             SceneManagerProxy.Init();
+            _guiService = ServiceLocator.Get<GuiServiceProxy>();
         }
 
         public void InitialLoad()
@@ -22,7 +30,7 @@ namespace Game.Services.Scenes
                 return;
             }
 
-            SceneManagerProxy.LoadAndSwitchScene(SceneId.Title, false, ObjectConst.DefaultAction);
+            SceneManagerProxy.LoadAndSwitchScene(SceneId.Title, false, HideLoadingScreen);
         }
 
         public void ReloadGame()
@@ -34,7 +42,10 @@ namespace Game.Services.Scenes
             }
             if (CurrentSceneId == SceneId.Title)
             {
-                SceneManagerProxy.ReloadCurrent(ObjectConst.DefaultAction);
+                ShowLoadingScreen(() =>
+                {
+                    SceneManagerProxy.ReloadCurrent(HideLoadingScreen);
+                });
                 return;
             }
 
@@ -43,19 +54,19 @@ namespace Game.Services.Scenes
 
         public void ToTitle()
         {
-            SceneManagerProxy.LoadAndSwitchScene(SceneId.Title, true, ObjectConst.DefaultAction);
+            LoadAndSwitch(SceneId.Title, true);
         }
 
         public void ToHub()
         {
-            SceneManagerProxy.LoadAndSwitchScene(SceneId.HubWorld, true, ObjectConst.DefaultAction);
+            LoadAndSwitch(SceneId.HubWorld, true);
         }
 
         public void ToLevel(SceneId levelId)
         {
             if (levelId.IsLevelScene())
             {
-                SceneManagerProxy.LoadAndSwitchScene(levelId, true, ObjectConst.DefaultAction);
+                LoadAndSwitch(levelId, true);
             }
         }
 
@@ -67,13 +78,34 @@ namespace Game.Services.Scenes
                 return;
             }
 
-            SceneManagerProxy.ReloadCurrent(ObjectConst.DefaultAction);
+            ShowLoadingScreen(() =>
+            {
+                SceneManagerProxy.ReloadCurrent(HideLoadingScreen);
+            });
         }
-        
+
         public void Quit()
         {
             EventBus.Publish(new BeforeQuitEvent());
             UnityEngine.Application.Quit();
+        }
+
+        private void LoadAndSwitch(SceneId scene, bool unloadCurrent)
+        {
+            ShowLoadingScreen(() =>
+            {
+                SceneManagerProxy.LoadAndSwitchScene(scene, unloadCurrent, HideLoadingScreen);
+            });
+        }
+
+        private void ShowLoadingScreen(Action next)
+        {
+            _guiService.TryShow<LoadingScreenController>(next);
+        }
+
+        private void HideLoadingScreen()
+        {
+            _guiService.TryHide<LoadingScreenController>();
         }
 
         private void Log(string message)

@@ -27,11 +27,11 @@ namespace Game.Initialization
         private static void InitializeInternal()
         {
             ServiceLocator.Register<ApplicationStateService>(new ApplicationStateService());
-            ServiceLocator.Register<SceneService>(new SceneService());
             ServiceLocator.Register<GuiBuilder>(new GuiBuilder());
             ServiceLocator.Register<GuiServiceProxy>(new GuiServiceProxy());
             ServiceLocator.Register<TimeService>(new TimeService());
             ServiceLocator.Register<ClientInfoService>(new ClientInfoService());
+            ServiceLocator.Register<SceneService>(new SceneService());
         }
     }
 }
