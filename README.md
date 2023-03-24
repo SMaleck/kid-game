@@ -17,3 +17,18 @@ Thus the idea to start a project with a "what-if" approach and eliminating DI an
 
 ## Documentation
 Further docs can be found [here](./Docs).
+
+----
+# Systems Created and Future Considerations
+
+## Savegames
+Created a multi-file capable savegame system, so I could manage a single global savegame and multiple player profiles.
+- Read/Write operations should be made async
+
+## GUI: `Gooey`
+Created a simple GUI package to handle screens and modals. The idea was to make the underlying service manage all GUIs automatically based on type with concerns like
+- A stack of GUIs that would re-open a lower GUI when a higher one closes
+- Automatic handling of canvas layering
+- Clear behaviour for Screens/Panels/Modals
+
+In the end I didn't need most of those things, so I ended up not doing them. This is something I might revisit ina  future project.
