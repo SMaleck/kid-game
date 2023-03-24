@@ -11,6 +11,9 @@ namespace Game.Features.Player
         public bool IsPlayerLoaded => _savegameFeature.PlayerStorage != null;
         public PlayerStateSavegame Savegame { get; private set; }
 
+        public string Id => Savegame.MetadataSavegame.Id;
+        public string PlayerName => Savegame.MetadataSavegame.PlayerName;
+
         public PlayerStateFeature()
         {
         }

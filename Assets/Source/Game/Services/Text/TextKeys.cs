@@ -43,9 +43,9 @@ namespace Game.Services.Text
         GameName,
 
         /// <summary>
-        /// Hello, {0}
+        /// Hello, {0}!
         /// </summary>
-        [Text("Hello, {0}")]
+        [Text("Hello, {0}!")]
         HelloPlayerName,
 
         /// <summary>
@@ -155,6 +155,12 @@ namespace Game.Services.Text
         /// </summary>
         [Text("Start")]
         Start,
+
+        /// <summary>
+        /// Welcome!
+        /// </summary>
+        [Text("Welcome!")]
+        Welcome,
 
         /// <summary>
         /// Hello, what is your name?

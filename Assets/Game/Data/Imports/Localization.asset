@@ -110,9 +110,9 @@ MonoBehaviour:
     German: Polski
     Polish: Polski
   - Key: HelloPlayerName
-    English: Hello, {0}
-    German: Hallo, {0}
-    Polish: Hallo, {0}
+    English: Hello, {0}!
+    German: Hallo, {0}!
+    Polish: Hallo, {0}!
   - Key: CreatedAtStamp
     English: 'Created: {0}'
     German: 'Erstellt: {0}'
@@ -121,3 +121,7 @@ MonoBehaviour:
     English: 'Playtime: {0}'
     German: 'Spielzeit: {0}'
     Polish: 'Czas grania: {0}'
+  - Key: Welcome
+    English: Welcome!
+    German: Willkommen!
+    Polish: Witaj!
