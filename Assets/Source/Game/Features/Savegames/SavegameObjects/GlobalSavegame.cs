@@ -7,6 +7,8 @@ namespace Game.Features.Savegames.SavegameObjects
     public class GlobalSavegame
     {
         public GlobalMetadataSavegame MetadataSavegame;
+        
+        public string LastPlayerId;
         public List<PlayerMetadataSavegame> PlayerSavegames;
     }
 }

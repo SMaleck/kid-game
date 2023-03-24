@@ -109,3 +109,15 @@ MonoBehaviour:
     English: Polski
     German: Polski
     Polish: Polski
+  - Key: HelloPlayerName
+    English: Hello, {0}
+    German: Hallo, {0}
+    Polish: Hallo, {0}
+  - Key: CreatedAtStamp
+    English: 'Created: {0}'
+    German: 'Erstellt: {0}'
+    Polish: "Za\u0142o\u017Cono: {0}"
+  - Key: PlaytimeStamp
+    English: 'Playtime: {0}'
+    German: 'Spielzeit: {0}'
+    Polish: 'Czas grania: {0}'

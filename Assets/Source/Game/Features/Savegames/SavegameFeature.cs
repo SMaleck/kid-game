@@ -57,8 +57,9 @@ namespace Game.Features.Savegames
             }
 
             SetPlayerStorage(CreatePlayerStateSavegameStorage(playerMetaData));
+            SaveAll();
 
-            return false;
+            return true;
         }
 
         public void CreatePlayer(string name)
@@ -109,6 +110,8 @@ namespace Game.Features.Savegames
         private void SetPlayerStorage(ISavegameStorage<PlayerStateSavegame> storage)
         {
             PlayerStorage = storage;
+            GlobalStorage.Savegame.LastPlayerId = storage.Savegame.MetadataSavegame.Id;
+
             EventBus.Publish(new PlayerSavegameLoadedEvent());
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Game.Features.Player;
+using Game.Features.UI.PlayerSelect;
 using Game.Features.UI.Settings;
 using Game.Features.UI.Welcome;
 using Game.Services.Gooey;
@@ -46,6 +47,7 @@ namespace Game.Features.UI.Title
 
         private void OnSelectPlayerClicked()
         {
+            _guiService.TryShow<PlayerSelectScreenController>();
         }
 
         private void OnSettingsClicked()

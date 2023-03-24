@@ -1,6 +1,6 @@
 ﻿using Game.Features.Savegames;
+using Game.Features.Savegames.SavegameObjects;
 using Game.Static.Locators;
-using System.Linq;
 
 namespace Game.Features.Player
 {
@@ -8,7 +8,8 @@ namespace Game.Features.Player
     {
         private SavegameFeature _savegameFeature;
 
-        public bool IsPlayerLoaded => FeatureLocator.Get<SavegameFeature>().PlayerStorage != null;
+        public bool IsPlayerLoaded => _savegameFeature.PlayerStorage != null;
+        public PlayerStateSavegame Savegame { get; private set; }
 
         public PlayerStateFeature()
         {
@@ -18,18 +19,30 @@ namespace Game.Features.Player
         {
             _savegameFeature = FeatureLocator.Get<SavegameFeature>();
 
-            var players = _savegameFeature.GlobalStorage.Savegame.PlayerSavegames
-                .FirstOrDefault();
-
-            if (players != null)
-            {
-                _savegameFeature.TryLoadPlayer(players.Id);
-            }
+            var lastPlayerId = _savegameFeature.GlobalStorage.Savegame.LastPlayerId;
+            TryLoad(lastPlayerId);
         }
 
         public void Create(string playerName)
         {
             FeatureLocator.Get<SavegameFeature>().CreatePlayer(playerName);
+        }
+
+        public bool SwitchTo(string playerId)
+        {
+            return TryLoad(playerId);
+        }
+
+        private bool TryLoad(string playerId)
+        {
+            if (!string.IsNullOrWhiteSpace(playerId) &&
+                _savegameFeature.TryLoadPlayer(playerId))
+            {
+                Savegame = _savegameFeature.PlayerStorage.Savegame;
+                return true;
+            }
+
+            return false;
         }
     }
 }

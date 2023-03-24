@@ -31,10 +31,22 @@ namespace Game.Services.Text
         Continue,
 
         /// <summary>
+        /// Created: {0}
+        /// </summary>
+        [Text("Created: {0}")]
+        CreatedAtStamp,
+
+        /// <summary>
         /// Kid Game
         /// </summary>
         [Text("Kid Game")]
         GameName,
+
+        /// <summary>
+        /// Hello, {0}
+        /// </summary>
+        [Text("Hello, {0}")]
+        HelloPlayerName,
 
         /// <summary>
         /// Deutsch
@@ -113,6 +125,12 @@ namespace Game.Services.Text
         /// </summary>
         [Text("Play Again")]
         PlayAgain,
+
+        /// <summary>
+        /// Playtime: {0}
+        /// </summary>
+        [Text("Playtime: {0}")]
+        PlaytimeStamp,
 
         /// <summary>
         /// Quit
