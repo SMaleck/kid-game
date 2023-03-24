@@ -12,12 +12,12 @@ namespace Game.Services.Text
         public string Duration(TimeSpan duration)
         {
             var hours = Math.Floor(duration.TotalHours);
-            return $"{hours}:{duration.Minutes}:{duration.Seconds}";
+            return $"{hours}:{duration.Minutes:00}:{duration.Seconds:00}";
         }
 
         public string Timestamp(DateTime timestamp)
         {
-            return $"{timestamp.Day}. {timestamp.Month}. {timestamp.Year} - {timestamp.Hour}:{timestamp.Minute}";
+            return $"{timestamp.Day:00}. {timestamp.Month:00}. {timestamp.Year:00} - {timestamp.Hour}:{timestamp.Minute:00}";
         }
     }
 }
