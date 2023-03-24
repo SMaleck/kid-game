@@ -7,6 +7,7 @@ namespace Game.Features.EntiCS.Components
     public class JumpComponent : EntityComponent, IResettable
     {
         [field: SerializeField] public float MaxJumpHeight { get; set; }
+        [field: SerializeField] public float JumpSpeedFactor { get; set; } = 1f;
 
         public bool HasJumpIntent { get; set; }
         public bool IsJumping { get; set; }

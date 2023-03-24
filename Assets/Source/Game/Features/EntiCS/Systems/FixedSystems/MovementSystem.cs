@@ -1,7 +1,7 @@
-﻿using System;
-using EntiCS.Entities;
+﻿using EntiCS.Entities;
 using Game.Features.EntiCS.Components;
 using Game.Features.EntiCS.Systems.BaseSystems;
+using System;
 
 namespace Game.Features.EntiCS.Systems.FixedSystems
 {
@@ -18,7 +18,9 @@ namespace Game.Features.EntiCS.Systems.FixedSystems
             var transform = entity.Get<TransformComponent>();
             var movement = entity.Get<MovementComponent>();
 
-            transform.Transform.position += movement.MoveIntent * (float)elapsedSeconds;
+            transform.Transform.position += movement.MoveIntent * 
+                                            movement.Speed * 
+                                            (float)elapsedSeconds;
         }
     }
 }

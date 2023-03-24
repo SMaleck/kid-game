@@ -129,6 +129,9 @@ MonoBehaviour:
       type: {class: MovementComponent, ns: Game.Features.EntiCS.Components, asm: Source.Game}
       data:
         _name: MovementComponent
+        <MoveIntent>k__BackingField: {x: 1, y: 0, z: 0}
+        <TurnIntent>k__BackingField: {x: 0, y: 0, z: 0}
+        <Speed>k__BackingField: 2
     - rid: 2638963771659517954
       type: {class: RunStatsComponent, ns: Game.Features.EntiCS.Components, asm: Source.Game}
       data:
@@ -142,7 +145,8 @@ MonoBehaviour:
       type: {class: JumpComponent, ns: Game.Features.EntiCS.Components, asm: Source.Game}
       data:
         _name: JumpComponent
-        <MaxJumpHeight>k__BackingField: 4
+        <MaxJumpHeight>k__BackingField: 1.5
+        <JumpSpeedFactor>k__BackingField: 0.8
     - rid: 2945994445181943810
       type: {class: LifecycleComponent, ns: Game.Features.EntiCS.Components, asm: Source.Game}
       data:

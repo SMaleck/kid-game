@@ -32,7 +32,8 @@ namespace Game.Features.EntiCS.Systems.FixedSystems
             {
                 jumping.StartY = transform.Position.y;
                 jumping.IsJumping = true;
-                jumping.JumpSpeed = Mathf.Sqrt(2 * Mathf.Abs(Physics.gravity.y) * jumping.MaxJumpHeight) / jumping.MaxJumpHeight;
+                var jumpSpeed = Mathf.Sqrt(2 * Mathf.Abs(Physics.gravity.y) * jumping.MaxJumpHeight) / jumping.MaxJumpHeight;
+                jumping.JumpSpeed = jumpSpeed * jumping.JumpSpeedFactor;
             }
             
             jumping.ElapsedSeconds += elapsedSeconds;
