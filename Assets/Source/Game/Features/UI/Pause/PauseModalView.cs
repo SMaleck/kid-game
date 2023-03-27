@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Game.Features.UI.Pause
 {
-    public class PauseScreenView : ScreenView
+    public class PauseModalView : ModalView
     {
         [field: SerializeField] public Button ResumeButton { get; private set; }
         [field: SerializeField] public Button RestartButton { get; private set; }

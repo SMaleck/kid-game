@@ -55,11 +55,11 @@ namespace Game.Features.GameWorld.PlayerInput
 
             if (isPaused)
             {
-                ServiceLocator.Get<GuiServiceProxy>().TryShow<PauseScreenController>();
+                ServiceLocator.Get<GuiServiceProxy>().TryShow<PauseModalController>();
             }
             else
             {
-                ServiceLocator.Get<GuiServiceProxy>().TryHide<PauseScreenController>();
+                ServiceLocator.Get<GuiServiceProxy>().TryHide<PauseModalController>();
             }
         }
     }

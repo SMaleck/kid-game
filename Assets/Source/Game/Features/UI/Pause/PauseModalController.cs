@@ -5,12 +5,12 @@ using Game.Static.Locators;
 
 namespace Game.Features.UI.Pause
 {
-    public class PauseScreenController : ScreenController<PauseScreenView>
+    public class PauseModalController : ScreenController<PauseModalView>
     {
         private SceneService _sceneService;
         private TickerFeature _tickerFeature;
 
-        public PauseScreenController(PauseScreenView view)
+        public PauseModalController(PauseModalView view)
             : base(view)
         {
         }

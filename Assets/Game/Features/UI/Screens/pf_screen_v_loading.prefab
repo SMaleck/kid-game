@@ -195,13 +195,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7543091022966272124, guid: 97601191fa82456458cf7f8517057f8b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1920
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7543091022966272124, guid: 97601191fa82456458cf7f8517057f8b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1080
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8611199213834385912, guid: 97601191fa82456458cf7f8517057f8b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8611199213834385912, guid: 97601191fa82456458cf7f8517057f8b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 97601191fa82456458cf7f8517057f8b, type: 3}
 --- !u!1 &1597969477068019204 stripped
 GameObject:
@@ -235,9 +240,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _root: {fileID: 5967196531167703370}
   _rootCanvas: {fileID: 8228413257816184804}
-  <StartsVisible>k__BackingField: 0
+  <StartsVisible>k__BackingField: 1
   _background: {fileID: 2772370311718441040}
-  _fadeDurationSeconds: 0.8
+  _fadeDurationSeconds: 0.6
   _fadeEase: 9
 --- !u!114 &2772370311718441040 stripped
 MonoBehaviour:

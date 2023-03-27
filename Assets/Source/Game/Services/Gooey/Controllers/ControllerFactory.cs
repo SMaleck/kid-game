@@ -34,8 +34,8 @@ namespace Game.Services.Gooey.Controllers
                 case "PlayerSelectScreenView":
                     return new PlayerSelectScreenController((PlayerSelectScreenView)view);
 
-                case "PauseScreenView":
-                    return new PauseScreenController((PauseScreenView)view);
+                case "PauseModalView":
+                    return new PauseModalController((PauseModalView)view);
 
                 case "LoadingScreenView":
                     return new LoadingScreenController((LoadingScreenView)view);

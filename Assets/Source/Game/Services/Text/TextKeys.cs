@@ -97,6 +97,12 @@ namespace Game.Services.Text
         Level3Name,
 
         /// <summary>
+        /// Great!
+        /// </summary>
+        [Text("Great!")]
+        LevelCompleteTitle,
+
+        /// <summary>
         /// Next
         /// </summary>
         [Text("Next")]

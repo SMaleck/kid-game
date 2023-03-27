@@ -125,3 +125,7 @@ MonoBehaviour:
     English: Welcome!
     German: Willkommen!
     Polish: Witaj!
+  - Key: LevelCompleteTitle
+    English: Great!
+    German: Super!
+    Polish: Super!
