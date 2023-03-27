@@ -779,7 +779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7161127909407880223, guid: e4498399211f76c4da2d198dee83ad06, type: 3}
       propertyPath: m_fontSize
-      value: 125
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 7161127909407880223, guid: e4498399211f76c4da2d198dee83ad06, type: 3}
       propertyPath: m_sharedMaterial
@@ -787,6 +787,22 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5d8bc819c4f9adc4ab5c413e159e71d8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4498399211f76c4da2d198dee83ad06, type: 3}
+--- !u!114 &2185186462896473119 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1113534571699605319, guid: e4498399211f76c4da2d198dee83ad06, type: 3}
+  m_PrefabInstance: {fileID: 1236033904896002904}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &6131951840908161843 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4917464584564537451, guid: e4498399211f76c4da2d198dee83ad06, type: 3}
+  m_PrefabInstance: {fileID: 1236033904896002904}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4361344681267747747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -904,7 +920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7161127909407880223, guid: bbce936670f0d054ca2c89ba3cce75b7, type: 3}
       propertyPath: m_fontSize
-      value: 485
+      value: 465
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbce936670f0d054ca2c89ba3cce75b7, type: 3}
@@ -1085,6 +1101,8 @@ MonoBehaviour:
   _root: {fileID: 5967196531167703370}
   _rootCanvas: {fileID: 8228413257816184804}
   <StartsVisible>k__BackingField: 0
+  <BackButtonParent>k__BackingField: {fileID: 6131951840908161843}
+  <BackButton>k__BackingField: {fileID: 2185186462896473119}
   <StartButton>k__BackingField: {fileID: 3743206154789278948}
   <UserNameInput>k__BackingField: {fileID: 3172936856853178185}
 --- !u!1 &5967196531167703370 stripped
