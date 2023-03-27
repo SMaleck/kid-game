@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5084878769775510095, guid: 920f4219300662749be75b83241fe3ca, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5084878769775510095, guid: 920f4219300662749be75b83241fe3ca, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 5d8bc819c4f9adc4ab5c413e159e71d8, type: 2}
     - target: {fileID: 6984871115341468135, guid: 920f4219300662749be75b83241fe3ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -93,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7047612613119249979, guid: 920f4219300662749be75b83241fe3ca, type: 3}
       propertyPath: m_Name
-      value: pf_button_icon_base
+      value: pf_button_icon_v_green
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 920f4219300662749be75b83241fe3ca, type: 3}

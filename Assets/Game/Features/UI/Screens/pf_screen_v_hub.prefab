@@ -1438,6 +1438,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4733528155391758983}
     m_Modifications:
+    - target: {fileID: 3200286966634448377, guid: e4498399211f76c4da2d198dee83ad06, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489132939914241453, guid: e4498399211f76c4da2d198dee83ad06, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4917464584564537451, guid: e4498399211f76c4da2d198dee83ad06, type: 3}
       propertyPath: m_Name
       value: pf_button_icon_v_red
@@ -1526,6 +1534,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7161127909407880223, guid: e4498399211f76c4da2d198dee83ad06, type: 3}
+      propertyPath: m_text
+      value: \uf30a
+      objectReference: {fileID: 0}
+    - target: {fileID: 7161127909407880223, guid: e4498399211f76c4da2d198dee83ad06, type: 3}
+      propertyPath: m_fontSize
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 7161127909407880223, guid: e4498399211f76c4da2d198dee83ad06, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 5d8bc819c4f9adc4ab5c413e159e71d8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4498399211f76c4da2d198dee83ad06, type: 3}
 --- !u!114 &7321384774023184178 stripped

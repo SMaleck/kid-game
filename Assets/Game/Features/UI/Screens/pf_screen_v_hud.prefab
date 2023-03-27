@@ -650,6 +650,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8088641814227720079}
     m_Modifications:
+    - target: {fileID: 121235958289379359, guid: e60e834277d14584180e86f5dfa350a0, type: 3}
+      propertyPath: m_fontSize
+      value: 62.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 723059672434914639, guid: e60e834277d14584180e86f5dfa350a0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1673234346809822624, guid: e60e834277d14584180e86f5dfa350a0, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 0
@@ -666,6 +674,18 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 2534270760594927311}
+    - target: {fileID: 6413793241530049789, guid: e60e834277d14584180e86f5dfa350a0, type: 3}
+      propertyPath: m_text
+      value: \uf04c
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413793241530049789, guid: e60e834277d14584180e86f5dfa350a0, type: 3}
+      propertyPath: m_fontSize
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413793241530049789, guid: e60e834277d14584180e86f5dfa350a0, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 5d8bc819c4f9adc4ab5c413e159e71d8, type: 2}
     - target: {fileID: 6482446227544210970, guid: e60e834277d14584180e86f5dfa350a0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -760,6 +780,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6482446227544210970, guid: e60e834277d14584180e86f5dfa350a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861933798200043375, guid: e60e834277d14584180e86f5dfa350a0, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
