@@ -32,11 +32,11 @@ MonoBehaviour:
   - Key: Continue
     English: Continue
     German: Weiter
-    Polish: 
+    Polish: "Pest\u0119p\xF3j"
   - Key: Start
     English: Start
     German: Start
-    Polish: 
+    Polish: Start
   - Key: Quit
     English: Quit
     German: Beenden
@@ -129,3 +129,16 @@ MonoBehaviour:
     English: Great!
     German: Super!
     Polish: Super!
+  - Key: Credits
+    English: Credits
+    German: Mitwirkende
+    Polish: "Za\u0142oga"
+  - Key: HowToPlay
+    English: How to Play
+    German: Spielanleitung
+    Polish: "Jak Gra\u0107"
+  - Key: OpenSourceNotice
+    English: This game is open source. You can find it on <color=#A52A2A><link source="githuburl">GitHub 
+      \uf35d</link></color>
+    German: 
+    Polish: 

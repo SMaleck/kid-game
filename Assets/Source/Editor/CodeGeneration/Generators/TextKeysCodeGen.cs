@@ -23,10 +23,11 @@ namespace Source.Editor.CodeGeneration.Generators
             for (var i = 0; i < locaTableRows.Length; i++)
             {
                 var row = locaTableRows[i];
+                var sanitizedEnglish = SanitizeForCode(row.English);
                 sb.AppendLine($"        /// <summary>");
-                sb.AppendLine($"        /// {row.English}");
+                sb.AppendLine($"        /// {sanitizedEnglish}");
                 sb.AppendLine($"        /// </summary>");
-                sb.AppendLine($"        [Text(\"{row.English}\")]");
+                sb.AppendLine($"        [Text(\"{sanitizedEnglish}\")]");
                 sb.AppendLine($"        {row.Key},");
                 sb.AppendLine();
             }
@@ -35,6 +36,11 @@ namespace Source.Editor.CodeGeneration.Generators
                 .Replace(CONTENT, sb.ToString());
 
             WriteAndRefresh(FilePath, template);
+        }
+
+        private static string SanitizeForCode(string text)
+        {
+            return text.Replace("\"", string.Empty);
         }
     }
 }

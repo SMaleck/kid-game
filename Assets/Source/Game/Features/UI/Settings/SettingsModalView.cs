@@ -1,4 +1,5 @@
 ﻿using Game.Services.Gooey.Views;
+using Game.Utility.Mono;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,5 +12,6 @@ namespace Game.Features.UI.Settings
         [field: SerializeField] public Button ENLangButton { get; private set; }
         [field: SerializeField] public Button DELangButton { get; private set; }
         [field: SerializeField] public Button PLLangButton { get; private set; }
+        [field: SerializeField] public TextClickHandler GitHubUrlText { get; private set; }
     }
 }

@@ -37,6 +37,12 @@ namespace Game.Services.Text
         CreatedAtStamp,
 
         /// <summary>
+        /// Credits
+        /// </summary>
+        [Text("Credits")]
+        Credits,
+
+        /// <summary>
         /// Kid Game
         /// </summary>
         [Text("Kid Game")]
@@ -47,6 +53,12 @@ namespace Game.Services.Text
         /// </summary>
         [Text("Hello, {0}!")]
         HelloPlayerName,
+
+        /// <summary>
+        /// How to Play
+        /// </summary>
+        [Text("How to Play")]
+        HowToPlay,
 
         /// <summary>
         /// Deutsch
@@ -119,6 +131,12 @@ namespace Game.Services.Text
         /// </summary>
         [Text("OK")]
         Ok,
+
+        /// <summary>
+        /// This game is open source. You can find it on <color=#A52A2A><link source=githuburl>GitHub  \uf35d</link></color>
+        /// </summary>
+        [Text("This game is open source. You can find it on <color=#A52A2A><link source=githuburl>GitHub  \uf35d</link></color>")]
+        OpenSourceNotice,
 
         /// <summary>
         /// Pause

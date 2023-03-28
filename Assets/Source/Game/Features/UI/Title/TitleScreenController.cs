@@ -36,6 +36,7 @@ namespace Game.Features.UI.Title
             View.QuitButton.onClick.AddListener(OnQuitClicked);
 
             EventBus.OnEvent<PlayerSavegameLoadedEvent>(_ => PlayerSavegameLoaded());
+            PlayerSavegameLoaded();
         }
 
         private void PlayerSavegameLoaded()
