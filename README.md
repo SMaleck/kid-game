@@ -3,6 +3,21 @@
 A simple auto-runner game made for small children. 
 Multiple levels of complexity are included for different ages.
 
+The little gnome running through the forrest is a scenario based on a polish lullaby my mother passed on to me from previous generations and I am now passing on to my son.\
+You can find the original song text as well as German and English translations [here](./Docs/SongText.md). I could not find many references to it anywhere, which would suggest it to be a very locally known lullaby. So in an unexpected way, this project turned from purely technical research into a bit of a preservation effort.
+
+I hope you and your children find some enjoyment with this game.
+
+## Credits
+- David Presa - Art & Animations
+
+## Resources Used
+- FontAwesome for all GUI icons
+- [html-color.codes](https://html-color.codes) for picking good looking colors, as I have a programmers eye for them :P
+- Unity UI Extensions
+- Json.NET
+
+----
 ## Goals
 This is mainly an experimental research-project, with several goals:
 
@@ -14,9 +29,6 @@ Additionally the idea was to grow the game with the child, as multiple levels of
 In my professional environment, I was working mainly with Zenject and UniRx, both of which fundamentally influence the architecture of the game.
 Attempting to learn Unreal with C++ proved difficult for me, as DI is simply non-existent, but my thought patterns were already shaped strongly with DI thinking. 
 Thus the idea to start a project with a "what-if" approach and eliminating DI and RX completely, in order to learn different approaches and the restrictions of C++ without the additional baggage of another engine and syntax.
-
-## Documentation
-Further docs can be found [here](./Docs).
 
 ----
 # Systems Created and Future Considerations
