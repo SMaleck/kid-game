@@ -22,7 +22,7 @@ I żyj spokojnie wśród swego ludku."
 I krasnoludek domek naprawił:\
 Komin, dach, okna, drywi nowe wstawił.\
 I już się nie bał złej zimy skutków,\
-Lecz żył spokojnie wśród swego ludku.
+Lecz żył spokojnie wśród krasnoludków.
 
 ## German Translation (Non-Professional)
 Im grünen Wald, tief im dichten Forst\

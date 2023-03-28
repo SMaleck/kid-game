@@ -1,5 +1,4 @@
-﻿using Game.Services.Scenes;
-using Game.Services.Scenes.Events;
+﻿using Game.Services.Scenes.Events;
 using Game.Static.Events;
 using Game.Static.Locators;
 
