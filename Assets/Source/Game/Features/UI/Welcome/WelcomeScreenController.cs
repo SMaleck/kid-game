@@ -2,7 +2,6 @@
 using Game.Services.Gooey.Controllers;
 using Game.Services.Scenes;
 using Game.Static.Locators;
-using Unity.VisualScripting.IonicZip;
 
 namespace Game.Features.UI.Welcome
 {
@@ -24,7 +23,7 @@ namespace Game.Features.UI.Welcome
 
             UpdateButtonState();
         }
-        
+
         private void OnStartClicked()
         {
             if (!IsUsernameValid()) return;
@@ -36,7 +35,7 @@ namespace Game.Features.UI.Welcome
 
             ServiceLocator.Get<SceneService>().ToHub();
         }
-        
+
         private void OnBackClicked()
         {
             Hide();

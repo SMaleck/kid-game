@@ -29,11 +29,13 @@ namespace Game.Services.Gooey.Controllers
                 Initialize();
                 _wasShownOnce = true;
             }
-
-            OnShow();
             
+            OnBeforeShow();
+
             onComplete ??= ObjectConst.DefaultAction;
             View.SetIsVisible(true, instant, onComplete);
+
+            OnAfterShow();
         }
         
         public void Hide(Action onComplete = null)
@@ -43,14 +45,19 @@ namespace Game.Services.Gooey.Controllers
 
         public void Hide(bool instant, Action onComplete = null)
         {
-            OnHide();
+            OnBeforeHide();
 
             onComplete ??= ObjectConst.DefaultAction;
             View.SetIsVisible(false, instant, onComplete);
+
+            OnAfterHide();
         }
         
         protected virtual void Initialize() { }
-        protected virtual void OnShow() { }
-        protected virtual void OnHide() { }
+        protected virtual void OnBeforeShow() { }
+        protected virtual void OnBeforeHide() { }
+
+        protected virtual void OnAfterShow() { }
+        protected virtual void OnAfterHide() { }
     }
 }

@@ -39,11 +39,20 @@ namespace Game.Features.UI.Title
             PlayerSavegameLoaded();
         }
 
+        protected override void OnAfterShow()
+        {
+            // If there is no player loaded, we immediately forward to the welcome screen
+            if (!_playerState.IsPlayerLoaded)
+            {
+                OpenWelcomeScreen();
+            }
+        }
+
         private void PlayerSavegameLoaded()
         {
             View.HelloText.text = _playerState.IsPlayerLoaded
-                ? TextService.Get(TextKeys.Welcome)
-                : TextService.Get(TextKeys.HelloPlayerName, _playerState.PlayerName);
+                ? TextService.Get(TextKeys.HelloPlayerName, _playerState.PlayerName)
+                : TextService.Get(TextKeys.Welcome);
 
         }
 
@@ -55,6 +64,11 @@ namespace Game.Features.UI.Title
                 return;
             }
 
+            OpenWelcomeScreen();
+        }
+
+        private void OpenWelcomeScreen()
+        {
             Hide();
             _guiService.TryShow<WelcomeScreenController>();
         }

@@ -9,7 +9,7 @@ namespace Game.Features.Player
         private SavegameFeature _savegameFeature;
 
         public bool IsPlayerLoaded => _savegameFeature.PlayerStorage != null;
-        public PlayerStateSavegame Savegame { get; private set; }
+        public PlayerStateSavegame Savegame => _savegameFeature.PlayerStorage.Savegame;
 
         public string Id => Savegame.MetadataSavegame.Id;
         public string PlayerName => Savegame.MetadataSavegame.PlayerName;
@@ -28,7 +28,7 @@ namespace Game.Features.Player
 
         public void Create(string playerName)
         {
-            FeatureLocator.Get<SavegameFeature>().CreatePlayer(playerName);
+            _savegameFeature.CreatePlayer(playerName);
         }
 
         public bool SwitchTo(string playerId)
@@ -38,11 +38,9 @@ namespace Game.Features.Player
 
         private bool TryLoad(string playerId)
         {
-            if (!string.IsNullOrWhiteSpace(playerId) &&
-                _savegameFeature.TryLoadPlayer(playerId))
+            if (!string.IsNullOrWhiteSpace(playerId))
             {
-                Savegame = _savegameFeature.PlayerStorage.Savegame;
-                return true;
+                return _savegameFeature.TryLoadPlayer(playerId);
             }
 
             return false;
