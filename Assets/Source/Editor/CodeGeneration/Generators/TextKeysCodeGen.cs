@@ -49,7 +49,7 @@ namespace Source.Editor.CodeGeneration.Generators
                 .Replace("\n", string.Empty)
                 .Replace("\r", string.Empty);
 
-            var substringLength = Math.Min(cleaned.Length, 100);
+            var substringLength = Math.Min(cleaned.Length, MaxLength);
             return cleaned.Substring(0, substringLength);
         }
     }
