@@ -1,16 +1,16 @@
 ## Original Song Text in Polish
-W zielonym lesie, w głebokim borze\
-Śiedział krasnalek na muchomorze.\
+W zielonym lesie, w głębokim borze\
+Siedział krasnalek na muchomorze.\
 Wiatr borem niesie, odgłos daleki\
 Krasnalek wbija ogromne ćwieki.
 
-Budżi się sowa, i pyyta "Kto tu,\
+Budzi się sowa, i pyta "Kto tu,\
 narobił w lesie tyle łomotu?"\
-I rozgniewana, cyem prędziej leci,\
-"Proszę nie stukać, spią moje dzieci!"
+I rozgniewana, czem prędzej leci,\
+"Proszę nie stukać, śpią moje dzieci!"
 
-"Oj, pani sowo, cuż biedny zrobię?\
-Domek zepsuty naprawiam sobię.\
+"Oj, pani sowo, cóż biedny zrobię?\
+Domek zepsuty naprawiam sobie.\
 Gdy się rozleci domek malutki,\
 gdzie się podzieją me krasnoludki?"
 
@@ -20,7 +20,7 @@ Krasnoludkowi pukać kazała.\
 I żyj spokojnie wśród swego ludku."
 
 I krasnoludek domek naprawił:\
-Komin, dach, okna, drywi nowe wstawił.\
+Komin, dach, okna, drzwi nowe wstawił.\
 I już się nie bał złej zimy skutków,\
 Lecz żył spokojnie wśród krasnoludków.
 
@@ -37,7 +37,7 @@ So erzürnt fliegt sie geschwind\
 
 "Oh Frau Eule, was solch ich nur tun?\
 Ich repariere mein kaputtes Haus.\
-Wenn mein kleines Häuschen zuerfällt,\
+Wenn mein kleines Häuschen zerfällt,\
 wo werden dann meine Gnome leben?"
 
 Und die Eule erbarmte sich\
@@ -57,7 +57,7 @@ Through the woods the wind carries a distant sound,\
 The gnome drives in enormous nails
 
 The owl awakes and asks "Who here\
-In the forrest makes such a racket?"\
+In the forest makes such a racket?"\
 So enraged she swiftly flies,\
 "Please stop hammering, my children are sleeping!"
 
