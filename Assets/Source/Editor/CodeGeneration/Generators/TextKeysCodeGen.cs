@@ -1,5 +1,6 @@
-﻿using System.Linq;
-using Game.Data.Tables;
+﻿using Game.Data.Tables;
+using System;
+using System.Linq;
 using System.Text;
 using UnityEditor;
 
@@ -11,6 +12,8 @@ namespace Source.Editor.CodeGeneration.Generators
         private static readonly string TemplateName = "TextKeys";
         private static readonly string FilePath = $"{SourceRoot}Game{DirSep}Services{DirSep}Text{DirSep}TextKeys.cs";
         private static readonly string LocalizationAssetPath = @"Assets/Game/Data/Imports/Localization.asset";
+
+        private const int MaxLength = 100;
 
         [MenuItem(CodeGenConstants.CodeGenMenu + "TextKeys")]
         public static void Generate()
@@ -40,7 +43,14 @@ namespace Source.Editor.CodeGeneration.Generators
 
         private static string SanitizeForCode(string text)
         {
-            return text.Replace("\"", string.Empty);
+            var cleaned = text
+                .Trim()
+                .Replace("\"", string.Empty)
+                .Replace("\n", string.Empty)
+                .Replace("\r", string.Empty);
+
+            var substringLength = Math.Min(cleaned.Length, 100);
+            return cleaned.Substring(0, substringLength);
         }
     }
 }

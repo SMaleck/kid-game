@@ -7,6 +7,7 @@ using Game.Features.UI.Title;
 using Game.Features.UI.Settings;
 using Game.Features.UI.PlayerSelect;
 using Game.Features.UI.Pause;
+using Game.Features.UI.Lore;
 using Game.Features.UI.Loading;
 using Game.Features.UI.Hud;
 using Game.Features.UI.HubWorld;
@@ -36,6 +37,9 @@ namespace Game.Services.Gooey.Controllers
 
                 case "PauseModalView":
                     return new PauseModalController((PauseModalView)view);
+
+                case "LoreScreenView":
+                    return new LoreScreenController((LoreScreenView)view);
 
                 case "LoadingScreenView":
                     return new LoadingScreenController((LoadingScreenView)view);

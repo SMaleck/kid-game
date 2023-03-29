@@ -115,6 +115,12 @@ namespace Game.Services.Text
         LevelCompleteTitle,
 
         /// <summary>
+        /// 
+        /// </summary>
+        [Text("")]
+        LoreDescription,
+
+        /// <summary>
         /// Next
         /// </summary>
         [Text("Next")]
@@ -133,9 +139,9 @@ namespace Game.Services.Text
         Ok,
 
         /// <summary>
-        /// This game is open source. You can find it on <color=#A52A2A><link source=githuburl>GitHub  \uf35d</link></color>
+        /// This game is open source. You can find it on <color=#A52A2A><link source=githuburl>GitHub  \uf35d</l
         /// </summary>
-        [Text("This game is open source. You can find it on <color=#A52A2A><link source=githuburl>GitHub  \uf35d</link></color>")]
+        [Text("This game is open source. You can find it on <color=#A52A2A><link source=githuburl>GitHub  \uf35d</l")]
         OpenSourceNotice,
 
         /// <summary>
@@ -173,6 +179,12 @@ namespace Game.Services.Text
         /// </summary>
         [Text("Settings")]
         Settings,
+
+        /// <summary>
+        /// In the green forest, in the deep woodsThere sat a gnome on a toadstool.Through the woods the wind ca
+        /// </summary>
+        [Text("In the green forest, in the deep woodsThere sat a gnome on a toadstool.Through the woods the wind ca")]
+        SongLyrics,
 
         /// <summary>
         /// Start

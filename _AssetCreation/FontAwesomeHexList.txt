@@ -10,5 +10,6 @@ USER-GROUP: f500
 PLUS: 2b
 GEAR: f013,
 UP-RIGHT-FROM-SQUARE: f35d
+BOOK: f02d
 
-f04b,f2f9,f30a,f30b,f011,f00d,f04c,e4e1,f500,2b,f013,f35d
+f04b,f2f9,f30a,f30b,f011,f00d,f04c,e4e1,f500,2b,f013,f35d,f02d

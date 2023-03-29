@@ -11,6 +11,7 @@ namespace Game.Features.UI.Title
         [field: SerializeField] public Button StartButton { get; private set; }
         [field: SerializeField] public Button SelectPlayerButton { get; private set; }
         [field: SerializeField] public Button SettingsButton { get; private set; }
+        [field: SerializeField] public Button LoreButton { get; private set; }
         [field: SerializeField] public Button QuitButton { get; private set; }
     }
 }

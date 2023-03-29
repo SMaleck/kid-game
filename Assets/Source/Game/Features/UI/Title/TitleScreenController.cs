@@ -1,5 +1,6 @@
 ﻿using Game.Features.Player;
 using Game.Features.Savegames.Events;
+using Game.Features.UI.Lore;
 using Game.Features.UI.PlayerSelect;
 using Game.Features.UI.Settings;
 using Game.Features.UI.Welcome;
@@ -31,8 +32,9 @@ namespace Game.Features.UI.Title
             _guiService = ServiceLocator.Get<GuiServiceProxy>();
 
             View.StartButton.onClick.AddListener(OnStartClicked);
-            View.SelectPlayerButton.onClick.AddListener(OnSelectPlayerClicked);
-            View.SettingsButton.onClick.AddListener(OnSettingsClicked);
+            View.SelectPlayerButton.onClick.AddListener(GoToGui<PlayerSelectScreenController>);
+            View.SettingsButton.onClick.AddListener(GoToGui<SettingsModalController>);
+            View.LoreButton.onClick.AddListener(GoToGui<LoreScreenController>);
             View.QuitButton.onClick.AddListener(OnQuitClicked);
 
             EventBus.OnEvent<PlayerSavegameLoadedEvent>(_ => PlayerSavegameLoaded());
@@ -72,15 +74,10 @@ namespace Game.Features.UI.Title
             Hide();
             _guiService.TryShow<WelcomeScreenController>();
         }
-
-        private void OnSelectPlayerClicked()
+        
+        private void GoToGui<T>() where T: IGui
         {
-            _guiService.TryShow<PlayerSelectScreenController>();
-        }
-
-        private void OnSettingsClicked()
-        {
-            _guiService.TryShow<SettingsModalController>();
+            _guiService.TryShow(typeof(T));
         }
 
         private void OnQuitClicked()
