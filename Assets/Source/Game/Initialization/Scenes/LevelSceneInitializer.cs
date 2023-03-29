@@ -2,6 +2,7 @@
 using Game.Features.EntityBehaviours;
 using Game.Features.GameWorld.PlayerInput;
 using Game.Features.GameWorld.PlayerInput.Sources;
+using Game.Features.Player;
 using Game.Services.ClientInfo;
 using Game.Static.Locators;
 
@@ -16,6 +17,7 @@ namespace Game.Initialization.Scenes
 
             RegisterFeature<PlayerInputFeature>(new PlayerInputFeature());
             RegisterFeature<KeyboardInputSource>(new KeyboardInputSource());
+            RegisterFeature<PlayStatsFeature>(new PlayStatsFeature());
 
             if (ServiceLocator.Get<ClientInfoService>().IsDebug)
             {

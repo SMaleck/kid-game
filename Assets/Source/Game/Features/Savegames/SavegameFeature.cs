@@ -33,16 +33,28 @@ namespace Game.Features.Savegames
         public void SaveAll()
         {
             // Update Player MetaData in global savegame first
-            var i = GlobalStorage.Savegame.PlayerSavegames
-                .IndexOf(PlayerStorage.Savegame.MetadataSavegame);
-
-            if (i >= 0 && i < GlobalStorage.Savegame.PlayerSavegames.Count) 
-            {
-                GlobalStorage.Savegame.PlayerSavegames[i] = PlayerStorage.Savegame.MetadataSavegame;
-            }
+            SyncPlayerMetadateSavegame();
             
             GlobalStorage.Save();
             PlayerStorage.Save();
+        }
+
+        private void SyncPlayerMetadateSavegame()
+        {
+            if (PlayerStorage?.Savegame == null)
+            {
+                return;
+            }
+
+            for (var i = 0; i < GlobalStorage.Savegame.PlayerSavegames.Count; i++)
+            {
+                var playerMetaSavegame = GlobalStorage.Savegame.PlayerSavegames[i];
+                if (playerMetaSavegame.Id == PlayerStorage.Savegame.MetadataSavegame.Id)
+                {
+                    GlobalStorage.Savegame.PlayerSavegames[i] = PlayerStorage.Savegame.MetadataSavegame;
+                    return;
+                }
+            }
         }
 
         public bool TryLoadPlayer(string id)
