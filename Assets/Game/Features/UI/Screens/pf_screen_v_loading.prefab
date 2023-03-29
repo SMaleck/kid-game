@@ -193,6 +193,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7229386161866541167, guid: 97601191fa82456458cf7f8517057f8b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7543091022966272124, guid: 97601191fa82456458cf7f8517057f8b, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -241,8 +245,10 @@ MonoBehaviour:
   _root: {fileID: 5967196531167703370}
   _rootCanvas: {fileID: 8228413257816184804}
   <StartsVisible>k__BackingField: 1
+  _inputBlocker: {fileID: 6663883370804166196}
   _background: {fileID: 2772370311718441040}
   _fadeDurationSeconds: 0.6
+  _inputBlockEarlyDisableFactor: 0.3
   _fadeEase: 9
 --- !u!114 &2772370311718441040 stripped
 MonoBehaviour:
