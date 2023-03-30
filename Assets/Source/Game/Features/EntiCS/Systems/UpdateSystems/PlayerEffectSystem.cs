@@ -1,9 +1,8 @@
 ﻿using EntiCS.Entities;
 using Game.Features.EntiCS.Components;
+using Game.Features.EntiCS.Components.Tags;
 using Game.Features.EntiCS.Systems.BaseSystems;
 using System;
-using Game.Features.EntiCS.Components.Tags;
-using UnityEngine;
 
 namespace Game.Features.EntiCS.Systems.UpdateSystems
 {
