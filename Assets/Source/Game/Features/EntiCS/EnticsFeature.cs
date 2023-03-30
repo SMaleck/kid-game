@@ -4,6 +4,7 @@ using EntiCS.Systems;
 using EntiCS.World;
 using EntiCS.WorldManagement;
 using Game.Features.EntiCS.Systems.FixedSystems;
+using Game.Features.EntiCS.Systems.UpdateSystems;
 using Game.Features.Ticking;
 using Game.Static.Locators;
 
@@ -23,7 +24,8 @@ namespace Game.Features.EntiCS
             {
                 new MovementSystem(),
                 new RunStatsSystem(),
-                new JumpSystem()
+                new JumpSystem(),
+                new PlayerEffectSystem()
             });
         }
 

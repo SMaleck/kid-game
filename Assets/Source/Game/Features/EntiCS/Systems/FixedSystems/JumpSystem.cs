@@ -17,6 +17,8 @@ namespace Game.Features.EntiCS.Systems.FixedSystems
         protected override void UpdateEntity(float elapsedSeconds, IEntity entity)
         {
             var jumping = entity.Get<JumpComponent>();
+            jumping.LastIsJumping = jumping.IsJumping;
+
             if (!jumping.HasJumpIntent && !jumping.IsJumping)
             {
                 return;

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4357753760171801499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5468227412879780899}
+  m_Layer: 0
+  m_Name: ps_slot_jump_apex
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5468227412879780899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357753760171801499}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.52, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4607979638702736848}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4607979638078536364
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +127,8 @@ Transform:
   m_Children:
   - {fileID: 4607979639339458110}
   - {fileID: 8457261560829525735}
-  - {fileID: 7447321475679071641}
+  - {fileID: 5468227412879780899}
+  - {fileID: 2166007694652355283}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -119,6 +151,7 @@ MonoBehaviour:
   - rid: 2638963771659517954
   - rid: 2945994445181943809
   - rid: 2945994445181943810
+  - rid: 8962268382066638848
   references:
     version: 2
     RefIds:
@@ -152,6 +185,14 @@ MonoBehaviour:
       type: {class: LifecycleComponent, ns: Game.Features.EntiCS.Components, asm: Source.Game}
       data:
         <IsAlive>k__BackingField: 1
+    - rid: 8962268382066638848
+      type: {class: PlayerEffectComponent, ns: Game.Features.EntiCS.Components, asm: Source.Game}
+      data:
+        _name: PlayerEffectComponent
+        <JumpApexPS>k__BackingField: {fileID: 3019607235087567669, guid: 7f4cc0834d0c89345883d5ec824148fd, type: 3}
+        <JumpApexSlot>k__BackingField: {fileID: 5468227412879780899}
+        <DustPS>k__BackingField: {fileID: 3019607235087567669, guid: 8279e4c2441c52541b07ae9e85f288b7, type: 3}
+        <DustSlot>k__BackingField: {fileID: 2166007694652355283}
 --- !u!114 &4607979638702736849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,68 +249,37 @@ Transform:
   m_Father: {fileID: 4607979638702736848}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &4378272606196735633
-PrefabInstance:
+--- !u!1 &6738623463304555294
+GameObject:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 4607979638702736848}
-    m_Modifications:
-    - target: {fileID: 6600180080298898184, guid: 7f4cc0834d0c89345883d5ec824148fd, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6600180080298898184, guid: 7f4cc0834d0c89345883d5ec824148fd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6600180080298898184, guid: 7f4cc0834d0c89345883d5ec824148fd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6600180080298898184, guid: 7f4cc0834d0c89345883d5ec824148fd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6600180080298898184, guid: 7f4cc0834d0c89345883d5ec824148fd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 6600180080298898184, guid: 7f4cc0834d0c89345883d5ec824148fd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6600180080298898184, guid: 7f4cc0834d0c89345883d5ec824148fd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 6600180080298898184, guid: 7f4cc0834d0c89345883d5ec824148fd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6600180080298898184, guid: 7f4cc0834d0c89345883d5ec824148fd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6600180080298898184, guid: 7f4cc0834d0c89345883d5ec824148fd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6600180080298898184, guid: 7f4cc0834d0c89345883d5ec824148fd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6609415933189710553, guid: 7f4cc0834d0c89345883d5ec824148fd, type: 3}
-      propertyPath: m_Name
-      value: pf_ps_jump
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7f4cc0834d0c89345883d5ec824148fd, type: 3}
---- !u!4 &7447321475679071641 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6600180080298898184, guid: 7f4cc0834d0c89345883d5ec824148fd, type: 3}
-  m_PrefabInstance: {fileID: 4378272606196735633}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2166007694652355283}
+  m_Layer: 0
+  m_Name: ps_slot_jump_dust
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2166007694652355283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6738623463304555294}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4607979638702736848}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8274383455349004556
 PrefabInstance:
   m_ObjectHideFlags: 0

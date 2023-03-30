@@ -10,11 +10,13 @@ namespace Game.Features.EntiCS.Components
         [field: SerializeField] public float JumpSpeedFactor { get; set; } = 1f;
 
         public bool HasJumpIntent { get; set; }
-        public bool IsJumping { get; set; }
         public float StartY { get; set; }
         public float JumpSpeed { get; set; }
         public float ElapsedSeconds { get; set; }
-        
+
+        public bool IsJumping { get; set; }
+        public bool LastIsJumping { get; set; }
+
         public void ResetState()
         {
             HasJumpIntent = default;
