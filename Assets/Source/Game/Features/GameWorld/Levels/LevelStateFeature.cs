@@ -1,10 +1,10 @@
 ﻿using EntiCS.Ticking;
 using Game.Features.GameWorld.Levels.ProgressStrategies;
 using Game.Features.Ticking;
+using Game.Features.UI.Completion;
 using Game.Services.Gooey;
 using Game.Static.Locators;
 using System;
-using Game.Features.UI.Completion;
 using UnityEngine;
 
 namespace Game.Features.GameWorld.Levels
@@ -12,6 +12,8 @@ namespace Game.Features.GameWorld.Levels
     public class LevelStateFeature : MonoFeature, IUpdateable
     {
         [SerializeField] private LevelProgressStrategy _progressStrategy;
+        [SerializeField] private LevelStartArea _levelStartArea;
+        [SerializeField] private LevelEndArea _levelEndArea;
 
         private ITicker _ticker;
 
@@ -29,7 +31,8 @@ namespace Game.Features.GameWorld.Levels
             _ticker.SetIsPaused(false);
             _ticker.AddFixedUpdate(this);
 
-            _progressStrategy.OnStart();
+            _levelStartArea.OnComplete += () => _progressStrategy.OnStart();
+            _levelStartArea.RunScript();
         }
 
         void IUpdateable.Update(float elapsedSeconds)
@@ -44,11 +47,18 @@ namespace Game.Features.GameWorld.Levels
 
         private void EndStrategy()
         {
-            _ticker.SetIsPaused(true);
             _ticker.RemoveFixedUpdate(this);
 
             _progressStrategy.OnEnd();
             OnComplete?.Invoke();
+
+            _levelEndArea.OnComplete += EndLevel;
+            _levelEndArea.RunScript();
+        }
+
+        private void EndLevel()
+        {
+            _ticker.SetIsPaused(true);
 
             ServiceLocator.Get<GuiServiceProxy>()
                 .TryShow<LevelCompletionModalController>();

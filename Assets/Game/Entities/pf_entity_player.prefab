@@ -164,7 +164,7 @@ MonoBehaviour:
       type: {class: MovementComponent, ns: Game.Features.EntiCS.Components, asm: Source.Game}
       data:
         _name: MovementComponent
-        <MoveIntent>k__BackingField: {x: 1, y: 0, z: 0}
+        <MoveIntent>k__BackingField: {x: 0, y: 0, z: 0}
         <TurnIntent>k__BackingField: {x: 0, y: 0, z: 0}
         <Speed>k__BackingField: 2
     - rid: 2638963771659517954

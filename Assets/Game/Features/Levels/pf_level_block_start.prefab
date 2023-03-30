@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4800703543549605201}
+  - component: {fileID: 5720695145269258715}
   m_Layer: 0
   m_Name: pf_level_block_start
   m_TagString: Untagged
@@ -73,6 +74,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5720695145269258715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7856963905351836197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f49552ab8f7257041a0467351cfcfb0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialDelaySeconds: 1.5
 --- !u!1001 &50227090677556650
 PrefabInstance:
   m_ObjectHideFlags: 0
