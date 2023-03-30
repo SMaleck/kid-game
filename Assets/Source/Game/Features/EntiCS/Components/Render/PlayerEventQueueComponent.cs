@@ -1,8 +1,8 @@
-﻿using EntiCS.Entities.Components;
+﻿using System.Collections.Generic;
+using EntiCS.Entities.Components;
 using Game.Features.EntiCS.Utility;
-using System.Collections.Generic;
 
-namespace Game.Features.EntiCS.Components
+namespace Game.Features.EntiCS.Components.Render
 {
     // ToDo Is this component still needed?
     public enum PlayerEffectType

@@ -3,21 +3,23 @@ using Game.Features.EntiCS.Components;
 using Game.Features.EntiCS.Components.Tags;
 using Game.Features.EntiCS.Systems.BaseSystems;
 using System;
+using Game.Features.EntiCS.Components.Render;
 
-namespace Game.Features.EntiCS.Systems.UpdateSystems
+namespace Game.Features.EntiCS.Systems.RenderSystems
 {
-    public class PlayerEffectSystem : PerEntitySystem
+    public class PlayerEffectRenderSystem : PerEntitySystem
     {
         public override Type[] Filter { get; } = new[]
         {
             typeof(PlayerTagComponent),
-            typeof(PlayerEffectComponent),
+            typeof(PlayerEffectRenderComponent),
+            typeof(JumpComponent)
         };
 
         protected override void UpdateEntity(float elapsedSeconds, IEntity entity)
         {
             var jumping = entity.Get<JumpComponent>();
-            var effects = entity.Get<PlayerEffectComponent>();
+            var effects = entity.Get<PlayerEffectRenderComponent>();
             if (jumping.LastIsJumping != jumping.IsJumping)
             {
                 effects.PlayDust();

@@ -152,6 +152,7 @@ MonoBehaviour:
   - rid: 2945994445181943809
   - rid: 2945994445181943810
   - rid: 8962268382066638848
+  - rid: 8962268382066638849
   references:
     version: 2
     RefIds:
@@ -186,13 +187,18 @@ MonoBehaviour:
       data:
         <IsAlive>k__BackingField: 1
     - rid: 8962268382066638848
-      type: {class: PlayerEffectComponent, ns: Game.Features.EntiCS.Components, asm: Source.Game}
+      type: {class: PlayerEffectRenderComponent, ns: Game.Features.EntiCS.Components.Render, asm: Source.Game}
       data:
-        _name: PlayerEffectComponent
+        _name: PlayerEffectRenderComponent
         <JumpApexPS>k__BackingField: {fileID: 3019607235087567669, guid: 7f4cc0834d0c89345883d5ec824148fd, type: 3}
         <JumpApexSlot>k__BackingField: {fileID: 5468227412879780899}
         <DustPS>k__BackingField: {fileID: 3019607235087567669, guid: 8279e4c2441c52541b07ae9e85f288b7, type: 3}
         <DustSlot>k__BackingField: {fileID: 2166007694652355283}
+    - rid: 8962268382066638849
+      type: {class: PlayerAnimationRenderComponent, ns: Game.Features.EntiCS.Components.Render, asm: Source.Game}
+      data:
+        _name: PlayerAnimationRenderComponent
+        _animator: {fileID: 2839276822823571147}
 --- !u!114 &4607979638702736849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,6 +343,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87d21ff826f74bd4fb9eb3855042c8d7, type: 3}
+--- !u!95 &2839276822823571147 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4481818122731909337, guid: 87d21ff826f74bd4fb9eb3855042c8d7, type: 3}
+  m_PrefabInstance: {fileID: 1825575146571824658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3986624270482262225 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3316596881034458819, guid: 87d21ff826f74bd4fb9eb3855042c8d7, type: 3}

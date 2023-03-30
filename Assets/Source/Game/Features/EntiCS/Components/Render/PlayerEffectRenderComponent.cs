@@ -2,9 +2,9 @@
 using Game.Features.EntiCS.Utility;
 using UnityEngine;
 
-namespace Game.Features.EntiCS.Components
+namespace Game.Features.EntiCS.Components.Render
 {
-    public class PlayerEffectComponent : EntityComponent
+    public class PlayerEffectRenderComponent : EntityComponent
     {
         [field: SerializeField] public ParticleSystem JumpApexPS { get; set; }
         [field: SerializeField] public Transform JumpApexSlot { get; set; }
