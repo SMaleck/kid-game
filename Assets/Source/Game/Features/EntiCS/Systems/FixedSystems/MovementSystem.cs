@@ -18,8 +18,10 @@ namespace Game.Features.EntiCS.Systems.FixedSystems
             var transform = entity.Get<TransformComponent>();
             var movement = entity.Get<MovementComponent>();
 
-            transform.Transform.position += movement.MoveIntent * 
-                                            movement.Speed * 
+            movement.Speed = movement.HasMoveIntent ? movement.MaxSpeed : 0f;
+
+            transform.Transform.position += movement.MoveIntent *
+                                            movement.Speed *
                                             (float)elapsedSeconds;
         }
     }

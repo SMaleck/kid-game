@@ -127,8 +127,8 @@ MonoBehaviour:
     Polish: Witaj!
   - Key: LevelCompleteTitle
     English: Great!
-    German: Super!
-    Polish: Super!
+    German: "Gro\xDFartig!"
+    Polish: "\u015Awietnie!"
   - Key: Credits
     English: Credits
     German: Mitwirkende

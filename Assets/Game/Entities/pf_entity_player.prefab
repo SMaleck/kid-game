@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 4607979638078536365}
   - component: {fileID: 4607979638078536367}
   - component: {fileID: 4607979638078536366}
+  - component: {fileID: 133666220454733179}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -94,6 +95,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &133666220454733179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4607979638078536364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 037d550a31a8050458b3a280a79bb82e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entity: {fileID: 4607979638702736850}
 --- !u!1 &4607979638702736863
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +180,7 @@ MonoBehaviour:
         _name: MovementComponent
         <MoveIntent>k__BackingField: {x: 0, y: 0, z: 0}
         <TurnIntent>k__BackingField: {x: 0, y: 0, z: 0}
-        <Speed>k__BackingField: 2
+        <MaxSpeed>k__BackingField: 2.5
     - rid: 2638963771659517954
       type: {class: RunStatsComponent, ns: Game.Features.EntiCS.Components, asm: Source.Game}
       data:

@@ -8,12 +8,12 @@ namespace Game.Features.EntiCS.Components.Render
     {
         private static class Hashes
         {
-            public static int EndWin = Animator.StringToHash("EndWin");
-            public static int EndLost = Animator.StringToHash("EndLost");
-            public static int Velocity = Animator.StringToHash("Velocity");
-            public static int Hammer = Animator.StringToHash("Hammer");
-            public static int Die = Animator.StringToHash("Die");
-            public static int Jump = Animator.StringToHash("Jump");
+            public static int EndWin = Animator.StringToHash("EndWin"); // BOOL
+            public static int EndLost = Animator.StringToHash("EndLost"); // BOOL
+            public static int Velocity = Animator.StringToHash("Velocity"); // INT
+            public static int Hammer = Animator.StringToHash("Hammer"); // INT
+            public static int Die = Animator.StringToHash("Die"); // BOOL
+            public static int Jump = Animator.StringToHash("Jump"); // BOOL
         }
 
         [SerializeField] private Animator _animator;

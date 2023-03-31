@@ -3,6 +3,8 @@ using Game.Features.GameWorld.Levels.ProgressStrategies;
 using Game.Features.Ticking;
 using Game.Features.UI.Completion;
 using Game.Services.Gooey;
+using Game.Static.Events;
+using Game.Static.Events.Dtos;
 using Game.Static.Locators;
 using System;
 using UnityEngine;
@@ -33,20 +35,18 @@ namespace Game.Features.GameWorld.Levels
 
             _levelStartArea.OnComplete += () => _progressStrategy.OnStart();
             _levelStartArea.RunScript();
+
+            EventBus.OnEvent<PlayerTouchedLevelEndEvent>(EndStrategy);
         }
 
         void IUpdateable.Update(float elapsedSeconds)
         {
             _progressStrategy.OnUpdate(elapsedSeconds);
-
-            if (IsComplete)
-            {
-                EndStrategy();
-            }
         }
 
-        private void EndStrategy()
+        private void EndStrategy(object eventArgs)
         {
+            EventBus.Unsubscribe(EndStrategy);
             _ticker.RemoveFixedUpdate(this);
 
             _progressStrategy.OnEnd();
