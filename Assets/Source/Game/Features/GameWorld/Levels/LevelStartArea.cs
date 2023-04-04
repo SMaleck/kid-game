@@ -31,7 +31,6 @@ namespace Game.Features.GameWorld.Levels
         public void RunScript()
         {
             _sceneTicker.AddUpdate(_updateProxy);
-            OnComplete?.Invoke();
         }
 
         private void OnUpdate(float elapsedSeconds)
@@ -42,18 +41,10 @@ namespace Game.Features.GameWorld.Levels
                 return;
             }
 
-            if (IsComplete())
-            {
-                _player.Get<MovementComponent>().MoveIntent = Vector3.right;
+            _player.Get<MovementComponent>().MoveIntent = Vector3.right;
 
-                _sceneTicker.RemoveUpdate(_updateProxy);
-                OnComplete?.Invoke();
-            }
-        }
-
-        private bool IsComplete()
-        {
-            return true;
+            _sceneTicker.RemoveUpdate(_updateProxy);
+            OnComplete?.Invoke();
         }
     }
 }

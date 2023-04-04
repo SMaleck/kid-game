@@ -24,16 +24,19 @@ namespace Game.Features.GameWorld.Levels
         public float Progress => _progressStrategy.Progress;
         public float RelativeProgress => _progressStrategy.RelativeProgress;
         public bool IsComplete => _progressStrategy.IsComplete;
+        public LevelState State { get; private set; }
 
         public Action OnComplete { get; set; }
 
         public override void OnStart()
         {
+            State = LevelState.Intro;
+
             _ticker = FeatureLocator.Get<TickerFeature>().SceneTicker;
             _ticker.SetIsPaused(false);
             _ticker.AddFixedUpdate(this);
 
-            _levelStartArea.OnComplete += () => _progressStrategy.OnStart();
+            _levelStartArea.OnComplete += StartLevel;
             _levelStartArea.RunScript();
 
             EventBus.OnEvent<PlayerTouchedLevelEndEvent>(EndStrategy);
@@ -46,6 +49,8 @@ namespace Game.Features.GameWorld.Levels
 
         private void EndStrategy(object eventArgs)
         {
+            State = LevelState.Outro;
+
             EventBus.Unsubscribe(EndStrategy);
             _ticker.RemoveFixedUpdate(this);
 
@@ -56,8 +61,17 @@ namespace Game.Features.GameWorld.Levels
             _levelEndArea.RunScript();
         }
 
+        private void StartLevel()
+        {
+            State = LevelState.Running;
+
+            _levelStartArea.OnComplete -= StartLevel;
+            _progressStrategy.OnStart();
+        }
+
         private void EndLevel()
         {
+            _levelEndArea.OnComplete -= EndLevel;
             _ticker.SetIsPaused(true);
 
             ServiceLocator.Get<GuiServiceProxy>()

@@ -1,5 +1,6 @@
 ﻿using EntiCS.Entities;
 using Game.Features.EntiCS.Components;
+using Game.Features.GameWorld.Levels;
 using Game.Features.GameWorld.Player;
 using Game.Features.Ticking;
 using Game.Features.UI.Pause;
@@ -10,12 +11,14 @@ namespace Game.Features.GameWorld.PlayerInput
 {
     public class PlayerInputFeature : Feature
     {
+        private LevelStateFeature _levelStateFeature;
         private TickerFeature _tickerFeature;
         private IEntity _player;
         private JumpComponent _jumpComponent;
 
         public override void OnStart()
         {
+            _levelStateFeature = FeatureLocator.Get<LevelStateFeature>();
             _tickerFeature = FeatureLocator.Get<TickerFeature>();
             _player = FeatureLocator.Get<PlayerEntityFeature>().Entity;
             _jumpComponent = _player.Get<JumpComponent>();
@@ -37,6 +40,8 @@ namespace Game.Features.GameWorld.PlayerInput
 
         private void OnJump()
         {
+            if (_levelStateFeature.State != LevelState.Running) return;
+
             if (!_jumpComponent.IsJumping)
             {
                 _jumpComponent.HasJumpIntent = true;
@@ -45,7 +50,7 @@ namespace Game.Features.GameWorld.PlayerInput
 
         private void OnRoll()
         {
-
+            if (_levelStateFeature.State != LevelState.Running) return;
         }
 
         private void OnPauseGame()
