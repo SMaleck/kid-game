@@ -23,11 +23,7 @@ namespace Game.Features.EntiCS.Systems.RenderSystems
             var movement = entity.Get<MovementComponent>();
             var animation = entity.Get<PlayerAnimationRenderComponent>();
 
-            if (!jumping.LastIsJumping && jumping.IsJumping)
-            {
-                animation.Jump();
-            }
-
+            animation.Jump = jumping.IsJumping;
             animation.Velocity = (int)movement.Speed;
         }
     }

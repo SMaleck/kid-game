@@ -22,11 +22,7 @@ namespace Game.Features.EntiCS.Components.Render
 
         public int Velocity { set => _animator.SetInteger(Hashes.Velocity, value.Clamp(0, 2)); }
         public int Hammer { set => SetHammer(value); }
-
-        public void Jump()
-        {
-            _animator.SetBool(Hashes.Jump, true);
-        }
+        public bool Jump { set => _animator.SetBool(Hashes.Jump, value); }
 
         public void Win()
         {
@@ -47,11 +43,11 @@ namespace Game.Features.EntiCS.Components.Render
         {
             Velocity = 0;
             Hammer = 0;
+            Jump = false;
 
             _animator.SetBool(Hashes.EndWin, false);
             _animator.SetBool(Hashes.EndLost, false);
             _animator.SetBool(Hashes.Die, false);
-            _animator.SetBool(Hashes.Jump, false);
         }
 
         private void SetHammer(int value)

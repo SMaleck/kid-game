@@ -20,5 +20,10 @@ namespace Game.Features.EntiCS.Components.Render
         {
             Queue.Clear();
         }
+
+        public void Clean()
+        {
+            ResetState();
+        }
     }
 }
