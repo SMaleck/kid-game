@@ -15,6 +15,7 @@ namespace Game.Features.GameWorld.Camera
 
         [Header("Follow Settings")]
         [SerializeField] public float _xOffset;
+        [SerializeField] public bool _followY;
         [SerializeField] public float _yOffset;
 
         private IUpdateable _proxy;
@@ -34,7 +35,10 @@ namespace Game.Features.GameWorld.Camera
 
         private void OnUpdate(float elapsedSeconds)
         {
-            transform.position = new Vector3(_playerTransform.Position.x + _xOffset, _yOffset, transform.position.z);
+            var x = _playerTransform.Position.x + _xOffset;
+            var y = _followY ? _playerTransform.Position.y + _yOffset : transform.position.y;
+
+            transform.position = new Vector3(x, y, transform.position.z);
         }
 
         private void OnDestroy()
