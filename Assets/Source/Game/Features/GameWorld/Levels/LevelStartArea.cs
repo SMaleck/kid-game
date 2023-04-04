@@ -1,11 +1,12 @@
 ﻿using EntiCS.Entities;
 using EntiCS.Ticking;
 using EntiCS.Utility;
+using Game.Features.EntiCS.Components;
+using Game.Features.EntiCS.Components.Render;
 using Game.Features.GameWorld.Player;
 using Game.Features.Ticking;
 using Game.Static.Locators;
 using System;
-using Game.Features.EntiCS.Components;
 using UnityEngine;
 
 namespace Game.Features.GameWorld.Levels
@@ -30,6 +31,8 @@ namespace Game.Features.GameWorld.Levels
 
         public void RunScript()
         {
+            _player.Get<PlayerAnimationRenderComponent>().Hammer = 0;
+
             _sceneTicker.AddUpdate(_updateProxy);
         }
 

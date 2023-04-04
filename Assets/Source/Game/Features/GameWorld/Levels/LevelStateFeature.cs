@@ -34,7 +34,6 @@ namespace Game.Features.GameWorld.Levels
 
             _ticker = FeatureLocator.Get<TickerFeature>().SceneTicker;
             _ticker.SetIsPaused(false);
-            _ticker.AddFixedUpdate(this);
 
             _levelStartArea.OnComplete += StartLevel;
             _levelStartArea.RunScript();
@@ -67,6 +66,8 @@ namespace Game.Features.GameWorld.Levels
 
             _levelStartArea.OnComplete -= StartLevel;
             _progressStrategy.OnStart();
+
+            _ticker.AddFixedUpdate(this);
         }
 
         private void EndLevel()

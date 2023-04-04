@@ -7,6 +7,7 @@ using Game.Features.GameWorld.Player;
 using Game.Features.Ticking;
 using Game.Static.Locators;
 using System;
+using Game.Features.EntiCS.Components.Render;
 using UnityEngine;
 
 namespace Game.Features.GameWorld.Levels
@@ -49,8 +50,8 @@ namespace Game.Features.GameWorld.Levels
                 _targetPos.y,
                 _targetPos.z);
 
+            _player.Get<PlayerAnimationRenderComponent>().Hammer = 1;
             _camera.TweenTo(targetPos, _targetRot, _replaceHouseAtSeconds);
-
             _buildingDustPS.Play();
 
             _sceneTicker.AddUpdate(_updateProxy);
@@ -68,6 +69,9 @@ namespace Game.Features.GameWorld.Levels
 
             if (IsComplete())
             {
+                _player.Get<PlayerAnimationRenderComponent>().Hammer = 0;
+                _player.Get<PlayerAnimationRenderComponent>().Win();
+
                 _sceneTicker.RemoveUpdate(_updateProxy);
                 OnComplete?.Invoke();
             }
