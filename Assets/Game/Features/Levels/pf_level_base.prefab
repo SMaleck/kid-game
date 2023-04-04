@@ -360,6 +360,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3372938579836870877}
     m_Modifications:
+    - target: {fileID: 3996225156709164536, guid: d2373a0af929deb4fbebee305f89af03, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 4378393642711175274}
     - target: {fileID: 4800703543549605201, guid: d2373a0af929deb4fbebee305f89af03, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -935,6 +939,17 @@ MonoBehaviour:
   _overwriteAllColor: 1
   _vertex1: {r: 0.92156863, g: 0.5985758, b: 0.5019608, a: 1}
   _vertex2: {r: 0.5019608, g: 0.85490197, b: 0.92156863, a: 1}
+--- !u!114 &4378393642711175274 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 812710585, guid: 2e5ed3d0c10b3904bb9774e44d78380a, type: 3}
+  m_PrefabInstance: {fileID: 4378393643519584979}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923c5ac3f9af9304aa9c0d2f7e8f1c05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4670077422679143961 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8938624355404651722, guid: 2e5ed3d0c10b3904bb9774e44d78380a, type: 3}

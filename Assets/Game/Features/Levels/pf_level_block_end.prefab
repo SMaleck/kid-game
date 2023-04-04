@@ -156,6 +156,9 @@ MonoBehaviour:
   _buildingDustPS: {fileID: 5672338418451427317}
   _houseBroken: {fileID: 7577024150342052895}
   _houseFixed: {fileID: 884194075284638054}
+  _camera: {fileID: 0}
+  _targetPos: {x: 3, y: 0.35, z: -8}
+  _targetRot: {x: -5, y: 0, z: 0}
 --- !u!1001 &50227090677556650
 PrefabInstance:
   m_ObjectHideFlags: 0

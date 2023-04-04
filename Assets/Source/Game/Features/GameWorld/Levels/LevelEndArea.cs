@@ -1,6 +1,8 @@
 ﻿using EntiCS.Entities;
 using EntiCS.Ticking;
 using EntiCS.Utility;
+using Game.Features.EntiCS.Components;
+using Game.Features.GameWorld.Camera;
 using Game.Features.GameWorld.Player;
 using Game.Features.Ticking;
 using Game.Static.Locators;
@@ -14,6 +16,13 @@ namespace Game.Features.GameWorld.Levels
         [SerializeField] private ParticleSystem _buildingDustPS;
         [SerializeField] private GameObject _houseBroken;
         [SerializeField] private GameObject _houseFixed;
+
+        [Header("Camera")]
+        [SerializeField] private PlayerCamera _camera;
+
+        [Tooltip("X is handled as an offset from the player position")]
+        [SerializeField] private Vector3 _targetPos;
+        [SerializeField] private Vector3 _targetRot;
 
         private ITicker _sceneTicker;
         private IEntity _player;
@@ -35,6 +44,13 @@ namespace Game.Features.GameWorld.Levels
 
         public void RunScript()
         {
+            var targetPos = new Vector3(
+                _player.Get<TransformComponent>().Position.x + _targetPos.x,
+                _targetPos.y,
+                _targetPos.z);
+
+            _camera.TweenTo(targetPos, _targetRot, _replaceHouseAtSeconds);
+
             _buildingDustPS.Play();
 
             _sceneTicker.AddUpdate(_updateProxy);

@@ -1,4 +1,5 @@
-﻿using EntiCS.Entities;
+﻿using DG.Tweening;
+using EntiCS.Entities;
 using EntiCS.Ticking;
 using EntiCS.Utility;
 using Game.Features.EntiCS.Components;
@@ -22,6 +23,21 @@ namespace Game.Features.GameWorld.Camera
         private IEntity _player;
         private TransformComponent _playerTransform;
 
+        public bool IsFollowing { get; set; } = true;
+        
+        public void TweenTo(Vector3 position, Vector3 rotation, float durationSeconds)
+        {
+            IsFollowing = false;
+
+            DOTween.Sequence()
+                .Append(transform
+                    .DOMove(position, durationSeconds)
+                    .SetEase(Ease.InOutQuad))
+                .Join(transform
+                    .DORotate(rotation, durationSeconds)
+                    .SetEase(Ease.InOutQuad));
+        }
+
         private void Start()
         {
             _player = FeatureLocator.Get<PlayerEntityFeature>().Entity;
@@ -35,6 +51,8 @@ namespace Game.Features.GameWorld.Camera
 
         private void OnUpdate(float elapsedSeconds)
         {
+            if (!IsFollowing) return;
+
             var x = _playerTransform.Position.x + _xOffset;
             var y = _followY ? _playerTransform.Position.y + _yOffset : transform.position.y;
 
