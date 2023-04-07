@@ -47,12 +47,24 @@ namespace Game.Debug
 
         private void OnFpsCountAdded(int fps)
         {
-            var buffer = GetCalculationSafeBuffer();
+            var min = 0;
+            var max = 0;
+            var total = 0f;
+
+            for (var i = 0; i < _fpsBuffer.Length; i++)
+            {
+                var entry = _fpsBuffer[i];
+                if (entry <= 0) continue;
+
+                min = entry > min ? entry : min;
+                max = entry > max ? entry : max;
+                total += entry;
+            }
 
             CurrentFps = fps;
-            MinFps = buffer.Min();
-            MaxFps = buffer.Max();
-            AverageFps = (int)Math.Round(buffer.Average());
+            MinFps = min;
+            MaxFps = max;
+            AverageFps = (int)Math.Round(total / _fpsBuffer.Length);
         }
 
         private int[] GetCalculationSafeBuffer()
