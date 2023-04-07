@@ -66,11 +66,5 @@ namespace Game.Debug
             MaxFps = max;
             AverageFps = (int)Math.Round(total / _fpsBuffer.Length);
         }
-
-        private int[] GetCalculationSafeBuffer()
-        {
-            var buffer = _fpsBuffer.Where(e => e > 0).ToArray();
-            return buffer.Length > 0 ? buffer : new[] { 0 };
-        }
     }
 }
