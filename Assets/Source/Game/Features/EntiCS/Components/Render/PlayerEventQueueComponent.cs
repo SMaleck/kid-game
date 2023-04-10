@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using EntiCS.Entities.Components;
+﻿using EntiCS.Entities.Components;
 using Game.Features.EntiCS.Utility;
+using System.Collections.Generic;
 
 namespace Game.Features.EntiCS.Components.Render
 {
-    // ToDo Is this component still needed?
     public enum PlayerEffectType
     {
         JumpStart,
@@ -14,11 +13,16 @@ namespace Game.Features.EntiCS.Components.Render
 
     public class PlayerEventQueueComponent : EntityComponent, IResettable
     {
-        public Queue<PlayerEffectType> Queue { get; set; } = new Queue<PlayerEffectType>();
+        public HashSet<PlayerEffectType> Effects { get; set; } = new();
+
+        public void Add(PlayerEffectType effect)
+        {
+            Effects.Add(effect);
+        }
 
         public void ResetState()
         {
-            Queue.Clear();
+            Effects.Clear();
         }
 
         public void Clean()

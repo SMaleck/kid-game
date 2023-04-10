@@ -29,7 +29,8 @@ namespace Game.Features.EntiCS
                 new PlayerEffectRenderSystem(),
                 new PlayerAnimationRenderSystem(),
                 new PlayerLifecycleSystem(),
-                new SensorCleanSystem()
+                new SensorCleanSystem(),
+                new PlayerEventQueueCleanSystem()
             });
         }
 

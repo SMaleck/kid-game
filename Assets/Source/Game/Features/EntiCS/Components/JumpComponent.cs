@@ -13,6 +13,7 @@ namespace Game.Features.EntiCS.Components
         public float StartY { get; set; }
         public float JumpSpeed { get; set; }
         public float ElapsedSeconds { get; set; }
+        public bool HasPassedApex { get; set; }
 
         public bool IsJumping { get; set; }
         public bool LastIsJumping { get; set; }
@@ -23,6 +24,7 @@ namespace Game.Features.EntiCS.Components
             IsJumping = default;
             StartY = default;
             ElapsedSeconds = default;
+            HasPassedApex = default;
         }
     }
 }

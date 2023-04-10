@@ -1,30 +1,32 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Features.EntiCS.Utility
+namespace Game.Utility.Pooling
 {
-    public class ParticleSystemPool
+    public class PassiveObjectPool<T> where T : Component
     {
-        private readonly ParticleSystem _prefab;
+        private readonly T _prefab;
+        private readonly Func<T, bool> _isFreePredicate;
 
-        private readonly List<ParticleSystem> _free = new List<ParticleSystem>();
-        private readonly List<ParticleSystem> _active = new List<ParticleSystem>();
+        private readonly List<T> _free = new();
+        private readonly List<T> _active = new();
 
-        public ParticleSystemPool(ParticleSystem prefab)
+        public PassiveObjectPool(T prefab, Func<T, bool> isFreePredicate)
         {
             _prefab = prefab;
+            _isFreePredicate = isFreePredicate;
         }
 
-        public void Spawn(Vector3 position)
+        public T Spawn()
         {
             var instance = GetOrCreate();
             _active.Add(instance);
 
-            instance.transform.position = position;
-            instance.Play();
+            return instance;
         }
 
-        private ParticleSystem GetOrCreate()
+        private T GetOrCreate()
         {
             SanitizeActive();
 
@@ -35,13 +37,13 @@ namespace Game.Features.EntiCS.Utility
 
                 return instance;
             }
-            
+
             return Create();
         }
 
-        private ParticleSystem Create()
+        private T Create()
         {
-            var instance = GameObject.Instantiate<ParticleSystem>(_prefab);
+            var instance = GameObject.Instantiate<T>(_prefab);
             return instance;
         }
 
@@ -50,7 +52,7 @@ namespace Game.Features.EntiCS.Utility
             for (var i = _active.Count - 1; i >= 0; i--)
             {
                 var instance = _active[i];
-                if (!instance.isPlaying)
+                if (_isFreePredicate(instance))
                 {
                     _free.Add(instance);
                     _active.RemoveAt(i);

@@ -5,7 +5,7 @@ using System;
 
 namespace Game.Features.EntiCS.Systems.LateSystems
 {
-    public class AnimationQueueCleanerSystem : PerEntityLateSystem
+    public class PlayerEventQueueCleanSystem : PerEntityLateSystem
     {
         public override int ExecutionOrder { get; } = 1000;
 

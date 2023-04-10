@@ -1,9 +1,8 @@
 ﻿using EntiCS.Entities;
-using Game.Features.EntiCS.Components;
+using Game.Features.EntiCS.Components.Render;
 using Game.Features.EntiCS.Components.Tags;
 using Game.Features.EntiCS.Systems.BaseSystems;
 using System;
-using Game.Features.EntiCS.Components.Render;
 
 namespace Game.Features.EntiCS.Systems.RenderSystems
 {
@@ -13,16 +12,25 @@ namespace Game.Features.EntiCS.Systems.RenderSystems
         {
             typeof(PlayerTagComponent),
             typeof(PlayerEffectRenderComponent),
-            typeof(JumpComponent)
+            typeof(PlayerEventQueueComponent)
         };
 
         protected override void UpdateEntity(float elapsedSeconds, IEntity entity)
         {
-            var jumping = entity.Get<JumpComponent>();
             var effects = entity.Get<PlayerEffectRenderComponent>();
-            if (jumping.LastIsJumping != jumping.IsJumping)
+            var eventQueue = entity.Get<PlayerEventQueueComponent>();
+
+            if (eventQueue.Effects.Contains(PlayerEffectType.JumpStart))
             {
-                effects.PlayDust();
+                effects.JumpStartSE.Play();
+            }
+            if (eventQueue.Effects.Contains(PlayerEffectType.JumpApex))
+            {
+                effects.JumpApexSE.Play();
+            }
+            if (eventQueue.Effects.Contains(PlayerEffectType.JumpEnd))
+            {
+                effects.JumpEndSE.Play();
             }
         }
     }

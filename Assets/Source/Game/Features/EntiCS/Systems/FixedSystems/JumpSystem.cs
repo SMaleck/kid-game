@@ -1,5 +1,6 @@
 ﻿using EntiCS.Entities;
 using Game.Features.EntiCS.Components;
+using Game.Features.EntiCS.Components.Render;
 using Game.Features.EntiCS.Systems.BaseSystems;
 using System;
 using UnityEngine;
@@ -11,7 +12,8 @@ namespace Game.Features.EntiCS.Systems.FixedSystems
         public override Type[] Filter { get; } = new[]
         {
             typeof(TransformComponent),
-            typeof(JumpComponent)
+            typeof(JumpComponent),
+            typeof(PlayerEventQueueComponent)
         };
 
         protected override void UpdateEntity(float elapsedSeconds, IEntity entity)
@@ -25,10 +27,15 @@ namespace Game.Features.EntiCS.Systems.FixedSystems
             }
 
             var transform = entity.Get<TransformComponent>();
-            JumpTick(elapsedSeconds, transform, jumping);
+            var eventQueue = entity.Get<PlayerEventQueueComponent>();
+            JumpTick(elapsedSeconds, transform, jumping, eventQueue);
         }
 
-        private void JumpTick(float elapsedSeconds, TransformComponent transform, JumpComponent jumping)
+        private void JumpTick(
+            float elapsedSeconds,
+            TransformComponent transform,
+            JumpComponent jumping,
+            PlayerEventQueueComponent eventQueue)
         {
             if (jumping.HasJumpIntent && !jumping.IsJumping)
             {
@@ -36,19 +43,28 @@ namespace Game.Features.EntiCS.Systems.FixedSystems
                 jumping.IsJumping = true;
                 var jumpSpeed = Mathf.Sqrt(2 * Mathf.Abs(Physics.gravity.y) * jumping.MaxJumpHeight) / jumping.MaxJumpHeight;
                 jumping.JumpSpeed = jumpSpeed * jumping.JumpSpeedFactor;
-            }
-            
-            jumping.ElapsedSeconds += elapsedSeconds;
 
+                eventQueue.Add(PlayerEffectType.JumpStart);
+            }
+
+            jumping.ElapsedSeconds += elapsedSeconds;
             float yOffset = jumping.MaxJumpHeight * Mathf.Sin(jumping.ElapsedSeconds * jumping.JumpSpeed);
+
+            var previousOffset = transform.Position.y - jumping.StartY;
+            if (!jumping.HasPassedApex &&
+                previousOffset > yOffset)
+            {
+                jumping.HasPassedApex = true;
+                eventQueue.Add(PlayerEffectType.JumpApex);
+            }
 
             var position = transform.Position;
             transform.Position = new Vector3(position.x, jumping.StartY + yOffset, position.z);
 
-            TryEndJump(transform, jumping);
+            TryEndJump(transform, jumping, eventQueue);
         }
 
-        private void TryEndJump(TransformComponent transform, JumpComponent jumping)
+        private void TryEndJump(TransformComponent transform, JumpComponent jumping, PlayerEventQueueComponent eventQueue)
         {
             if (jumping.ElapsedSeconds >= Mathf.PI / jumping.JumpSpeed)
             {
@@ -56,6 +72,7 @@ namespace Game.Features.EntiCS.Systems.FixedSystems
                 transform.Position = new Vector3(position.x, jumping.StartY, position.z);
 
                 jumping.ResetState();
+                eventQueue.Add(PlayerEffectType.JumpEnd);
             }
         }
     }
