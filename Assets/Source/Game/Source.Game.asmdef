@@ -7,7 +7,8 @@
         "BehaviourTree",
         "Savegames",
         "Unity.TextMeshPro",
-        "DOTween.Modules"
+        "DOTween.Modules",
+        "SMaleck.UtilitiesGeneral.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

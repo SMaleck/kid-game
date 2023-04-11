@@ -3,6 +3,7 @@
     public enum AudioChannel
     {
         Music,
-        Effects
+        Effects,
+        UI
     }
 }
