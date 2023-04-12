@@ -156,6 +156,7 @@ MonoBehaviour:
   _buildingDustPS: {fileID: 5672338418451427317}
   _houseBroken: {fileID: 7577024150342052895}
   _houseFixed: {fileID: 884194075284638054}
+  _jingleAudioClip: {fileID: 8300000, guid: ba1fcd04374b4074fa1d1c503f6e25d5, type: 3}
   _camera: {fileID: 0}
   _targetPos: {x: 3, y: 0.35, z: -8}
   _targetRot: {x: -5, y: 0, z: 0}

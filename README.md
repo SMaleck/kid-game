@@ -9,7 +9,13 @@ You can find the original song text as well as German and English translations [
 I hope you and your children find some enjoyment with this game.
 
 ## Credits
+- Sebastian Maleck - Design & Development
 - David Presa - Art & Animations
+
+### Other Assets (CC0)
+- [Cure Magic by Someoneman](https://opengameart.org/content/cure-magic)
+- [RPG Sound Pack by artisticdude](https://opengameart.org/content/rpg-sound-pack)
+- [Kenney - UI Audio](https://www.kenney.nl/assets/ui-audio)
 
 ## Resources Used
 - FontAwesome for all GUI icons

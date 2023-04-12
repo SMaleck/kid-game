@@ -130,8 +130,8 @@ MonoBehaviour:
   _slot: {fileID: 5468227412879780899}
   _hasPS: 1
   _psPrefab: {fileID: 3019607235087567669, guid: 7f4cc0834d0c89345883d5ec824148fd, type: 3}
-  _hasAudio: 0
-  _audioClip: {fileID: 0}
+  _hasAudio: 1
+  _audioClip: {fileID: 8300000, guid: ea05e7de6268b114f8296c8477da711f, type: 3}
 --- !u!1 &4357753760171801499
 GameObject:
   m_ObjectHideFlags: 0

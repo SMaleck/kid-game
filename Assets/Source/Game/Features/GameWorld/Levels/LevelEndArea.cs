@@ -8,6 +8,7 @@ using Game.Features.Ticking;
 using Game.Static.Locators;
 using System;
 using Game.Features.EntiCS.Components.Render;
+using Game.Services.Audio;
 using UnityEngine;
 
 namespace Game.Features.GameWorld.Levels
@@ -17,6 +18,7 @@ namespace Game.Features.GameWorld.Levels
         [SerializeField] private ParticleSystem _buildingDustPS;
         [SerializeField] private GameObject _houseBroken;
         [SerializeField] private GameObject _houseFixed;
+        [SerializeField] private AudioClip _jingleAudioClip;
 
         [Header("Camera")]
         [SerializeField] private PlayerCamera _camera;
@@ -74,6 +76,8 @@ namespace Game.Features.GameWorld.Levels
 
                 _sceneTicker.RemoveUpdate(_updateProxy);
                 OnComplete?.Invoke();
+
+                ServiceLocator.Get<AudioService>().PlayMusic(_jingleAudioClip, false);
             }
         }
 

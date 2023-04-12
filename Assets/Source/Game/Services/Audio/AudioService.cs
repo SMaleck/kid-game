@@ -26,9 +26,9 @@ namespace Game.Services.Audio
             ServiceLocator.Register<AudioService>(this);
         }
 
-        public void PlayMusic(AudioClip clip)
+        public void PlayMusic(AudioClip clip, bool loop = true)
         {
-            Play(AudioChannel.UI, clip, true, Vector3.zero);
+            Play(AudioChannel.UI, clip, loop, Vector3.zero);
         }
 
         public void PlayEffect(AudioClip clip, Vector3 position)
