@@ -123,32 +123,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &3372938581708545962
+--- !u!1001 &69987977
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3372938579698078544, guid: 983e5f0f732fa284ca5a8c8a53aaf8f9, type: 3}
-      propertyPath: _progressStrategy
-      value: 
-      objectReference: {fileID: 11400000, guid: 3f6c322927d920a4a983a8eec03c937f, type: 2}
-    - target: {fileID: 5664052743712921204, guid: 983e5f0f732fa284ca5a8c8a53aaf8f9, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5664052743712921204, guid: 983e5f0f732fa284ca5a8c8a53aaf8f9, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5664052743712921204, guid: 983e5f0f732fa284ca5a8c8a53aaf8f9, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6067456661073139365, guid: 983e5f0f732fa284ca5a8c8a53aaf8f9, type: 3}
       propertyPath: m_Name
-      value: pf_level_baseline
+      value: pf_level_base
       objectReference: {fileID: 0}
     - target: {fileID: 6295249966471378902, guid: 983e5f0f732fa284ca5a8c8a53aaf8f9, type: 3}
       propertyPath: m_RootOrder
@@ -156,15 +140,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6295249966471378902, guid: 983e5f0f732fa284ca5a8c8a53aaf8f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 872.8954
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6295249966471378902, guid: 983e5f0f732fa284ca5a8c8a53aaf8f9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 416.69983
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6295249966471378902, guid: 983e5f0f732fa284ca5a8c8a53aaf8f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 73.63553
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6295249966471378902, guid: 983e5f0f732fa284ca5a8c8a53aaf8f9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -192,18 +176,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6295249966471378902, guid: 983e5f0f732fa284ca5a8c8a53aaf8f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7897957978844276966, guid: 983e5f0f732fa284ca5a8c8a53aaf8f9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9146815298873239053, guid: 983e5f0f732fa284ca5a8c8a53aaf8f9, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9146815298873239053, guid: 983e5f0f732fa284ca5a8c8a53aaf8f9, type: 3}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
