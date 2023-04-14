@@ -2,6 +2,8 @@
 using Game.Features.EntiCS.Components.Render;
 using Game.Features.EntiCS.Components.Tags;
 using Game.Features.EntiCS.Systems.BaseSystems;
+using Game.Features.LevelSelection;
+using Game.Static.Locators;
 using System;
 
 namespace Game.Features.EntiCS.Systems.RenderSystems
@@ -12,23 +14,31 @@ namespace Game.Features.EntiCS.Systems.RenderSystems
         {
             typeof(PlayerTagComponent),
             typeof(PlayerEffectRenderComponent),
-            typeof(PlayerEventQueueComponent)
+            typeof(SpecialEffectQueueComponent)
         };
+
+        private readonly bool _canPlayApex;
+
+        public PlayerEffectRenderSystem()
+        {
+            var levelSelect = FeatureLocator.Get<LevelSelectFeature>();
+            _canPlayApex = levelSelect.Complexity <= LevelComplexity.C0;
+        }
 
         protected override void UpdateEntity(float elapsedSeconds, IEntity entity)
         {
             var effects = entity.Get<PlayerEffectRenderComponent>();
-            var eventQueue = entity.Get<PlayerEventQueueComponent>();
+            var eventQueue = entity.Get<SpecialEffectQueueComponent>();
 
-            if (eventQueue.Effects.Contains(PlayerEffectType.JumpStart))
+            if (eventQueue.Effects.Contains(SpecialEffectType.JumpStart))
             {
                 effects.JumpStartSE.Play();
             }
-            if (eventQueue.Effects.Contains(PlayerEffectType.JumpApex))
+            if (_canPlayApex && eventQueue.Effects.Contains(SpecialEffectType.JumpApex))
             {
                 effects.JumpApexSE.Play();
             }
-            if (eventQueue.Effects.Contains(PlayerEffectType.JumpEnd))
+            if (eventQueue.Effects.Contains(SpecialEffectType.JumpEnd))
             {
                 effects.JumpEndSE.Play();
             }

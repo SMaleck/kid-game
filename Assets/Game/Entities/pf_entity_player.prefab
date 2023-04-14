@@ -299,14 +299,14 @@ MonoBehaviour:
   - rid: 2945994445181943810
   - rid: 8962268382066638848
   - rid: 8962268382066638849
-  - rid: 2611068716586106880
+  - rid: 2611068864582385666
   references:
     version: 2
     RefIds:
-    - rid: 2611068716586106880
-      type: {class: PlayerEventQueueComponent, ns: Game.Features.EntiCS.Components.Render, asm: Source.Game}
+    - rid: 2611068864582385666
+      type: {class: SpecialEffectQueueComponent, ns: Game.Features.EntiCS.Components.Render, asm: Source.Game}
       data:
-        _name: PlayerEventQueueComponent
+        _name: SpecialEffectQueueComponent
     - rid: 2638963771659517952
       type: {class: PlayerTagComponent, ns: Game.Features.EntiCS.Components.Tags, asm: Source.Game}
       data:

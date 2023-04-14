@@ -4,18 +4,19 @@ using System.Collections.Generic;
 
 namespace Game.Features.EntiCS.Components.Render
 {
-    public enum PlayerEffectType
+    public enum SpecialEffectType
     {
         JumpStart,
         JumpApex,
-        JumpEnd
+        JumpEnd,
+        Kill
     }
 
-    public class PlayerEventQueueComponent : EntityComponent, IResettable
+    public class SpecialEffectQueueComponent : EntityComponent, IResettable
     {
-        public HashSet<PlayerEffectType> Effects { get; set; } = new();
+        public HashSet<SpecialEffectType> Effects { get; set; } = new();
 
-        public void Add(PlayerEffectType effect)
+        public void Add(SpecialEffectType effect)
         {
             Effects.Add(effect);
         }

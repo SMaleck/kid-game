@@ -22,7 +22,7 @@ namespace Game.Features.UI.Pause
 
             View.ResumeButton.onClick.AddListener(OnResumeClicked);
             View.RestartButton.onClick.AddListener(OnRestartClicked);
-            View.QuitButton.onClick.AddListener(OnExitToTitleClicked);
+            View.QuitButton.onClick.AddListener(OnQuitClicked);
         }
 
         private void OnResumeClicked()
@@ -36,9 +36,9 @@ namespace Game.Features.UI.Pause
             _sceneService.ReloadLevel();
         }
 
-        private void OnExitToTitleClicked()
+        private void OnQuitClicked()
         {
-            _sceneService.ToTitle();
+            _sceneService.ToHub();
         }
     }
 }

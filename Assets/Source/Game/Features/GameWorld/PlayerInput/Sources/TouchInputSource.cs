@@ -45,7 +45,8 @@ namespace Game.Features.GameWorld.PlayerInput.Sources
             _pauseButton.onClick.AddListener(() => OnPauseGame());
 
             var complexity = FeatureLocator.Get<LevelSelectFeature>().Complexity;
-            var isRollingEnabled = complexity >= LevelComplexity.C1;
+            var isRollingEnabled = complexity > LevelComplexity.C2;
+
             _simpleJumpButton.gameObject.SetActive(!isRollingEnabled);
             _jumpButton.gameObject.SetActive(isRollingEnabled);
             _rollButton.gameObject.SetActive(isRollingEnabled);

@@ -3,6 +3,7 @@ using EntiCS.Entities;
 using EntiCS.Systems;
 using EntiCS.World;
 using EntiCS.WorldManagement;
+using Game.Features.EntiCS.Systems;
 using Game.Features.EntiCS.Systems.FixedSystems;
 using Game.Features.EntiCS.Systems.LateSystems;
 using Game.Features.EntiCS.Systems.RenderSystems;
@@ -26,11 +27,13 @@ namespace Game.Features.EntiCS
                 new MovementSystem(),
                 new RunStatsSystem(),
                 new JumpSystem(),
-                new PlayerEffectRenderSystem(),
-                new PlayerAnimationRenderSystem(),
+                new PickupSystem(),
                 new PlayerLifecycleSystem(),
                 new SensorCleanSystem(),
-                new PlayerEventQueueCleanSystem()
+                new SpecialEffectQueueCleanSystem(),
+                new PlayerEffectRenderSystem(),
+                new PlayerAnimationRenderSystem(),
+                new PickupEffectRenderSystem()
             });
         }
 

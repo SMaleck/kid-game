@@ -1,7 +1,7 @@
-﻿using System;
-using EntiCS.Entities;
+﻿using EntiCS.Entities;
 using Game.Features.EntiCS.Components.Generic;
 using Game.Features.EntiCS.Systems.BaseSystems;
+using System;
 
 namespace Game.Features.EntiCS.Systems.LateSystems
 {

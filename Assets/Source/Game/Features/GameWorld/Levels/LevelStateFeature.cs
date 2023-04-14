@@ -73,7 +73,6 @@ namespace Game.Features.GameWorld.Levels
         private void EndLevel()
         {
             _levelEndArea.OnComplete -= EndLevel;
-            _ticker.SetIsPaused(true);
 
             ServiceLocator.Get<GuiServiceProxy>()
                 .TryShow<LevelCompletionModalController>();

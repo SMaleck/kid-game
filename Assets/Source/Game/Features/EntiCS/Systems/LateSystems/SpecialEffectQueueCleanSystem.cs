@@ -5,18 +5,18 @@ using System;
 
 namespace Game.Features.EntiCS.Systems.LateSystems
 {
-    public class PlayerEventQueueCleanSystem : PerEntityLateSystem
+    public class SpecialEffectQueueCleanSystem : PerEntityLateSystem
     {
         public override int ExecutionOrder { get; } = 1000;
 
         public override Type[] Filter { get; } = new[]
         {
-            typeof(PlayerEventQueueComponent)
+            typeof(SpecialEffectQueueComponent)
         };
 
         protected override void UpdateEntity(float elapsedSeconds, IEntity entity)
         {
-            entity.Get<PlayerEventQueueComponent>().Clean();
+            entity.Get<SpecialEffectQueueComponent>().Clean();
         }
     }
 }
