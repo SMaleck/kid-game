@@ -60,7 +60,7 @@ MonoBehaviour:
   - Key: WelcomeWhatsYourName
     English: Hello, what is your name?
     German: "Hallo, wie hei\xDFt du?"
-    Polish: 
+    Polish: Witaj, jak masy na imie?
   - Key: SelectPlayer
     English: Select Player
     German: "Spieler \xC4ndern"
@@ -143,9 +143,17 @@ MonoBehaviour:
     German: 
     Polish: 
   - Key: LoreDescription
-    English: 
-    German: 
-    Polish: 
+    English: This game is based on an old Polish children's song, passed down orally.
+      The music is based on the melody I was taught, but you might know a slightly
+      different version of it. The same applies to the lyrics, which you can find
+      below.
+    German: "Dieses Spiel basiert auf einem alten, polnischen Kinderlied, welches
+      m\xFCndlich \xFCberliefert wurde. Die Melodie und der Text sind so, wie ich
+      es kenne, aber Sie k\xF6nnten eine leicht unterschiedliche Version kennen."
+    Polish: "Ta gra powsta\u0142a na podstawie piosenki, kt\xF3r\u0105 matka mi przekaza\u0142a
+      ustnie. Nie znalaz\u0142em oficjalnej wersji, wi\u0119c tekst i melodia mog\u0105
+      si\u0119 r\xF3\u017Cni\u0107 od tego, co mog\u0142o zosta\u0107 przekazane
+      Tobie."
   - Key: SongLyrics
     English: 'In the green forest, in the deep woods
 

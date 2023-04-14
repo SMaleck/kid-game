@@ -17,7 +17,7 @@ I hope you and your children find some enjoyment with this game.
 - [RPG Sound Pack by artisticdude](https://opengameart.org/content/rpg-sound-pack)
 - [Kenney - UI Audio](https://www.kenney.nl/assets/ui-audio)
 
-## Resources Used
+### Resources Used
 - FontAwesome for all GUI icons
 - [html-color.codes](https://html-color.codes) for picking good looking colors, as I have a programmers eye for them :P
 - Unity UI Extensions

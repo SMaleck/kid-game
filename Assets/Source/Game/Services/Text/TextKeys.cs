@@ -115,9 +115,9 @@ namespace Game.Services.Text
         LevelCompleteTitle,
 
         /// <summary>
-        /// 
+        /// This game is based on an old Polish children's song, passed down orally. The music is based on the m
         /// </summary>
-        [Text("")]
+        [Text("This game is based on an old Polish children's song, passed down orally. The music is based on the m")]
         LoreDescription,
 
         /// <summary>
