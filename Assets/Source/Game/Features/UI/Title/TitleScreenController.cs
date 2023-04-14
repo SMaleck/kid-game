@@ -1,5 +1,6 @@
 ﻿using Game.Features.Player;
 using Game.Features.Savegames.Events;
+using Game.Features.UI.Help;
 using Game.Features.UI.Lore;
 using Game.Features.UI.PlayerSelect;
 using Game.Features.UI.Settings;
@@ -35,6 +36,7 @@ namespace Game.Features.UI.Title
             View.SelectPlayerButton.onClick.AddListener(GoToGui<PlayerSelectScreenController>);
             View.SettingsButton.onClick.AddListener(GoToGui<SettingsModalController>);
             View.LoreButton.onClick.AddListener(GoToGui<LoreScreenController>);
+            View.HelpButton.onClick.AddListener(GoToGui<HelpScreenController>);
             View.QuitButton.onClick.AddListener(OnQuitClicked);
 
             EventBus.OnEvent<PlayerSavegameLoadedEvent>(_ => PlayerSavegameLoaded());

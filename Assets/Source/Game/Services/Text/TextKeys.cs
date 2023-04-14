@@ -61,6 +61,12 @@ namespace Game.Services.Text
         HowToPlay,
 
         /// <summary>
+        /// The gnome runs automatically towards his house. Along the way, you can either jump or roll. There ar
+        /// </summary>
+        [Text("The gnome runs automatically towards his house. Along the way, you can either jump or roll. There ar")]
+        HowToPlayDesc,
+
+        /// <summary>
         /// Deutsch
         /// </summary>
         [Text("Deutsch")]

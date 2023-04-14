@@ -11,6 +11,7 @@ using Game.Features.UI.Lore;
 using Game.Features.UI.Loading;
 using Game.Features.UI.Hud;
 using Game.Features.UI.HubWorld;
+using Game.Features.UI.Help;
 using Game.Features.UI.Completion;
 
 
@@ -49,6 +50,9 @@ namespace Game.Services.Gooey.Controllers
 
                 case "HubWorldScreenView":
                     return new HubWorldScreenController((HubWorldScreenView)view);
+
+                case "HelpScreenView":
+                    return new HelpScreenController((HelpScreenView)view);
 
                 case "LevelCompletionModalView":
                     return new LevelCompletionModalController((LevelCompletionModalView)view);

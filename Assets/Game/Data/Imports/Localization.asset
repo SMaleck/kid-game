@@ -233,3 +233,37 @@ MonoBehaviour:
       krasnoludek domek naprawi\u0142:\nKomin, dach, okna, drzwi nowe wstawi\u0142.\nI
       ju\u017C si\u0119 nie ba\u0142 z\u0142ej zimy skutk\xF3w,\nLecz \u017Cy\u0142
       spokojnie w\u015Br\xF3d krasnoludk\xF3w."
+  - Key: HowToPlayDesc
+    English: 'The gnome runs automatically towards his house. Along the way, you
+      can either jump or roll. There are four levels, each becoming progressively
+      more interesting than the last.
+
+      In Levels 1, 2, and 3, you can jump
+      by tapping anywhere on the screen. If you are using a computer, you can click
+      with the mouse or use the spacebar.
+
+      In Level 4, you must also roll away
+      from the owl! To jump, tap the left half of the screen, and to roll, tap the
+      right half of the screen.
+
+      If you are using a computer, you can click
+      with the mouse or use the spacebar to jump, and the Control key to roll.'
+    German: "Der Zwerg l\xE4uft automatisch zu seinem Haus. Auf dem Weg kannst du
+      entweder springen oder rollen. Es gibt vier Stufen, wobei jede Stufe interessanter
+      als die vorherige wird.\nIn Stufe 1, 2 und 3 kannst du springen, indem du irgendwo
+      auf dem Bildschirm tippst. Wenn du einen Computer verwendest, kannst du mit
+      der Maus klicken oder die Leertaste benutzen.\nIn Stufe 4 musst du auch vor
+      der Eule wegrollen! Um zu springen, tippe auf die linke H\xE4lfte des Bildschirms,
+      und um zu rollen, tippe auf die rechte H\xE4lfte des Bildschirms.\nWenn du
+      einen Computer verwendest, kannst du mit der Maus klicken oder die Leertaste
+      zum Springen und die Strg-Taste zum Rollen verwenden."
+    Polish: "Krasnolud biegnie automatycznie do swojego domu. W trakcie podr\xF3\u017Cy
+      mo\u017Cesz skaka\u0107 lub toczy\u0107 si\u0119. S\u0105 cztery poziomy, z
+      kt\xF3rych ka\u017Cdy jest coraz ciekawszy od poprzedniego.\nNa poziomach 1,
+      2 i 3 mo\u017Cesz skaka\u0107, dotykaj\u0105c dowolnego miejsca na ekranie.
+      Je\u015Bli u\u017Cywasz komputera, mo\u017Cesz klikn\u0105\u0107 myszk\u0105
+      lub u\u017Cy\u0107 spacji.\nNa poziomie 4 musisz tak\u017Ce toczy\u0107 si\u0119
+      na ziemi, aby unikn\u0105\u0107 sowy! Aby skoczy\u0107, dotknij lewej po\u0142owy
+      ekranu, a aby si\u0119 toczy\u0107, dotknij prawej po\u0142owy ekranu.\nJe\u015Bli
+      u\u017Cywasz komputera, mo\u017Cesz klikn\u0105\u0107 myszk\u0105 lub u\u017Cy\u0107
+      spacji do skakania i klawisza Ctrl do toczenia si\u0119."
