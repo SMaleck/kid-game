@@ -28,7 +28,10 @@ namespace Game.Features.LevelSelection
 
                 case LevelComplexity.C2:
                     return SceneId.Level_C2;
-                
+
+                case LevelComplexity.C3:
+                    return SceneId.Level_C3;
+
                 case LevelComplexity.CDebug:
                     return SceneId.Level_CDebug;
 
