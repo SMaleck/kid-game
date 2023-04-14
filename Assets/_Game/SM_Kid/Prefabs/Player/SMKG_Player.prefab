@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 3316596881034458819}
   - component: {fileID: 4481818122731909337}
   - component: {fileID: 1780738775394500278}
+  - component: {fileID: 5179590820335248766}
   m_Layer: 0
   m_Name: SMKG_Player
   m_TagString: Untagged
@@ -331,6 +332,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 204efc20d6ebe6f44804146ed433ac0e, type: 3}
   - {fileID: 8300000, guid: dfefa3c38b5a61942ba29030fb6538e6, type: 3}
   - {fileID: 8300000, guid: 769818b3d9e8b07498d4c8830f6fabe6, type: 3}
+--- !u!114 &5179590820335248766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2687870412033518713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d83b08b451a02bd448bb0960f6009150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 4481818122731909337}
 --- !u!1 &3785569279741257620
 GameObject:
   m_ObjectHideFlags: 0
