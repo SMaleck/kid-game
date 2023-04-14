@@ -1,13 +1,12 @@
-﻿using System;
+﻿using Game.Utility;
+using System;
 using System.Collections.Generic;
 
 namespace Game.Static.Locators
 {
     public static class ServiceLocator
     {
-        // ToDo [OPTIMIZATION] Determine a more fitting initial capacity
-        // This could be done by a small editor tool inspecting the respective types or initializer
-        private static readonly Dictionary<Type, IService> Services = new(16);
+        private static readonly Dictionary<Type, IService> Services = new(LocatorConst.ServiceCount);
 
         public static void Register<T>(IService service) where T : IService
         {

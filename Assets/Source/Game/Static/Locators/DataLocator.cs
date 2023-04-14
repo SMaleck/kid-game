@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.Utility;
 
 namespace Game.Static.Locators
 {
     public static class DataLocator
     {
-        // ToDo [OPTIMIZATION] Determine a more fitting initial capacity
-        // This could be done by a small editor tool inspecting the respective types or initializer
-        private static readonly Dictionary<Type, IData> DataSources = new(32);
+        private static readonly Dictionary<Type, IData> DataSources = new(LocatorConst.DataCount);
 
         public static void Register(IData data)
         {
