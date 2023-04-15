@@ -1,0 +1,7 @@
+<linker>
+    <assembly fullname="Source.Game" preserve="all"/>
+    <assembly fullname="Gooey" preserve="all"/>
+    <assembly fullname="BehaviourTree" preserve="all"/>
+    <assembly fullname="Savegames" preserve="all"/>
+    <assembly fullname="EntiCS" preserve="all"/>
+</linker>
