@@ -7,11 +7,10 @@
       "dependencies": {}
     },
     "com.smaleck.entics": {
-      "version": "https://github.com/SMaleck/unity-entics.git#v1.1.0",
+      "version": "file:com.smaleck.entics@6fa4174fd7",
       "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "6fa4174fd7540a8fb9abce1b7ff8c07baad81998"
+      "source": "embedded",
+      "dependencies": {}
     },
     "com.smaleck.excel-importer": {
       "version": "https://github.com/SMaleck/unity-excel-importer.git#v1.0.1",
