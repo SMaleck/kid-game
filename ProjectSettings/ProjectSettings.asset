@@ -11,7 +11,7 @@ PlayerSettings:
   defaultScreenOrientation: 4
   targetDevice: 2
   useOnDemandResources: 0
-  accelerometerFrequency: 60
+  accelerometerFrequency: 0
   companyName: smaleck
   productName: kid-game
   defaultCursor: {fileID: 0}
@@ -157,6 +157,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.smaleck.kidgame
     Standalone: com.smaleck.kid-game
+    iPhone: com.smaleck.kid-game
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -734,7 +735,7 @@ PlayerSettings:
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
-    Android: 1
+    Android: 0
   il2cppCompilerConfiguration: {}
   managedStrippingLevel:
     EmbeddedLinux: 1
