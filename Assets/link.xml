@@ -3,5 +3,7 @@
     <assembly fullname="Gooey" preserve="all"/>
     <assembly fullname="BehaviourTree" preserve="all"/>
     <assembly fullname="Savegames" preserve="all"/>
-    <assembly fullname="EntiCS" preserve="all"/>
+    <assembly fullname="EntiCS" preserve="all">
+        <type fullname="EntiCS.Entities.ComponentsRepository" preserve="all" />
+    </assembly>
 </linker>
