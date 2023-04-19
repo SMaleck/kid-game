@@ -22,15 +22,11 @@ namespace Game.Features.GameWorld.Levels
 
         public event Action OnComplete;
 
-        private void Start()
+        public void RunScript()
         {
             _sceneTicker = FeatureLocator.Get<TickerFeature>().SceneTicker;
             _player = FeatureLocator.Get<PlayerEntityFeature>().Entity;
             _updateProxy = new UpdateableProxy(OnUpdate);
-        }
-
-        public void RunScript()
-        {
             _player.Get<PlayerAnimationRenderComponent>().Hammer = 0;
 
             _sceneTicker.AddUpdate(_updateProxy);

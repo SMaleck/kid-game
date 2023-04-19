@@ -147,10 +147,6 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 110
       objectReference: {fileID: 0}
-    - target: {fileID: 7161127909407880223, guid: e4498399211f76c4da2d198dee83ad06, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 5d8bc819c4f9adc4ab5c413e159e71d8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4498399211f76c4da2d198dee83ad06, type: 3}
 --- !u!1001 &4767764396967401535

@@ -144,8 +144,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: \uf04b
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c11ba3d7549652e49ad314a7e812c954, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 5d8bc819c4f9adc4ab5c413e159e71d8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 19fac064fad0df4478c249c355396511, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 2c22522f9d3bdad409b762ce99656186, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
+  m_fontSize: 110
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -383,7 +383,7 @@ MonoBehaviour:
       m_Calls: []
 --- !u!95 &3086316415642878470
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -400,7 +400,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &5416620775021228729
 MonoBehaviour:
   m_ObjectHideFlags: 0
