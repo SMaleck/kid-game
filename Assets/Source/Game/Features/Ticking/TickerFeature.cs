@@ -33,7 +33,7 @@ namespace Game.Features.Ticking
         public TickerFeature()
         {
             EngineTicker = EntiCSFactory.CreateTicker();
-            EngineTicker.AddUpdate(new UpdateableProxy(Update));
+            EngineTicker.Add(TickType.Update, new UpdateableProxy(Update));
 
             EventBus.OnEvent<EndSceneEvent>(_ => SetupSceneTicker());
         }

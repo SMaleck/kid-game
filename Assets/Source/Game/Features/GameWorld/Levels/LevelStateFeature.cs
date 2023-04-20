@@ -41,7 +41,7 @@ namespace Game.Features.GameWorld.Levels
             EventBus.OnEvent<PlayerTouchedLevelEndEvent>(EndStrategy);
         }
 
-        void IUpdateable.Update(float elapsedSeconds)
+        void IUpdateable.OnUpdate(float elapsedSeconds)
         {
             _progressStrategy.OnUpdate(elapsedSeconds);
         }
@@ -51,7 +51,7 @@ namespace Game.Features.GameWorld.Levels
             State = LevelState.Outro;
 
             EventBus.Unsubscribe(EndStrategy);
-            _ticker.RemoveFixedUpdate(this);
+            _ticker.Remove(TickType.FixedUpdate, this);
 
             _progressStrategy.OnEnd();
             OnComplete?.Invoke();
@@ -67,7 +67,7 @@ namespace Game.Features.GameWorld.Levels
             _levelStartArea.OnComplete -= StartLevel;
             _progressStrategy.OnStart();
 
-            _ticker.AddFixedUpdate(this);
+            _ticker.Add(TickType.FixedUpdate, this);
         }
 
         private void EndLevel()

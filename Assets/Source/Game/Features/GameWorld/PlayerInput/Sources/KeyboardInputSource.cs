@@ -49,17 +49,17 @@ namespace Game.Features.GameWorld.PlayerInput.Sources
             var tickerFeature = FeatureLocator.Get<TickerFeature>();
 
             _engineProxy = new UpdateableProxy(OnEngineUpdate);
-            tickerFeature.EngineTicker.AddUpdate(_engineProxy);
+            tickerFeature.EngineTicker.Add(TickType.Update, _engineProxy);
 
             _sceneProxy = new UpdateableProxy(OnSceneUpdate);
-            tickerFeature.SceneTicker.AddUpdate(_sceneProxy);
+            tickerFeature.SceneTicker.Add(TickType.Update, _sceneProxy);
         }
 
         public override void OnEnd()
         {
             var tickerFeature = FeatureLocator.Get<TickerFeature>();
-            tickerFeature.EngineTicker.RemoveUpdate(_engineProxy);
-            tickerFeature.SceneTicker.RemoveUpdate(_sceneProxy);
+            tickerFeature.EngineTicker.Remove(TickType.Update, _engineProxy);
+            tickerFeature.SceneTicker.Remove(TickType.Update, _sceneProxy);
         }
 
         private void OnEngineUpdate(float elapsedSeconds)

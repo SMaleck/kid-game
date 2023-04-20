@@ -29,7 +29,7 @@ namespace Game.Features.GameWorld.Levels
             _updateProxy = new UpdateableProxy(OnUpdate);
             _player.Get<PlayerAnimationRenderComponent>().Hammer = 0;
 
-            _sceneTicker.AddUpdate(_updateProxy);
+            _sceneTicker.Add(TickType.Update, _updateProxy);
         }
 
         private void OnUpdate(float elapsedSeconds)
@@ -42,7 +42,7 @@ namespace Game.Features.GameWorld.Levels
 
             _player.Get<MovementComponent>().MoveIntent = Vector3.right;
 
-            _sceneTicker.RemoveUpdate(_updateProxy);
+            _sceneTicker.Remove(TickType.Update, _updateProxy);
             OnComplete?.Invoke();
         }
     }

@@ -6,7 +6,7 @@ namespace Game.Features.EntiCS.Systems.BaseSystems
 {
     public abstract class PerEntitySystem : EntitySystem
     {
-        public override void Update(float elapsedSeconds, IReadOnlyCollection<IEntity> entities)
+        public override void Update(float elapsedSeconds, HashSet<IEntity> entities)
         {
             foreach (var entity in entities)
             {

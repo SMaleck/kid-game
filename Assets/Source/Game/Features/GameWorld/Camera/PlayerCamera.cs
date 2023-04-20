@@ -24,7 +24,7 @@ namespace Game.Features.GameWorld.Camera
         private TransformComponent _playerTransform;
 
         public bool IsFollowing { get; set; } = true;
-        
+
         public void TweenTo(Vector3 position, Vector3 rotation, float durationSeconds)
         {
             IsFollowing = false;
@@ -46,7 +46,7 @@ namespace Game.Features.GameWorld.Camera
             _proxy = new UpdateableProxy(OnUpdate);
 
             FeatureLocator.Get<TickerFeature>().SceneTicker
-                .AddLateUpdate(_proxy);
+                .Add(TickType.LateUpdate, _proxy);
         }
 
         private void OnUpdate(float elapsedSeconds)
@@ -62,7 +62,7 @@ namespace Game.Features.GameWorld.Camera
         private void OnDestroy()
         {
             FeatureLocator.Get<TickerFeature>().SceneTicker
-                .RemoveLateUpdate(_proxy);
+                .Remove(TickType.LateUpdate, _proxy);
         }
 
         private void OnValidate()

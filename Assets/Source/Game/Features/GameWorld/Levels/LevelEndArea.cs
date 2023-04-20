@@ -2,13 +2,13 @@
 using EntiCS.Ticking;
 using EntiCS.Utility;
 using Game.Features.EntiCS.Components;
+using Game.Features.EntiCS.Components.Render;
 using Game.Features.GameWorld.Camera;
 using Game.Features.GameWorld.Player;
 using Game.Features.Ticking;
+using Game.Services.Audio;
 using Game.Static.Locators;
 using System;
-using Game.Features.EntiCS.Components.Render;
-using Game.Services.Audio;
 using UnityEngine;
 
 namespace Game.Features.GameWorld.Levels
@@ -56,7 +56,7 @@ namespace Game.Features.GameWorld.Levels
             _camera.TweenTo(targetPos, _targetRot, _replaceHouseAtSeconds);
             _buildingDustPS.Play();
 
-            _sceneTicker.AddUpdate(_updateProxy);
+            _sceneTicker.Add(TickType.Update, _updateProxy);
         }
 
         private void OnUpdate(float elapsedSeconds)
@@ -74,7 +74,7 @@ namespace Game.Features.GameWorld.Levels
                 _player.Get<PlayerAnimationRenderComponent>().Hammer = 0;
                 _player.Get<PlayerAnimationRenderComponent>().Win();
 
-                _sceneTicker.RemoveUpdate(_updateProxy);
+                _sceneTicker.Remove(TickType.Update, _updateProxy);
                 OnComplete?.Invoke();
 
                 ServiceLocator.Get<AudioService>().PlayMusic(_jingleAudioClip, false);

@@ -15,15 +15,15 @@ namespace Game.Features.GameWorld.PlayerInput.Sources
         public override void OnStart()
         {
             FeatureLocator.Get<PlayerInputFeature>().Add(this);
-            FeatureLocator.Get<TickerFeature>().SceneTicker.AddUpdate(this);
+            FeatureLocator.Get<TickerFeature>().SceneTicker.Add(TickType.Update, this);
         }
 
         public override void OnEnd()
         {
-            FeatureLocator.Get<TickerFeature>().SceneTicker.RemoveUpdate(this);
+            FeatureLocator.Get<TickerFeature>().SceneTicker.Remove(TickType.Update, this);
         }
         
-        public void Update(float elapsedSeconds)
+        public void OnUpdate(float elapsedSeconds)
         {
             if (Input.GetKeyDown("a"))
             {
