@@ -36,8 +36,6 @@ namespace Game.Services.ClientInfo
                 case RuntimePlatform.Android:
                     return PlatformType.Mobile;
 
-                case RuntimePlatform.XBOX360:
-                case RuntimePlatform.PS3:
                 case RuntimePlatform.PS4:
                 case RuntimePlatform.XboxOne:
                 case RuntimePlatform.Switch:
