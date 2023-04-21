@@ -1,5 +1,4 @@
 ﻿using Game.Static.Locators;
-using Game.Utility.Pooling;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,19 +7,24 @@ namespace Game.Services.Audio
     public class AudioService : MonoService
     {
         [SerializeField] private Transform _audioRoot;
-        [SerializeField] private AudioSource _musicChannelPrefab;
-        [SerializeField] private AudioSource _effectChannelPrefab;
-        [SerializeField] private AudioSource _uiChannelPrefab;
+        [SerializeField] private AudioSource _audioPrefab;
 
-        private Dictionary<AudioChannel, AudioSourcePool> _pools;
+        // ToDo Add settings storage, so user can change them
+        [Header("Settings")]
+        [SerializeField] private AudioServiceSettings _defaultSettings;
+        private AudioServiceSettings _settings;
+
+        private Dictionary<AudioChannelId, AudioChannel> _channels;
 
         private void Start()
         {
-            _pools = new Dictionary<AudioChannel, AudioSourcePool>()
+            _settings = new AudioServiceSettings(_defaultSettings.Settings);
+
+            _channels = new Dictionary<AudioChannelId, AudioChannel>()
             {
-                { AudioChannel.Music, new AudioSourcePool(_musicChannelPrefab, transform)},
-                { AudioChannel.Effects, new AudioSourcePool(_effectChannelPrefab, transform)},
-                { AudioChannel.UI, new AudioSourcePool(_uiChannelPrefab, transform)}
+                { AudioChannelId.Music, CreateChannel(AudioChannelId.Music)},
+                { AudioChannelId.Effects, CreateChannel(AudioChannelId.Effects)},
+                { AudioChannelId.UI, CreateChannel(AudioChannelId.UI)}
             };
 
             ServiceLocator.Register<AudioService>(this);
@@ -28,22 +32,31 @@ namespace Game.Services.Audio
 
         public void PlayMusic(AudioClip clip, bool loop = true)
         {
-            Play(AudioChannel.UI, clip, loop, Vector3.zero);
+            Play(AudioChannelId.UI, clip, loop, Vector3.zero);
         }
 
         public void PlayEffect(AudioClip clip, Vector3 position)
         {
-            Play(AudioChannel.UI, clip, false, position);
+            Play(AudioChannelId.UI, clip, false, position);
         }
 
         public void PlayUI(AudioClip clip)
         {
-            Play(AudioChannel.UI, clip, false, Vector3.zero);
+            Play(AudioChannelId.UI, clip, false, Vector3.zero);
         }
 
-        public void Play(AudioChannel channel, AudioClip clip, bool loop, Vector3 position)
+        public void Play(AudioChannelId channel, AudioClip clip, bool loop, Vector3 position)
         {
-            _pools[channel].Spawn(clip, loop, position);
+            _channels[channel].Play(clip, loop, position);
+        }
+
+        private AudioChannel CreateChannel(AudioChannelId channelId)
+        {
+            return new AudioChannel(
+                channelId,
+                _settings[channelId],
+                _audioPrefab,
+                transform);
         }
     }
 }
