@@ -16,6 +16,7 @@ I hope you and your children find some enjoyment with this game.
 - [Cure Magic by Someoneman](https://opengameart.org/content/cure-magic)
 - [RPG Sound Pack by artisticdude](https://opengameart.org/content/rpg-sound-pack)
 - [Kenney - UI Audio](https://www.kenney.nl/assets/ui-audio)
+- [Mixkit](https://mixkit.co)
 
 ### Resources Used
 - FontAwesome for all GUI icons
