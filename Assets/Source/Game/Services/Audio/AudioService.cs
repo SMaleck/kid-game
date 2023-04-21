@@ -32,12 +32,12 @@ namespace Game.Services.Audio
 
         public void PlayMusic(AudioClip clip, bool loop = true)
         {
-            Play(AudioChannelId.UI, clip, loop, Vector3.zero);
+            Play(AudioChannelId.Music, clip, loop, Vector3.zero);
         }
 
         public void PlayEffect(AudioClip clip, Vector3 position)
         {
-            Play(AudioChannelId.UI, clip, false, position);
+            Play(AudioChannelId.Effects, clip, false, position);
         }
 
         public void PlayUI(AudioClip clip)

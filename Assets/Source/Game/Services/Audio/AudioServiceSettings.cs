@@ -9,7 +9,7 @@ namespace Game.Services.Audio
     {
         public AudioChannelId Channel;
 
-        //[UnityEngine.Range(0f, 1f)]
+        [UnityEngine.Range(0f, 1f)]
         public float Volume;
     }
 
