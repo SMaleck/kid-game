@@ -11,6 +11,8 @@ namespace Game.Initialization.Scenes
 
         protected override void AwakeInternal()
         {
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
             _dataInitializer.Initialize();
 
             ServiceInitializer.Initialize();
