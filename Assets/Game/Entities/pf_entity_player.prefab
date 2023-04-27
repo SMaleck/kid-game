@@ -205,8 +205,17 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4607979638078536364}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.3
   m_Height: 1.42
   m_Direction: 1
@@ -218,10 +227,21 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4607979638078536364}
-  serializedVersion: 2
+  serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
@@ -336,6 +356,7 @@ MonoBehaviour:
     - rid: 2945994445181943810
       type: {class: LifecycleComponent, ns: Game.Features.EntiCS.Components, asm: Source.Game}
       data:
+        _name: LifecycleComponent
         <IsAlive>k__BackingField: 1
     - rid: 8962268382066638848
       type: {class: PlayerEffectRenderComponent, ns: Game.Features.EntiCS.Components.Render, asm: Source.Game}
@@ -460,8 +481,17 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4607979638702736848}
     m_Modifications:
+    - target: {fileID: 1780738775394500278, guid: 87d21ff826f74bd4fb9eb3855042c8d7, type: 3}
+      propertyPath: _hammerAudioClips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780738775394500278, guid: 87d21ff826f74bd4fb9eb3855042c8d7, type: 3}
+      propertyPath: _hammerAudioClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2687870412033518713, guid: 87d21ff826f74bd4fb9eb3855042c8d7, type: 3}
       propertyPath: m_Name
       value: SMKG_Player
@@ -519,6 +549,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3316596881034458819, guid: 87d21ff826f74bd4fb9eb3855042c8d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4607979638078536365}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87d21ff826f74bd4fb9eb3855042c8d7, type: 3}
 --- !u!95 &2839276822823571147 stripped
 Animator:
