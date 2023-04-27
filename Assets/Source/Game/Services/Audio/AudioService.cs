@@ -1,4 +1,6 @@
-﻿using Game.Static.Locators;
+﻿using Game.Services.Scenes.Events;
+using Game.Static.Events;
+using Game.Static.Locators;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -24,8 +26,9 @@ namespace Game.Services.Audio
 
             _channels = EnumIterator<AudioChannelId>.Iterator
                 .ToDictionary(e => e, CreateChannel);
-            
+
             ServiceLocator.Register<AudioService>(this);
+            EventBus.OnEvent<EndSceneEvent>(OnEndScene);
         }
 
         public void PlayMusic(AudioClip clip, bool loop = true)
@@ -51,6 +54,19 @@ namespace Game.Services.Audio
         public void Play(AudioChannelId channel, AudioClip clip, bool loop, Vector3 position)
         {
             _channels[channel].Play(clip, loop, position);
+        }
+
+        private void StopAll()
+        {
+            foreach (var channel in _channels.Values)
+            {
+                channel.Stop();
+            }
+        }
+
+        private void OnEndScene(object eventArgs)
+        {
+            StopAll();
         }
 
         private AudioChannel CreateChannel(AudioChannelId channelId)

@@ -33,5 +33,13 @@ namespace Game.Services.Audio
                 instance.volume = volume;
             }
         }
+
+        public void Stop()
+        {
+            foreach (var instance in _pool.Instances)
+            {
+                instance.Stop();
+            }
+        }
     }
 }
