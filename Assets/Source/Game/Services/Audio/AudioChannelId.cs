@@ -4,6 +4,7 @@
     {
         Music,
         Effects,
-        UI
+        UI,
+        Ambient
     }
 }

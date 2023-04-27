@@ -1000,6 +1000,7 @@ GameObject:
   - component: {fileID: 3372938580576775124}
   - component: {fileID: 3372938580576775127}
   - component: {fileID: 7358406082586382357}
+  - component: {fileID: 2979716862504709149}
   m_Layer: 0
   m_Name: SceneInit
   m_TagString: Untagged
@@ -1046,8 +1047,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac7ab405758b6b4196c9dfca4bfd4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _channel: 0
+  _channel: 3
   _audioClip: {fileID: 8300000, guid: f8430a05da5da3d40869f5e962cea5d2, type: 3}
+  _loop: 1
+--- !u!114 &2979716862504709149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3372938580576775126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac7ab405758b6b4196c9dfca4bfd4f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _channel: 0
+  _audioClip: {fileID: 8300000, guid: eec2bbc7436193b4c9aed5ed1d104ea3, type: 3}
   _loop: 1
 --- !u!1 &3372938581458264900
 GameObject:

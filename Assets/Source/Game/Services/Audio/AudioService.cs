@@ -1,6 +1,8 @@
 ﻿using Game.Static.Locators;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UtilitiesGeneral.Utilities;
 
 namespace Game.Services.Audio
 {
@@ -20,13 +22,9 @@ namespace Game.Services.Audio
         {
             _settings = new AudioServiceSettings(_defaultSettings.Settings);
 
-            _channels = new Dictionary<AudioChannelId, AudioChannel>()
-            {
-                { AudioChannelId.Music, CreateChannel(AudioChannelId.Music)},
-                { AudioChannelId.Effects, CreateChannel(AudioChannelId.Effects)},
-                { AudioChannelId.UI, CreateChannel(AudioChannelId.UI)}
-            };
-
+            _channels = EnumIterator<AudioChannelId>.Iterator
+                .ToDictionary(e => e, CreateChannel);
+            
             ServiceLocator.Register<AudioService>(this);
         }
 
@@ -43,6 +41,11 @@ namespace Game.Services.Audio
         public void PlayUI(AudioClip clip)
         {
             Play(AudioChannelId.UI, clip, false, Vector3.zero);
+        }
+
+        public void PlayAmbient(AudioClip clip)
+        {
+            Play(AudioChannelId.Ambient, clip, true, Vector3.zero);
         }
 
         public void Play(AudioChannelId channel, AudioClip clip, bool loop, Vector3 position)
