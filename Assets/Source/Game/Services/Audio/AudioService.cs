@@ -15,8 +15,8 @@ namespace Game.Services.Audio
 
         // ToDo Add settings storage, so user can change them
         [Header("Settings")]
-        [SerializeField] private AudioServiceSettings _defaultSettings;
-        private AudioServiceSettings _settings;
+        [SerializeField] private AudioServiceSettingsSO _defaultSettings;
+        private IAudioServiceSettings _settings;
 
         private Dictionary<AudioChannelId, AudioChannel> _channels;
 

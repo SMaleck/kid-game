@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Game.Utility;
 using UnityEngine;
 
 namespace Game.Services.Audio
 {
+    public interface IAudioServiceSettings
+    {
+        List<AudioChannelSettings> Settings { get; }
+        AudioChannelSettings this[AudioChannelId channel] { get; }
+    }
+
     [Serializable]
     public class AudioChannelSettings
     {
@@ -15,10 +20,10 @@ namespace Game.Services.Audio
         public float Volume;
     }
 
-    [CreateAssetMenu(menuName = ProjectConst.MenuData + nameof(AudioServiceSettings), fileName = nameof(AudioServiceSettings))]
-    public class AudioServiceSettings : ScriptableObject
+    [Serializable]
+    public class AudioServiceSettings : IAudioServiceSettings
     {
-        public List<AudioChannelSettings> Settings;
+        [field: SerializeField] public List<AudioChannelSettings> Settings { get; set; }
         public AudioChannelSettings this[AudioChannelId channel] => Cache[channel];
 
         private Dictionary<AudioChannelId, AudioChannelSettings> _cache;

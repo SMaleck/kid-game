@@ -236,7 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioRoot: {fileID: 334178807}
   _audioPrefab: {fileID: 1125316792130928566, guid: 43a7eb87c8affd145bf556988fa8d914, type: 3}
-  _defaultSettings: {fileID: 11400000, guid: 11f59036d7dd92949ae976c16392dd01, type: 2}
+  _defaultSettings: {fileID: 11400000, guid: 5c278d20500c2c6499be79be6ade00aa, type: 2}
 --- !u!4 &334178807
 Transform:
   m_ObjectHideFlags: 0

@@ -7,10 +7,12 @@ using Game.Static.Events;
 using Game.Static.Events.Dtos;
 using Game.Static.Locators;
 using System;
+using Game.Utility;
 using UnityEngine;
 
 namespace Game.Features.GameWorld.Levels
 {
+    // ToDo Currently ProgressStrategies serve no purpose anymore. Can probably be removed, if no procedural level is being added
     public class LevelStateFeature : MonoFeature, IUpdateable
     {
         [SerializeField] private LevelProgressStrategy _progressStrategy;
@@ -39,6 +41,12 @@ namespace Game.Features.GameWorld.Levels
             _levelStartArea.RunScript();
 
             EventBus.OnEvent<PlayerTouchedLevelEndEvent>(EndStrategy);
+        }
+
+        public override void OnEnd()
+        {
+            _ticker.Remove(TickType.FixedUpdate, this);
+            EventBus.Unsubscribe(EndStrategy);
         }
 
         void IUpdateable.OnUpdate(float elapsedSeconds)
