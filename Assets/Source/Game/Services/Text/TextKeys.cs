@@ -7,6 +7,12 @@ namespace Game.Services.Text
     public enum TextKeys
     {
         /// <summary>
+        /// And
+        /// </summary>
+        [Text("And")]
+        And,
+
+        /// <summary>
         /// Apply
         /// </summary>
         [Text("Apply")]
@@ -43,10 +49,16 @@ namespace Game.Services.Text
         Credits,
 
         /// <summary>
-        /// Kid Game
+        /// Gnome and Owl
         /// </summary>
-        [Text("Kid Game")]
+        [Text("Gnome and Owl")]
         GameName,
+
+        /// <summary>
+        /// Gnome
+        /// </summary>
+        [Text("Gnome")]
+        Gnome,
 
         /// <summary>
         /// Hello, {0}!
@@ -149,6 +161,12 @@ namespace Game.Services.Text
         /// </summary>
         [Text("This game is open source. You can find it on <color=#A52A2A><link source=githuburl>GitHub  \uf35d</l")]
         OpenSourceNotice,
+
+        /// <summary>
+        /// Owl
+        /// </summary>
+        [Text("Owl")]
+        Owl,
 
         /// <summary>
         /// Pause

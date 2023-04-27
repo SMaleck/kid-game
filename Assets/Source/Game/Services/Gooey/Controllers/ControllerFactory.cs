@@ -4,6 +4,7 @@ using Game.Services.Gooey.Views;
 using Gooey;
 using Game.Features.UI.Welcome;
 using Game.Features.UI.Title;
+using Game.Features.UI.SplashScreen;
 using Game.Features.UI.Settings;
 using Game.Features.UI.PlayerSelect;
 using Game.Features.UI.Pause;
@@ -29,6 +30,9 @@ namespace Game.Services.Gooey.Controllers
 
                 case "TitleScreenView":
                     return new TitleScreenController((TitleScreenView)view);
+
+                case "SplashScreenView":
+                    return new SplashScreenController((SplashScreenView)view);
 
                 case "SettingsModalView":
                     return new SettingsModalController((SettingsModalView)view);

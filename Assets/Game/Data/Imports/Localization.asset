@@ -50,9 +50,21 @@ MonoBehaviour:
     German: Abbrechen
     Polish: 
   - Key: GameName
-    English: Kid Game
-    German: Kid Game
-    Polish: Kid Game
+    English: Gnome and Owl
+    German: Gnom und Eule
+    Polish: Krasnoludek i Sowa
+  - Key: Gnome
+    English: Gnome
+    German: Gnom
+    Polish: Krasnoludek
+  - Key: And
+    English: And
+    German: und
+    Polish: i
+  - Key: Owl
+    English: Owl
+    German: Eule
+    Polish: Sowa
   - Key: LetsPlay
     English: Let's Play!
     German: Lass uns Spielen!
