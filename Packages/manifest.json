@@ -3,7 +3,6 @@
     "com.smaleck.entics": "https://github.com/SMaleck/unity-entics.git#v3.0.2",
     "com.smaleck.excel-importer": "https://github.com/SMaleck/unity-excel-importer.git#v1.0.1",
     "com.smaleck.utilities-general": "https://github.com/SMaleck/unity-utilities-general.git#v1.1.0",
-    "com.unity.ai.navigation": "1.1.1",
     "com.unity.ide.visualstudio": "2.0.18",
     "com.unity.ide.vscode": "1.2.5",
     "com.unity.render-pipelines.universal": "14.0.7",
