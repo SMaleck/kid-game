@@ -22,6 +22,7 @@ I hope you and your children find some enjoyment with this game.
 ### **Additional Resources**
 - FontAwesome for all GUI icons
 - [html-color.codes](https://html-color.codes) for picking good looking colors, as I have a programmers eye for them :P
+- [WebGLInput](https://github.com/kou-yeung/WebGLInput/releases/tag/1.2.2), because Unity still doesn't support mobile browsers correctly on WebGL
 
 ----
 ## Goals

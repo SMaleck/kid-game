@@ -1,7 +1,10 @@
-﻿using Game.Features.UI.SplashScreen;
+﻿using System.Collections;
+using Game.Features.UI.SplashScreen;
 using Game.Features.UI.Title;
 using Game.Services.Gooey;
 using Game.Static.Locators;
+using Game.Utility;
+using UnityEngine;
 
 namespace Game.Initialization.Scenes
 {
@@ -16,6 +19,12 @@ namespace Game.Initialization.Scenes
 
         protected override void StartInternal()
         {
+            StartCoroutine(nameof(ShowScreen));
+        }
+
+        private IEnumerator ShowScreen()
+        {
+            yield return new WaitForEndOfFrame();
             if (_wasSplashScreenShown)
             {
                 ServiceLocator.Get<GuiServiceProxy>().TryShow<TitleScreenController>();
