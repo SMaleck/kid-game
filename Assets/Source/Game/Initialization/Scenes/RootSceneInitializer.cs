@@ -29,9 +29,21 @@ namespace Game.Initialization.Scenes
         private void AppSetup()
         {
             var clientInfoService = ServiceLocator.Get<ClientInfoService>();
-            if (clientInfoService.PlatformType == PlatformType.Mobile)
+            switch (clientInfoService.PlatformType)
             {
-                Screen.sleepTimeout = SleepTimeout.NeverSleep;
+                case PlatformType.Editor:
+                case PlatformType.Computer:
+                case PlatformType.Console:
+                    break;
+
+                case PlatformType.Mobile:
+                    Screen.sleepTimeout = SleepTimeout.NeverSleep;
+                    break;
+
+                case PlatformType.Browser:
+                    // Forces runtime to use 'requestAnimationFrame'
+                    Application.targetFrameRate = -1;
+                    break;
             }
         }
     }
