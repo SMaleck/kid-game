@@ -10,9 +10,18 @@ namespace Game.Services.ClientInfo
         public PlatformType PlatformType { get; }
         public bool IsDebug => UnityEngine.Debug.isDebugBuild;
 
+        public string InfoString { get; }
+
         public ClientInfoService()
         {
             PlatformType = GetPlatformType();
+            InfoString = GetInfoString();
+        }
+
+        private string GetInfoString()
+        {
+            var envLabel = IsDebug ? "Debug" : "Release";
+            return $"v{Version} | {envLabel} | Platform: {Platform} - Type: {PlatformType}";
         }
 
         private PlatformType GetPlatformType()

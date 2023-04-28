@@ -1,4 +1,5 @@
-﻿using Game.Services.Gooey.Controllers;
+﻿using Game.Services.ClientInfo;
+using Game.Services.Gooey.Controllers;
 using Game.Services.Scenes;
 using Game.Services.Text;
 using Game.Static.Locators;
@@ -26,6 +27,9 @@ namespace Game.Features.UI.Settings
             View.ENLangButton.onClick.AddListener(() => SetLanguage(Language.English));
             View.DELangButton.onClick.AddListener(() => SetLanguage(Language.German));
             View.PLLangButton.onClick.AddListener(() => SetLanguage(Language.Polish));
+
+            var infoString = ServiceLocator.Get<ClientInfoService>().InfoString;
+            View.ClientInfoText.text = $"Client Info: {infoString}";
 
             View.GitHubUrlText.OnClick += (eventData) => OnUrlClick(eventData, View.GitHubUrlText.Text);
         }
