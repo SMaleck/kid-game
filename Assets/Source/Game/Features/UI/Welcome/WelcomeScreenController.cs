@@ -1,6 +1,7 @@
 ﻿using Game.Features.Player;
 using Game.Services.ClientInfo;
 using Game.Services.Gooey.Controllers;
+using Game.Services.Gooey.Views;
 using Game.Services.Scenes;
 using Game.Static.Locators;
 
@@ -32,10 +33,12 @@ namespace Game.Features.UI.Welcome
         {
             if (_clientInfo.PlatformType == PlatformType.Browser)
             {
+                View.UserNameInputLegacy.onValueChanged.AddListener(OnUsernameEdited);
                 View.UserNameInputLegacy.onEndEdit.AddListener(OnUsernameEdited);
             }
             else
             {
+                View.UserNameInput.onValueChanged.AddListener(OnUsernameEdited);
                 View.UserNameInput.onEndEdit.AddListener(OnUsernameEdited);
             }
         }
