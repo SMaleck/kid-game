@@ -1,4 +1,5 @@
 ﻿using Game.Features.Player;
+using Game.Services.ClientInfo;
 using Game.Services.Gooey.Controllers;
 using Game.Services.Scenes;
 using Game.Static.Locators;
@@ -7,9 +8,12 @@ namespace Game.Features.UI.Welcome
 {
     public class WelcomeScreenController : ScreenController<WelcomeScreenView>
     {
+        private readonly ClientInfoService _clientInfo;
+
         public WelcomeScreenController(WelcomeScreenView view)
             : base(view)
         {
+            _clientInfo = ServiceLocator.Get<ClientInfoService>();
         }
 
         protected override void Initialize()
@@ -19,16 +23,35 @@ namespace Game.Features.UI.Welcome
 
             View.StartButton.onClick.AddListener(OnStartClicked);
             View.BackButton.onClick.AddListener(OnBackClicked);
-            View.UserNameInput.onEndEdit.AddListener(OnUsernameEdited);
 
+            SetupInput();
             UpdateButtonState();
+        }
+
+        private void SetupInput()
+        {
+            if (_clientInfo.PlatformType == PlatformType.Browser)
+            {
+                View.UserNameInputLegacy.onEndEdit.AddListener(OnUsernameEdited);
+            }
+            else
+            {
+                View.UserNameInput.onEndEdit.AddListener(OnUsernameEdited);
+            }
+        }
+
+        private string GetUsername()
+        {
+            return _clientInfo.PlatformType == PlatformType.Browser
+                ? View.UserNameInputLegacy.text
+                : View.UserNameInput.text;
         }
 
         private void OnStartClicked()
         {
             if (!IsUsernameValid()) return;
 
-            var username = View.UserNameInput.text;
+            var username = GetUsername();
             FeatureLocator.Get<PlayerStateFeature>().Create(username);
 
             Hide();
@@ -53,7 +76,7 @@ namespace Game.Features.UI.Welcome
 
         private bool IsUsernameValid()
         {
-            var username = View.UserNameInput.text;
+            var username = GetUsername();
             return !string.IsNullOrWhiteSpace(username);
         }
     }
