@@ -34,8 +34,8 @@ namespace Game.Services.Gooey.Controllers
                 case "SplashScreenView":
                     return new SplashScreenController((SplashScreenView)view);
 
-                case "SettingsModalView":
-                    return new SettingsModalController((SettingsModalView)view);
+                case "SettingsScreenView":
+                    return new SettingsScreenController((SettingsScreenView)view);
 
                 case "PlayerSelectScreenView":
                     return new PlayerSelectScreenController((PlayerSelectScreenView)view);

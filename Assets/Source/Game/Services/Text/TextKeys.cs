@@ -157,9 +157,9 @@ namespace Game.Services.Text
         Ok,
 
         /// <summary>
-        /// This game is open source. You can find it on <color=#A52A2A><link source=githuburl>GitHub  \uf35d</l
+        /// This game is open source. You can find it on <color=#A52A2A><link source=githuburl>GitHub: https://g
         /// </summary>
-        [Text("This game is open source. You can find it on <color=#A52A2A><link source=githuburl>GitHub  \uf35d</l")]
+        [Text("This game is open source. You can find it on <color=#A52A2A><link source=githuburl>GitHub: https://g")]
         OpenSourceNotice,
 
         /// <summary>

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Game.Features.UI.Settings
 {
-    public class SettingsModalView : ModalView
+    public class SettingsScreenView : ScreenView
     {
         [field: SerializeField] public Button CloseButton { get; private set; }
 

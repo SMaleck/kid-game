@@ -67,7 +67,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: This game is based on an old Polish children's song, passed down orally.
+    The music is based on the m
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19fac064fad0df4478c249c355396511, type: 2}
   m_sharedMaterial: {fileID: -3949973009429800338, guid: 19fac064fad0df4478c249c355396511, type: 2}
@@ -281,7 +282,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 150, y: 50, z: 0, w: 50}
+  m_margin: {x: 50, y: 50, z: 0, w: 50}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -306,6 +307,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 139782130074873050, guid: bb0a7b67fe7e6c348856860fcc700475, type: 3}
@@ -366,6 +368,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1581111342578834026, guid: bb0a7b67fe7e6c348856860fcc700475, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3447172711092140694, guid: bb0a7b67fe7e6c348856860fcc700475, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6616380613554044630}
+    - targetCorrespondingSourceObject: {fileID: 3447172711092140694, guid: bb0a7b67fe7e6c348856860fcc700475, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1804595921668282624}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1597969477068019204, guid: bb0a7b67fe7e6c348856860fcc700475, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1474596520528891394}
+    - targetCorrespondingSourceObject: {fileID: 1597969477068019204, guid: bb0a7b67fe7e6c348856860fcc700475, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2836464632872034203}
   m_SourcePrefab: {fileID: 100100000, guid: bb0a7b67fe7e6c348856860fcc700475, type: 3}
 --- !u!1 &1626283321472660921 stripped
 GameObject:
@@ -432,6 +449,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 3416624100714109227}
     m_Modifications:
     - target: {fileID: 38896565338980722, guid: 9da9d0bc112062c4d8c429e2feed5c38, type: 3}
@@ -551,7 +569,18 @@ PrefabInstance:
       value: pf_scroll_view
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2488743780500219096, guid: 9da9d0bc112062c4d8c429e2feed5c38, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4932284923731401921}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9da9d0bc112062c4d8c429e2feed5c38, type: 3}
+--- !u!224 &1804595921668282624 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2786196331952804885, guid: 9da9d0bc112062c4d8c429e2feed5c38, type: 3}
+  m_PrefabInstance: {fileID: 4585148895836966165}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2101056670314441165 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2488743780500219096, guid: 9da9d0bc112062c4d8c429e2feed5c38, type: 3}

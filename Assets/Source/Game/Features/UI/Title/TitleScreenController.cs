@@ -34,7 +34,7 @@ namespace Game.Features.UI.Title
 
             View.StartButton.onClick.AddListener(OnStartClicked);
             View.SelectPlayerButton.onClick.AddListener(GoToGui<PlayerSelectScreenController>);
-            View.SettingsButton.onClick.AddListener(GoToGui<SettingsModalController>);
+            View.SettingsButton.onClick.AddListener(GoToGui<SettingsScreenController>);
             View.LoreButton.onClick.AddListener(GoToGui<LoreScreenController>);
             View.HelpButton.onClick.AddListener(GoToGui<HelpScreenController>);
             View.QuitButton.onClick.AddListener(OnQuitClicked);

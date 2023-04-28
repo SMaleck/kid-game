@@ -150,8 +150,8 @@ MonoBehaviour:
     German: Spielanleitung
     Polish: "Jak Gra\u0107"
   - Key: OpenSourceNotice
-    English: This game is open source. You can find it on <color=#A52A2A><link source="githuburl">GitHub 
-      \uf35d</link></color>
+    English: 'This game is open source. You can find it on <color=#A52A2A><link source="githuburl">GitHub:
+      https://github.com/SMaleck/kid-game</link></color>'
     German: 
     Polish: 
   - Key: LoreDescription

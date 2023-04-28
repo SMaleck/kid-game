@@ -9,11 +9,11 @@ using UnityEngine.EventSystems;
 
 namespace Game.Features.UI.Settings
 {
-    public class SettingsModalController : ModalController<SettingsModalView>
+    public class SettingsScreenController : ScreenController<SettingsScreenView>
     {
         private SceneService _sceneService;
 
-        public SettingsModalController(SettingsModalView view)
+        public SettingsScreenController(SettingsScreenView view)
             : base(view)
         {
         }
