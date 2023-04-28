@@ -8,6 +8,9 @@ You can find the original song text as well as German and English translations [
 
 I hope you and your children find some enjoyment with this game.
 
+You can play the game in your browser via **[Itch.io](https://smaleck.itch.io/gnome-and-owl)** or **[Newgrounds](https://www.newgrounds.com/portal/view/882329)**.\
+Or you can get the Android APK from **[Releases](https://github.com/SMaleck/kid-game/releases)**.
+
 ## Credits
 - Sebastian Maleck - Design & Development
 - David Presa - Art & Animations
