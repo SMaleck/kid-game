@@ -64,7 +64,7 @@ namespace Game.Features.UI.Title
         {
             if (_playerState.IsPlayerLoaded)
             {
-                _sceneService.ToHub();
+                _sceneService.LoadScene(SceneId.HubWorld);
                 return;
             }
 

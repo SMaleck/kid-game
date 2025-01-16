@@ -37,6 +37,11 @@ namespace Game.Features.GameWorld.Levels
 
         private void Start()
         {
+            if(_camera == null)
+            {
+                _camera = UnityEngine.Camera.main.GetComponent<PlayerCamera>();
+            }
+
             _sceneTicker = FeatureLocator.Get<TickerFeature>().SceneTicker;
             _player = FeatureLocator.Get<PlayerEntityFeature>().Entity;
             _updateProxy = new UpdateableProxy(OnUpdate);

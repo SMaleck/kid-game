@@ -35,7 +35,7 @@ namespace Game.Features.UI.HubWorld
 
         private void OnExitToTitleClicked()
         {
-            _sceneService.ToTitle();
+            _sceneService.LoadScene(SceneId.Title);
         }
     }
 }

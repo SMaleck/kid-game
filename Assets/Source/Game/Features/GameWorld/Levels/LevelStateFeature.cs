@@ -1,5 +1,4 @@
 ﻿using EntiCS.Ticking;
-using Game.Features.GameWorld.Levels.ProgressStrategies;
 using Game.Features.Ticking;
 using Game.Features.UI.Completion;
 using Game.Services.Gooey;
@@ -7,38 +6,34 @@ using Game.Static.Events;
 using Game.Static.Events.Dtos;
 using Game.Static.Locators;
 using System;
-using Game.Utility;
-using UnityEngine;
 
 namespace Game.Features.GameWorld.Levels
 {
     // ToDo Currently ProgressStrategies serve no purpose anymore. Can probably be removed, if no procedural level is being added
     public class LevelStateFeature : MonoFeature, IUpdateable
     {
-        [SerializeField] private LevelProgressStrategy _progressStrategy;
-        [SerializeField] private LevelStartArea _levelStartArea;
-        [SerializeField] private LevelEndArea _levelEndArea;
-
+        private LevelStateStrategy _strategy;
         private ITicker _ticker;
 
-        public float MinProgress => _progressStrategy.MinProgress;
-        public float MaxProgress => _progressStrategy.MaxProgress;
-        public float Progress => _progressStrategy.Progress;
-        public float RelativeProgress => _progressStrategy.RelativeProgress;
-        public bool IsComplete => _progressStrategy.IsComplete;
+        public float MinProgress => _strategy?.ProgressStrategy.MinProgress ?? 0;
+        public float MaxProgress => _strategy?.ProgressStrategy.MaxProgress ?? 0;
+        public float Progress => _strategy?.ProgressStrategy.Progress ?? 0;
+        public float RelativeProgress => _strategy?.ProgressStrategy.RelativeProgress ?? 0;
+        public bool IsComplete => _strategy?.ProgressStrategy.IsComplete ?? false;
         public LevelState State { get; private set; }
 
         public Action OnComplete { get; set; }
 
-        public override void OnStart()
+        public void StartStrategy(LevelStateStrategy strategy)
         {
+            _strategy = strategy;
             State = LevelState.Intro;
 
             _ticker = FeatureLocator.Get<TickerFeature>().SceneTicker;
             _ticker.SetIsPaused(false);
 
-            _levelStartArea.OnComplete += StartLevel;
-            _levelStartArea.RunScript();
+            _strategy.LevelStartArea.OnComplete += StartLevel;
+            _strategy.LevelStartArea.RunScript();
 
             EventBus.OnEvent<PlayerTouchedLevelEndEvent>(EndStrategy);
         }
@@ -51,7 +46,7 @@ namespace Game.Features.GameWorld.Levels
 
         void IUpdateable.OnUpdate(float elapsedSeconds)
         {
-            _progressStrategy.OnUpdate(elapsedSeconds);
+            _strategy.ProgressStrategy.OnUpdate(elapsedSeconds);
         }
 
         private void EndStrategy(object eventArgs)
@@ -61,26 +56,26 @@ namespace Game.Features.GameWorld.Levels
             EventBus.Unsubscribe(EndStrategy);
             _ticker.Remove(TickType.FixedUpdate, this);
 
-            _progressStrategy.OnEnd();
+            _strategy.ProgressStrategy.OnEnd();
             OnComplete?.Invoke();
 
-            _levelEndArea.OnComplete += EndLevel;
-            _levelEndArea.RunScript();
+            _strategy.LevelEndArea.OnComplete += EndLevel;
+            _strategy.LevelEndArea.RunScript();
         }
 
         private void StartLevel()
         {
             State = LevelState.Running;
 
-            _levelStartArea.OnComplete -= StartLevel;
-            _progressStrategy.OnStart();
+            _strategy.LevelStartArea.OnComplete -= StartLevel;
+            _strategy.ProgressStrategy.OnStart();
 
             _ticker.Add(TickType.FixedUpdate, this);
         }
 
         private void EndLevel()
         {
-            _levelEndArea.OnComplete -= EndLevel;
+            _strategy.LevelEndArea.OnComplete -= EndLevel;
 
             ServiceLocator.Get<GuiServiceProxy>()
                 .TryShow<LevelCompletionModalController>();

@@ -59,7 +59,7 @@ namespace Game.Features.UI.Welcome
 
             Hide();
 
-            ServiceLocator.Get<SceneService>().ToHub();
+            ServiceLocator.Get<SceneService>().LoadScene(SceneId.HubWorld);
         }
 
         private void OnBackClicked()

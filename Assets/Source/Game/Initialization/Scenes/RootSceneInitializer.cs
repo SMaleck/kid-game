@@ -23,7 +23,7 @@ namespace Game.Initialization.Scenes
         protected override void StartInternal()
         {
             GameInitializer.Start();
-            ServiceLocator.Get<SceneService>().InitialLoad();
+            ServiceLocator.Get<SceneService>().LoadScene(SceneId.Title);
         }
 
         private void AppSetup()
@@ -37,6 +37,7 @@ namespace Game.Initialization.Scenes
                     break;
 
                 case PlatformType.Mobile:
+                    Application.targetFrameRate = 60; // Saves battery on screens that could go higher
                     Screen.sleepTimeout = SleepTimeout.NeverSleep;
                     break;
 

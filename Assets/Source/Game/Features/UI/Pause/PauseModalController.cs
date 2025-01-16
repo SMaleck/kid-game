@@ -38,7 +38,7 @@ namespace Game.Features.UI.Pause
 
         private void OnQuitClicked()
         {
-            _sceneService.ToHub();
+            _sceneService.LoadScene(SceneId.HubWorld);
         }
     }
 }
