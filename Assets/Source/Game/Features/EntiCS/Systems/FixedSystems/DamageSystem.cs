@@ -2,22 +2,17 @@
 using Game.Features.EntiCS.Components;
 using Game.Features.EntiCS.Components.Tags;
 using Game.Features.EntiCS.Systems.BaseSystems;
-using Game.Features.GameWorld.PlayerInput;
-using Game.Static.Events;
-using Game.Static.Events.Dtos;
-using Game.Static.Locators;
 using System;
-using UnityEngine;
 
 namespace Game.Features.EntiCS.Systems.LateSystems
 {
-    public class PlayerLifecycleSystem : PerEntityLateSystem
+    public class DamageSystem : PerEntitySystem
     {
         public override Type[] Filter { get; } =
         {
             typeof(PlayerTagComponent),
             typeof(ColliderComponent),
-            typeof(MovementComponent)
+            typeof(LifecycleComponent)
         };
 
         protected override void UpdateEntity(float elapsedSeconds, IEntity entity)
@@ -25,8 +20,6 @@ namespace Game.Features.EntiCS.Systems.LateSystems
             var lifecycle = entity.Get<LifecycleComponent>();
             if (!lifecycle.IsAlive)
             {
-                // ToDo This should happen only once, currently every frame the player is dead in the world
-                FeatureLocator.Get<PlayerInputFeature>().SetIsBlocked(true);
                 return;
             }
 
@@ -34,11 +27,22 @@ namespace Game.Features.EntiCS.Systems.LateSystems
             for (var i = collider.Entered.Count - 1; i >= 0; i--)
             {
                 var other = collider.Entered[i];
-                if (other != null && other.Entity.Has<EndTriggerTagComponent>())
+                if (!other.Entity.TryGet<DamageComponent>(out var damage))
                 {
-                    entity.Get<MovementComponent>().MoveIntent = Vector3.zero;
-                    EventBus.Publish(new PlayerTouchedLevelEndEvent());
+                    return;
                 }
+
+                switch (damage.Type)
+                {
+                    case DamageType.Amount:
+                        lifecycle.Health -= damage.Amount;
+                        break;
+
+                    case DamageType.InstaKill:
+                        lifecycle.Health = 0;
+                        break;
+                }
+
             }
         }
     }
