@@ -1,4 +1,12 @@
 # Changelog
+## v1.1.0 - 2025-02-18
+- Improved overall visuals
+- Tweaked light settings
+- Tweaked camera angles
+- Increased environment size, to make the forrest look grander
+- Tweaked particle effects
+- Refactored scene loading system, top prepare for more level types
+- Added a few components to prepare for Owl
 
 ## v1.0.0 - 2023-04-28
 - Initial release. game is feature complete, but lacks later content and quality-of-life features.
