@@ -26,6 +26,7 @@ namespace Game.Features.GameWorld.Levels
         [Tooltip("X is handled as an offset from the player position")]
         [SerializeField] private Vector3 _targetPos;
         [SerializeField] private Vector3 _targetRot;
+        [SerializeField] private float _cameraPanTimeSeconds;
 
         private ITicker _sceneTicker;
         private IEntity _player;
@@ -58,7 +59,7 @@ namespace Game.Features.GameWorld.Levels
                 _targetPos.z);
 
             _player.Get<PlayerAnimationRenderComponent>().Hammer = 1;
-            _camera.TweenTo(targetPos, _targetRot, _replaceHouseAtSeconds);
+            _camera.TweenTo(targetPos, _targetRot, _cameraPanTimeSeconds);
             _buildingDustPS.Play();
 
             _sceneTicker.Add(TickType.Update, _updateProxy);
