@@ -33,7 +33,8 @@ namespace Game.Features.EntiCS
                 new SpecialEffectQueueCleanSystem(),
                 new PlayerEffectRenderSystem(),
                 new PlayerAnimationRenderSystem(),
-                new PickupEffectRenderSystem()
+                new PickupEffectRenderSystem(),
+                new DamageSystem()
             });
         }
 

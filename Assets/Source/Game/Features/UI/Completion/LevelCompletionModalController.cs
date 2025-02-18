@@ -1,5 +1,4 @@
-﻿using Game.Services.Audio;
-using Game.Services.Gooey.Controllers;
+﻿using Game.Services.Gooey.Controllers;
 using Game.Services.Scenes;
 using Game.Static.Locators;
 
@@ -23,7 +22,7 @@ namespace Game.Features.UI.Completion
 
         protected void OnBackClicked()
         {
-            ServiceLocator.Get<SceneService>().ToHub();
+            ServiceLocator.Get<SceneService>().LoadScene(SceneId.HubWorld);
         }
 
         protected void OnReplayClicked()

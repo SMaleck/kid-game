@@ -1,4 +1,7 @@
 ﻿using Game.Features.GameWorld.Levels;
+using Game.Services.Scenes;
+using Game.Services.Scenes.Events;
+using Game.Static.Events;
 using Game.Static.Locators;
 using Game.Utility;
 using System.Text;
@@ -17,12 +20,26 @@ namespace Game.Debug
 
         private void Start()
         {
-            _levelState = FeatureLocator.Get<LevelStateFeature>();
+            EventBus.OnEvent<StartSceneEvent>(StartInternal);
+        }
+
+        private void StartInternal(object obj)
+        {
+            if (obj is StartSceneEvent startSceneEvent &&
+                startSceneEvent.Scene != SceneId.Level_Root)
+            {
+                _levelState = FeatureLocator.Get<LevelStateFeature>();
+            }
         }
 
         private void Update()
         {
             _fpsProfiler.OnUpdate();
+        }
+
+        private void OnDestroy()
+        {
+            EventBus.Unsubscribe(StartInternal);
         }
 
         private static GUIStyle CreateGUIStyle()

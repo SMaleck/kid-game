@@ -13,7 +13,7 @@ namespace Game.Features.LevelSelection
             Complexity = complexity;
 
             var levelId = ComplexityToLevelId(Complexity);
-            ServiceLocator.Get<SceneService>().ToLevel(levelId);
+            ServiceLocator.Get<SceneService>().LoadLevel(levelId);
         }
 
         private SceneId ComplexityToLevelId(LevelComplexity complexity)

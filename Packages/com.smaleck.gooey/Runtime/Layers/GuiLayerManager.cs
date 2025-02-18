@@ -78,6 +78,7 @@ namespace Gooey.Layers
                 return true;
             }
 
+            onComplete.Invoke();
             return false;
         }
 

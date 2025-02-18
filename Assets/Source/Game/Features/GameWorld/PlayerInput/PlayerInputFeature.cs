@@ -15,6 +15,10 @@ namespace Game.Features.GameWorld.PlayerInput
         private TickerFeature _tickerFeature;
         private IEntity _player;
         private JumpComponent _jumpComponent;
+        private bool _isBlocked;
+
+        private bool CanProcessInput => !_isBlocked &&
+                                        _levelStateFeature.State == LevelState.Running;
 
         public override void OnStart()
         {
@@ -38,9 +42,14 @@ namespace Game.Features.GameWorld.PlayerInput
             source.OnPauseGame -= OnPauseGame;
         }
 
+        public void SetIsBlocked(bool isBlocked)
+        {
+            _isBlocked = isBlocked;
+        }
+
         private void OnJump()
         {
-            if (_levelStateFeature.State != LevelState.Running) return;
+            if (!CanProcessInput) return;
 
             if (!_jumpComponent.IsJumping)
             {
@@ -50,7 +59,8 @@ namespace Game.Features.GameWorld.PlayerInput
 
         private void OnRoll()
         {
-            if (_levelStateFeature.State != LevelState.Running) return;
+            if (!CanProcessInput) return;
+            // ToDo Implement roll
         }
 
         private void OnPauseGame()

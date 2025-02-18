@@ -7,11 +7,12 @@ namespace Game.Services.Scenes
         Root = 0,
         Title = 1,
         HubWorld = 2,
-        Level_C0 = 3,
-        Level_C1 = 4,
-        Level_C2 = 5,
-        Level_C3 = 6,
-        Level_CDebug = 7,
+        Level_Root = 3,
+        Level_C0 = 4,
+        Level_C1 = 5,
+        Level_C2 = 6,
+        Level_C3 = 7,
+        Level_CDebug = 8,
 
     }
 }
