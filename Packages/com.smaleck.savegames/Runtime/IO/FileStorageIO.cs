@@ -56,11 +56,19 @@ namespace Savegames.IO
                 }
 
                 var path = GetPath(fileName);
-                File.WriteAllText(path, serialized);
+                var bufferPath = GetPath($"{fileName}.buffer");
+                File.WriteAllText(bufferPath, serialized);
+                
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+                
+                File.Move(bufferPath, path);
             }
             catch (Exception e)
             {
-                SavegameLog.Error("Failed to READ savegame", e);
+                SavegameLog.Error("Failed to WRITE savegame", e);
             }
         }
 
